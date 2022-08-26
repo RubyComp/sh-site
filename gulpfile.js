@@ -19,7 +19,7 @@ const buildDir = './build';
 //     del(['*.html', './modules/**/*.html'], cb);
 // });
 gulp.task('del', function(cb) {
-    del([buildDir + '/**/*'], cb);
+    // del([buildDir + '/**/*'], cb);
 });
 
 gulp.task('pug', function () {
