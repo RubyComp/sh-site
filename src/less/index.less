@@ -1,3 +1,8 @@
+* { 
+  margin: 0; // TODO fix normaliz: put it to begin of css
+  padding: 0;
+} 
+
 body {
   --text-color: var(--passive-color);
   background-color: var(--passive-color-2);
@@ -20,7 +25,7 @@ h1 {
 }
 .monsto-title {
   font-size: 300px;
-  line-height: .84em;
+  line-height: .8em;
 }
 
 /**/
@@ -197,5 +202,32 @@ h1 {
       > li {
         padding: 0;
       }
+  }
+
+  &__banner {
+    --strip-height: 168px;
+    background-image:
+      linear-gradient(
+        180deg,
+        #ffffff00 ~"calc(100% - var(--strip-height))",
+        var(--acent-color) var(--strip-height)
+      ),
+      url("/resources/img/photo/old-photo-1-dark.jpg");
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // // &::after {
+    // //   content: '';
+    // //   display: block;
+    //   // height: 168px; // TODO
+    //   // background-color: var(--acent-color);
+    //   // width: 100%;
+    //   //   height: ;
+    // // }
+
+    &-text {
+      padding: ~"0 calc(var(--column-mini-unit) * 4)";
+    }
   }
 }
