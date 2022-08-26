@@ -1,0 +1,23 @@
+- let tel = "+7 123-45-67";
+- let telClear = "+71234567";
+- let email = "e-mail@yandex.ru";
+
+doctype html
+html(lang="ru-RU")
+    head
+        include modules/head.pug
+
+    body
+
+        #wrapper
+
+            include modules/header.pug
+
+            include modules/menu.pug
+
+            main#main-content
+                include main-page.pug
+
+            include modules/footer.pug
+
+        include modules/end.pug

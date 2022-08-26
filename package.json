@@ -1,0 +1,48 @@
+{
+  "name": "storm",
+  "version": "1.0.0",
+  "description": "Website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Seleznev",
+  "license": "ISC",
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.5.2",
+    "animate.css": "^3.6.1",
+    "body-scroll-lock": "^2.6.4",
+    "bootstrap": "^4.1.1",
+    "gulp-coffee": "^3.0.3",
+    "gulp-plumber": "^1.2.0",
+    "gulp-plumber-notifier": "0.0.3",
+    "gulp-pug": "^4.0.1",
+    "jquery": "^3.6.0",
+    "jquery-lazy": "^1.7.10",
+    "jquery-slimscroll": "^1.3.8",
+    "jquery.easing": "^1.4.1",
+    "jsrender": "^0.9.90",
+    "masonry-layout": "^4.2.2",
+    "owl.carousel": "^2.3.4",
+    "popper.js": "^1.14.4",
+    "scroll-lock": "^2.1.2",
+    "slick-carousel": "^1.8.1",
+    "tooltip.js": "^1.2.0",
+    "wowjs": "^1.1.3"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "browser-sync": "^2.27.10",
+    "del": "^4.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-less": "^3.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-stylus": "^2.7.0",
+    "gulp-watch-less": "^1.0.1",
+    "install": "^0.11.0",
+    "minimatch": "^3.0.4"
+  }
+}

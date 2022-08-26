@@ -1,0 +1,98 @@
+.video-banner
+
+    aside.video-banner__first-aside
+        include parts/phone.pug
+
+    .video-banner__content-container
+        .video-banner__content
+            include ../../resources/img/vector/storm.svg
+            h1 Бойцовский Клуб СЭНЭ
+            div
+                a.btn.btn-glass.btn-video.btn-start Смотреть видео
+
+    aside.video-banner__second-aside
+        include modules/social.pug
+
+.history
+    //- aside
+    ol.history__time-line
+        li 
+            a 1960
+        li 
+            a 1970
+        li 
+            a 1980
+        li 
+            a 1990
+        li 
+            a 2000
+        li 
+            a 2010
+        li 
+            a 2020
+    div
+    //- Placeholder:
+    img(src="/resources/img/photo/old-photo-1.jpg", style="opacity:.3")
+    div
+        h2.monsto-title Исто-<br>рия
+        p Интересные Факты из многолетней истории клуба
+
+.about
+    h2 О&nbsp;клубе
+    article
+        h3 Наша Миссия
+        p Бойцовский клуб Штурм и&nbsp;его основатели являются продолжателями культуры и&nbsp;духашколы боевых искусств СЭНЭ. Клуб в&nbsp;первую очередь — это&nbsp;синергия культивирования сильного уверенного, спортивного человека и&nbsp;воспитания культуры и&nbsp;духа.
+    article
+        h3 Кодекс чести школы СЭНЭ:
+        ol
+            li чти учителя, уважай старших и&nbsp;будь преданным Школе
+            li помоги Школе, и Школа поможет тебе
+            li не&nbsp;могут быть прощены предательство, трусость, подлость, двуличие
+            li не&nbsp;применяй свои знания в&nbsp;ущерб другому, помоги слабому
+            li не&nbsp;спрашивай сколько противников и&nbsp;какие они, спроси где они?
+            li сюда приходишь по желанию, но&nbsp;уходишь по&nbsp;решению товарищей
+            li инструктором Школы может стать лишь тот, для кого совершенствование своей души и&nbsp;тела является делом всей жизни
+
+
+.info
+    h2 Информация
+    div
+        article
+            h3 С&nbsp;1&nbsp;сентября до&nbsp;31&nbsp;октября
+            p Открыт набор учеников в&nbsp;группы бойцовского клуба ШТУРМ
+            p
+                small Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
+        aside
+            form
+                div
+                    input(
+                        type='text'
+                        placeholder='Имя*'
+                        required
+                    )
+                    input(
+                        type='text'
+                        placeholder='Телефон*'
+                        required
+                    )
+                    input(
+                        type='text'
+                        placeholder='E-Mail*'
+                        required
+                    )
+                    input(
+                        type='text'
+                        placeholder='Возраст*'
+                        required
+                    )
+                p
+                    small Поля отмеченые&nbsp;* обязательны к&nbsp;заполнению
+                div
+                    input(
+                        type='checkbox'
+                        required
+                    )
+                    label
+                        p Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие на&nbsp;обработку своих персональных данных
+                        p
+                            a Политика конфиденциальности
