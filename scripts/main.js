@@ -8,12 +8,13 @@ $(document).ready(function() {
 
 jQuery(function($) {
 
-	$('#myContainer').fullpage({
-		sectionsColor: ['#ff73a1', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
-		anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+	$('#main-content').fullpage({
+		// sectionsColor: ['#ff73a1', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
+		anchors: ['bojcovskij-klub', 'istorya', 'o-nas', 'informaciya', 'kontakty'],
 		menu: '#menu',
 		slidesNavigation: true,
 		scrollHorizontally: true,
+		controlArrows: false,
 		//scrollHorizontallyKey: 'YWx2YXJvdHJpZ28uY29tX01mU2MyTnliMnhzU0c5eWFYcHZiblJoYkd4NVNRcg==',
 		afterSlideLoad: function(section, origin, destination, direction){
 			console.log({

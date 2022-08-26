@@ -12,14 +12,8 @@ var del = require('del');
 
 const buildDir = './build';
 
-// gulp.task('del-css', function(cb) {
-//     del(['./css/*.css'], cb);
-// });
-// gulp.task('del-html', function(cb) {
-//     del(['*.html', './modules/**/*.html'], cb);
-// });
 gulp.task('del', function(cb) {
-    // del([buildDir + '/**/*'], cb);
+    del([buildDir + '/**/*'], cb);
 });
 
 gulp.task('pug', function () {

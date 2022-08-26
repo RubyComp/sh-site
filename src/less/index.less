@@ -2,7 +2,9 @@
   margin: 0; // TODO fix normaliz: put it to begin of css
   padding: 0;
 } 
-
+::selection {
+  background: #ffffff6b; // maybe not working, check
+}
 body {
   --text-color: var(--passive-color);
   background-color: var(--passive-color-2);
@@ -21,11 +23,13 @@ small {
 h1 {
   font-size: 32px;
   font-weight: 500;
-  margin: .4em 0 .72em;
+  margin: .4em 0 .74em;
 }
 .monsto-title {
-  font-size: 300px;
-  line-height: .8em;
+  font-size: 304px;
+  font-weight: 600;
+  line-height: 220px;
+  letter-spacing: .052em;
 }
 
 /**/
@@ -34,7 +38,7 @@ h1 {
   display: inline-block;
   font-size: 16px;
   letter-spacing: 0.044em;
-  padding: .48em 1.68em .46em;
+  padding: .49em 1.68em .47em;
   text-transform: uppercase;
   position: relative;
 
@@ -137,6 +141,12 @@ h1 {
 
 /**/
 
+.slide-section {
+  height: 100vh;
+}
+
+/**/
+
 
 .video-banner {
   background-image: url('/resources/img/video-placeholder.png');
@@ -146,8 +156,7 @@ h1 {
   display: grid;
   // grid-template-columns: 1fr auto 1fr;
   grid-template-columns: 18vh auto 18vh;
-  height: 100vh;
-  max-height: 834px; /*TODO*/
+  // max-height: 834px;
 
   &__content {
 
@@ -190,14 +199,18 @@ h1 {
 
 
 .history {
+  --nav-size: ~"calc(var(--column-unit) * 3)";
+  --strip-size: ~"calc(var(--column-unit) * 3.4)";
   background-color: var(--passive-color-3);
+  display: grid;
+  grid-template-rows: var(--nav-size) auto;
 
   &__time-line {
     display: flex;
     grid-gap: 2em;
     justify-content: flex-end;
     padding: 1.4em;
-    font-size: 32px;rvtr
+    font-size: 32px;
 
       > li {
         padding: 0;
@@ -205,29 +218,36 @@ h1 {
   }
 
   &__banner {
-    --strip-height: 168px;
     background-image:
       linear-gradient(
         180deg,
-        #ffffff00 ~"calc(100% - var(--strip-height))",
-        var(--acent-color) var(--strip-height)
+        #ffffff00 ~"calc(100% - var(--strip-size))",
+        var(--acent-color) var(--strip-size)
       ),
       url("/resources/img/photo/old-photo-1-dark.jpg");
-    background-position: right top;
+    background-position: right top, right ~"calc(100% + 27vh)";
     background-repeat: no-repeat;
     background-size: cover;
 
-    // // &::after {
-    // //   content: '';
-    // //   display: block;
-    //   // height: 168px; // TODO
-    //   // background-color: var(--acent-color);
-    //   // width: 100%;
-    //   //   height: ;
-    // // }
-
     &-text {
-      padding: ~"0 calc(var(--column-mini-unit) * 4)";
+      display: grid;
+      gap: 2.52em 0;
+      padding: ~"8vh 4vw 0 calc(var(--column-mini-unit) * 4)";
+      text-transform: uppercase;
+  
+      > .monsto-title:first-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        &::after {
+          content: '-';
+        }
+      }
+      h2 {
+        letter-spacing: .0054em;
+        transform: translateY(-.28em);
+        font-size: 32px;
+      }
     }
   }
 }
