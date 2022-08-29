@@ -30,7 +30,7 @@ h3 {
 		left: -.76em;
 		position: absolute;
 		top: .88em;
-		width: 225px; // TODO fix size
+		width: 225px; // TODO fix size (max/min?)
 		z-index: -1; // TODO not sure
 	}
 }
@@ -132,13 +132,14 @@ h3 {
 	--back: none;
 	input {
 		&[type=text] {
-			border: var(--border);
-			padding: .6em 1.2em;
-			margin-bottom: 1.7em;
-			text-transform: uppercase;
 			background: var(--back);
+			border: var(--border);
+			color: inherit;
 			font-size: var(--text-size-small);
 			font-weight: 300;
+			margin-bottom: 1.7em;
+			padding: .6em 1.2em;
+			text-transform: uppercase;
 			width: 100%;
 		}
 		&[type=button] {
@@ -156,8 +157,8 @@ h3 {
 		}
 	}
 	small {
-		font-weight: 300;
 		font-size: var(--text-size-micro);
+		font-weight: 300;
 	}
 
 }

@@ -8,6 +8,12 @@ import {resBuild, resWatch}  from './gulp/tasks/resources.js';
 
 // series parallel
 
+export const demo = (cb) => {
+	gulp.series(
+		server,
+	)(cb);
+  cb();
+}
 export const build = (cb) => {
 
 	gulp.series(
