@@ -4,7 +4,7 @@ import config from '../config.js';
 
 export const lessBuild = (cb) => {
 
-  gulp.src(`${config.src.less}/*.less`)
+  gulp.src(`${config.src.less}/main.less`)
 		.pipe(less())
     .pipe(gulp.dest(config.dest.css));
 

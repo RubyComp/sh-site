@@ -14,8 +14,8 @@ const config = {
 	dest: {
 		root: destPath,
 		html: destPath,
-		css: `${destPath}/css`,
-		js: `${destPath}/js`,
+		css: `${destPath}`,
+		js: `${destPath}`,
 		res: `${destPath}/resources`
 	}
 };

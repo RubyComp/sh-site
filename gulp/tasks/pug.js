@@ -5,7 +5,9 @@ import config from '../config.js';
 export const pugBuild = (cb) => {
 
   gulp.src(`${config.src.pug}/*.pug`)
-    .pipe(GulpPug())
+    .pipe(GulpPug({
+      pretty:true
+    }))
     .pipe(gulp.dest(config.dest.html));
 
   cb();

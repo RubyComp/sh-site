@@ -16,6 +16,8 @@ const server = (cb) => {
 		// notify: false
 	});
 
+	console.log('changed');
+
 	cb();
 }
 
