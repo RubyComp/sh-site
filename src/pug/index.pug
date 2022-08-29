@@ -1,21 +1,36 @@
-- let tel = "+7 123-45-67";
-- let telClear = "+71234567";
-- let email = "e-mail@yandex.ru";
+extends templates/default
 
-doctype html
-html(lang="ru-RU")
-    head
-        include modules/head.pug
+//- block vars
+//- - const tel = "+7 123-45-67";
+//- - const telClear = "+71234567";
+//- - const email = "e-mail@yandex.ru";
+//- - const title = 'Штурм'
 
-    body
+block content
 
-        #wrapper
+	main#main-content
 
-            include modules/header.pug
+		.section.active
+			include sections/video-banner
 
-            include modules/menu.pug
+		.section
+			#slide1.slide
+				include sections/history
 
-            main#main-content
-                include main-page.pug
+			#lside2.slide
+				big — Слайд 2 —
 
-        include modules/end.pug
+			#slide3.slide
+				big — Слайд 3 —
+
+		.section
+			.intro
+				include sections/about
+
+		.section
+			.intro
+				include sections/info
+
+		.section
+			.intro
+				include modules/footer

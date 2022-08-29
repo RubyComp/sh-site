@@ -1,3 +1,3 @@
 # Storm 2022
 
-Node v10.24.1
+Node v18.8.0
