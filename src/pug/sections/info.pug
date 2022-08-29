@@ -9,39 +9,41 @@
 		aside
 			form.glass-form
 				div
-					input(
-						type='text'
-						placeholder='Имя *'
-						required
-					)
-					input(
-						type='text'
-						placeholder='Телефон *'
-						required
-					)
-					input(
-						type='text'
-						placeholder='E-Mail *'
-						required
-					)
-					input(
-						type='text'
-						placeholder='Возраст *'
-						required
-					)
-				p
-					small поля отмеченые&nbsp;* обязательны к&nbsp;заполнению
-				div
-					input(
-						type='checkbox'
-						required
-					)
-					label
-						p Нажимая на&nbsp;кнопку, вы&nbsp;даете согласие на&nbsp;обработку своих персональных данных
-						p
-							a Политика конфиденциальности
-				div
-					input(
-						type='button'
-						value='Записаться'
-					)
+					div
+						input(
+							type='text'
+							placeholder='Имя *'
+							required
+						)
+						input(
+							type='text'
+							placeholder='Телефон *'
+							required
+						)
+						input(
+							type='text'
+							placeholder='E-Mail *'
+							required
+						)
+						input(
+							type='text'
+							placeholder='Возраст *'
+							required
+						)
+					p
+						small поля отмеченые&nbsp;* обязательны к&nbsp;заполнению
+				div.form-actions
+					div
+						input(
+							type='checkbox'
+							required
+						)
+						label
+							p Нажимая на&nbsp;кнопку, вы&nbsp;даёте согласие на&nbsp;обработку своих персональных данных
+							p
+								a Политика конфиденциальности
+					div
+						input.btn(
+							type='button'
+							value='Записаться'
+						)
