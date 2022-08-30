@@ -1,15 +1,21 @@
 .slide-section.info
+
 	h2.info__title Информация
+
 	div.info__body
+
 		article
 			h3 С&nbsp;1&nbsp;сентября до&nbsp;31&nbsp;октября
-			p Открыт набор учеников в&nbsp;группы бойцовского клуба ШТУРМ
-			p
-				small Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
+			div
+				p
+					strong Открыт набор учеников в&nbsp;группы бойцовского клуба ШТУРМ
+				p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+
 		aside
 			form.glass-form
+
 				div
-					div
+					fieldset
 						input(
 							type='text'
 							placeholder='Имя *'
@@ -30,16 +36,20 @@
 							placeholder='Возраст *'
 							required
 						)
-					p
+					p.glass-form__note
 						small поля отмеченые&nbsp;* обязательны к&nbsp;заполнению
-				div.form-actions
-					div
-						input(
-							type='checkbox'
-							required
-						)
-						label
-							p Нажимая на&nbsp;кнопку, вы&nbsp;даёте согласие на&nbsp;обработку своих персональных данных
+
+				.form-actions
+					.checkbox-container
+						label(for='legal').checkbox
+							input(
+								type='checkbox'
+								id='legal'
+								required
+							)
+						div
+							label(for='legal')
+								p Нажимая на&nbsp;кнопку, вы&nbsp;даёте согласие на&nbsp;обработку своих персональных данных
 							p
 								a Политика конфиденциальности
 					div

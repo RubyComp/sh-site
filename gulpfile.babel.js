@@ -14,11 +14,8 @@ export const demo = (cb) => {
 	)(cb);
   cb();
 }
-export const build = (cb) => {
 
-	gulp.series(
-		clean
-	)(cb);
+export const builder = (cb) => {
 
 	gulp.parallel(
 		pugBuild,
@@ -28,6 +25,16 @@ export const build = (cb) => {
 	)(cb);
 
   cb();
+}
+
+export const build = (cb) => {
+
+	gulp.series(
+		clean,
+		builder
+	)(cb);
+  cb();
+
 }
 
 export const watch = (cb) => {
