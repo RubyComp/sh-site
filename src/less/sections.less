@@ -49,24 +49,27 @@
 
 
 .history {
-	--nav-size: ~"calc(var(--column-unit) * 3)";
+	// --nav-size: ~"calc(var(--column-unit) * 3)";
 	--strip-size: ~"calc(var(--column-unit) * 3.4)";
+	// grid-template-rows: var(--nav-size) auto; */
 	background-color: var(--passive-color-3);
 	display: grid;
-	grid-template-rows: var(--nav-size) auto;
+	padding-top: var(--timeline-height);
 
 	&__time-line { // TODO Fix height
 		display: flex;
 		grid-gap: 2em;
 		justify-content: flex-end;
-		padding: 1.4em;
+		padding: 1em 1.6em;
 		font-size: var(--text-size-large);
-
-			> li {
-				display: flex;
-				align-items: center;
-				padding: 0;
-			}
+		width: 100vw;
+		height: var(--timeline-height);
+	
+		> li {
+			align-items: center;
+			display: flex;
+			padding: 0;
+		}
 	}
 
 	&__banner {
@@ -102,6 +105,84 @@
 			}
 		}
 	}
+
+}
+
+.paraslide {
+	// background: 
+	height: 100vh;
+	position: relative;
+
+	> .layer {
+		background-color: rgba(0, 144, 163, 0.24);
+		border-width: 0 10px;
+		// border: 10px solid rgba(0, 225, 255, 0.5);
+		position: absolute;
+		text-align: center;
+		right: 0;
+
+		&#lay1 {
+				background-color: var(--passive-color-2);
+				height: 100vh;
+				padding: 18vh 0 2vh;
+				right: -15vw;
+				transition: 1s;
+				width: 60vw;
+				color: rgba(255, 255, 255, 0.1);
+			.fp-slide.active & {
+				right: 0;
+			}
+		}
+
+		&#lay2 {
+				height: 60vh;
+				opacity: .33;
+				padding: 18vh 0 2vh;
+				right: -35vw;
+				transition: 2s;
+				width: 100vw;
+			.fp-slide.active & {
+				right: 0;
+			}
+		}
+
+		&#lay3 {
+			// transform: translateX(-35vw);
+			bottom: 0;
+			right: -51vw;
+			transition: .7s;
+			width: 728px;
+			.fp-slide.active & {
+				transition: 2s;
+				right: .5vw;
+			}
+			> img {
+				height: auto;
+				transform: translateY(90px);
+				width: 100%;
+			}
+		}
+		.fp-slide.active & {
+			// transform: translateX(0);
+			right: 0;
+		}
+	}
+}
+
+#timeline {
+	background-color: rgba(70, 131, 180, 0.582);
+	display: none;
+	left: 0;
+	position: fixed;
+	top: 0;
+}
+[data-anchor="istorya"] {
+	
+	.fp-slidesNav {
+		background-color: var(--passive-color-2);
+		background-color: steelblue;
+	}
+
 }
 
 .about {

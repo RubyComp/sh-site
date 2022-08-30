@@ -9,7 +9,7 @@ body {
 	background-color: var(--back-color);
 	color: var(--text-color);
 	font-family: var(--font-famaly);
-	font-size: var(--text-size-big);
+	font-size: var(--text-size);
 	overflow-x: hidden;
 }
 
@@ -17,20 +17,32 @@ body {
 	position: relative;
 }
 
+/*
+ * Slider
+ */
 .slide-section {
 	height: 100vh;
 	overflow: hidden;
 }
-
-iframe {
-	border: none;
-}
-
 .fp-tableCell {
 	vertical-align: baseline;
 	background-color: var(--back-color);
 }
-
 .slide .fp-tableCell {
-	background-color: var(--passive-color-2);
+	background-color: var(--back-color);
+}
+.timeline-attached {
+
+	& > ul {
+		display: none;
+	}
+
+	& #timeline {
+		display: initial;
+	}
+
+}
+
+.fp-slidesNav.fp-top {
+	top: 0;
 }

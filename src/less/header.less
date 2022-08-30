@@ -84,20 +84,22 @@
 	.menu {
 		display: flex;
 		font-size: var(--text-size-small);
-		grid-gap: 2.5em;
+		grid-gap: .44em;
 		letter-spacing: 0.01em;
 		text-transform: uppercase;
 
 		a {
-			text-decoration: none;
-			position: relative;
+			border-radius: 1em;
 			opacity: .9;
+			padding: 1em 1em .82em;
+			position: relative;
+			text-decoration: none;
 
 			&:hover {
 				// font-weight: 900;
-				text-shadow:0px 0px 1px var(--text-color); // TODO Maybe?
-				transition: .2s;
 				opacity: 1;
+				text-shadow:0px 0px 1px var(--text-color); 
+				transition: .2s;
 				&:before {
 					transform: scale(1);
 				}
@@ -109,14 +111,14 @@
 				border-radius: 50%;
 				display: block;
 				height: var(--size);
-				left: -16%;
+				left: .12em;
 				position: absolute;
-				top: -82%;
-				width: var(--size);
-				transform: scale(0);
-				z-index: -1;
-				transition: .2s;
+				top: 0;
 				transform-origin: center;
+				transform: scale(0);
+				transition: .2s;
+				width: var(--size);
+				z-index: -1;
 			}
 		}
 	}
