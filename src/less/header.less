@@ -1,5 +1,5 @@
-
 #main-header {
+	background: var(--passive-color-3);
 	display: flex;
 	justify-content: space-between;
 	left: 0;
@@ -7,7 +7,8 @@
 	right: 0;
 	width: 100%;
 	z-index: 10;
-	padding: ~"var(--column-mini-unit) var(--column-unit)";
+	padding: .46em var(--column-unit);
+	align-items: center;
 }
 
 .burger {
@@ -46,7 +47,7 @@
 }
 
 // .menu-opened
-#menu {
+#side-menu {
 	left: -100%;
 	position: fixed;
 	transition: .6s;
@@ -57,11 +58,66 @@
 	}
 }
 
-.menu {
+.side-menu {
 	backdrop-filter: blur(50px);
 	background-color: #000000B2;
 	height: 100vh;
 	left: 0;
 	position: fixed;
 	top: 0;
+}
+
+.aside-logo {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	width: 55px; // TODO Size
+	height: 55px;
+
+	img {
+		height: 100%;
+		width: auto;
+	}
+}
+
+.main-nav {
+	.menu {
+		display: flex;
+		font-size: var(--text-size-small);
+		grid-gap: 2.5em;
+		letter-spacing: 0.01em;
+		text-transform: uppercase;
+
+		a {
+			text-decoration: none;
+			position: relative;
+			opacity: .9;
+
+			&:hover {
+				// font-weight: 900;
+				text-shadow:0px 0px 1px var(--text-color); // TODO Maybe?
+				transition: .2s;
+				opacity: 1;
+				&:before {
+					transform: scale(1);
+				}
+			}
+			&:before {
+				--size: 3em;
+				content: '';
+				background-color: var(--acent-color);
+				border-radius: 50%;
+				display: block;
+				height: var(--size);
+				left: -16%;
+				position: absolute;
+				top: -82%;
+				width: var(--size);
+				transform: scale(0);
+				z-index: -1;
+				transition: .2s;
+				transform-origin: center;
+			}
+		}
+	}
 }

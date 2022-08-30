@@ -1,9 +1,13 @@
 a {
 	color: inherit;
 	text-decoration: inherit;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 small {
-	font-size: var(--text-size-small);
+	font-size: var(--text-size-compact);
 }
 h1, h2, h3 {
 	text-transform: uppercase;
@@ -138,9 +142,9 @@ h3 {
 			background: var(--back);
 			border: var(--border);
 			color: inherit;
-			font-size: var(--text-size-small);
+			font-size: var(--text-size-compact);
 			font-weight: 300;
-			padding: .6em 1.2em;
+			padding: .6em .9em;
 			text-transform: uppercase;
 			width: 100%;
 
@@ -165,27 +169,30 @@ h3 {
 	a {
 		font-weight: 400;
 	}
+	label + p {
+		margin-top: .6em;
+	}
 
 	.checkbox {
 		cursor: pointer;
-		font-size: 38px;
+		font-size: 360%;
 
 		input[type="checkbox"] {
 			display: grid;
 			place-content: center;
 			appearance: none;
+			cursor: inherit;
 
 			&::before {
 				content: "";
-				border: var(--border);
-				cursor: inherit;
-				height: 0.74em;
-				width: 0.74em;
 				background-image: url('resources/img/vector/icons/check.svg');
 				background-position: 50% 53%;
 				background-repeat: no-repeat;
 				background-size: 0%;
+				border: var(--border);
+				height: 0.74em;
 				transition: .1s;
+				width: 0.74em;
 			}
 			&:checked::before {
 				background-size: 70%;
@@ -193,8 +200,13 @@ h3 {
 		}
 
 		&-container {
+			align-items: flex-start;
 			display: flex;
 			grid-gap: 1em;
+
+			label {
+				cursor: pointer;
+			}
 		}
 	}
 
@@ -213,11 +225,9 @@ h3 {
 
 .form-actions {
 	display: grid;
-	// font-size: var(--text-size-micro);
-	// font-weight: 300;
 	grid-gap: .8em;
 	grid-template-columns: 1fr 1fr;
-	margin-top: .8em;
+	margin-top: 2.2em;
 
 	.btn {
 		width: 100%;
