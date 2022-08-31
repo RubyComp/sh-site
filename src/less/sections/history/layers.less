@@ -31,7 +31,7 @@
 		position: absolute;
 		right: 0;
 
-		&.layer-box {
+		&.layer-box-1 {
 			// color: rgba(255, 255, 255, 0.1);
 			// padding: 18vh 0 2vh;
 			background-color: var(--back-color);
@@ -44,11 +44,44 @@
 				right: 0;
 				// transition: 2s;
 				transition: .8s;
-				width: 43vw;
+				width: 44vw;
 			}
 		}
 
-		&.layer-60 {
+		&.layer-box-2 {
+			// color: rgba(255, 255, 255, 0.1);
+			// padding: 18vh 0 2vh;
+			background-color: var(--back-color);
+			height: 100vh;
+			right: -60vw;
+			transition: 1s;
+			width: 38vw;
+
+			.fp-slide.active & {
+				right: 38vw;
+				// transition: 2s;
+				transition: .8s;
+				width: 20vw;
+			}
+		}
+
+		&.layer-60-1 {
+			// height: 60vh;
+			background-image: url('/resources/img/vector/numbers/60.svg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 68%;
+			height: 100vh;
+			right: -106vw;
+			transition: 1.7s;
+			width: 100vw;
+
+			.fp-slide.active & {
+				right: -23vw;
+				transition: 1.2s;
+			}
+		}
+		&.layer-60-2 {
 			// height: 60vh;
 			background-image: url('/resources/img/vector/numbers/60.svg');
 			background-position: center;
@@ -60,22 +93,43 @@
 			width: 100vw;
 
 			.fp-slide.active & {
-				right: -22vw;
+				right: -2.2vw;
 				transition: 1.2s;
 			}
 		}
 
-		&.layer-img {
+		&.layer-img-1 {
 			// transform: translateX(-35vw);
 			bottom: 0;
 			right: -51vw;
 			transition: 1.2s;
-			width: 40vw;
+			width: 45vw;
 
 			.fp-slide.active & {
 				// transition: 2s;
 				transition: 1.6s;
-				right: 9.4vw;
+				right: 9vw;
+			}
+
+			> img {
+				height: auto;
+				transform: translateY(2vh);
+				width: 100%;
+			}
+		}
+
+		&.layer-img-2 {
+			// transform: translateX(-35vw);
+			bottom: 10vh;
+			right: -51vw;
+			transition: 1.2s;
+			width: 40.6vw;
+
+			.fp-slide.active & {
+				// transition: 2s;
+				transition: 1.6s;
+				width: 46vw;
+				right: 6vw;
 			}
 
 			> img {
@@ -86,7 +140,6 @@
 		}
 
 		.fp-slide.active & {
-			// transform: translateX(0);
 			right: 0;
 		}
 	}
@@ -121,6 +174,24 @@
 		}
 		.fp-slide.active & {
 			right: 8vw;
+		}
+	}
+	.layer-text-3 {
+		left: 80vw;
+		left: 8vw;
+		top: 27vh;
+		width: 32vw;
+		opacity: 0;
+		pointer-events: none;
+		user-select: none;
+		transition: .8s;
+
+		.fp-slide.active & {
+			opacity: 1;
+			pointer-events: initial;
+			user-select: initial;
+			transition: 1.8s;
+			left: 8vw;
 		}
 	}
 }
