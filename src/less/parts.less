@@ -153,7 +153,8 @@ h3 {
 
 .numb-list {
 	counter-reset: list-counter;
-	font-size: var(--text-size-normal);
+	// font-size: var(--text-size-normal);
+	font-size: .74em;
 	line-height: 1.34em;
 	list-style: none;
 	li {
@@ -217,6 +218,9 @@ h3 {
 	label + p {
 		margin-top: .6em;
 	}
+	.legal {
+		font-size: .9em;
+	}
 
 	.checkbox {
 		cursor: pointer;
@@ -259,12 +263,20 @@ h3 {
 
 	small,
 	.form-actions {
-		font-size: var(--text-size-micro);
+		// font-size: var(--text-size-micro);
+		font-size: .7em;
 		font-weight: 300;
 	}
-	/* &__note {
-		margin-top: .8em;
-	} */
+
+	.form-actions {
+		@media (max-width: @size-xlg-max) {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	&__note {
+		margin-top: .72em;
+	}
 
 }
 
