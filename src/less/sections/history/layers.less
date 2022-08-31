@@ -1,0 +1,126 @@
+.paraslide {
+	/*
+	 * TODO Refactory this
+	 */
+	font-size: var(--text-size-medium);
+	height: 100vh;
+	line-height: 1.8em;
+	position: relative;
+
+	h3 {
+		margin-bottom: 1em;
+		letter-spacing: .001em;
+
+		&::before {
+			display: none;
+		}
+	}
+	p + p {
+		margin-top: 1em;
+	}
+	@media (min-width: @size-xlg-min) {
+		font-size: 1em;
+		line-height: 1.52em;
+	}
+
+	> .layer {
+		// background-color: rgba(0, 144, 163, 0.24);
+		// border-width: 0 10px;
+		// border: 10px solid rgba(0, 225, 255, 0.5);
+		// text-align: center;
+		position: absolute;
+		right: 0;
+
+		&.layer-box {
+			// color: rgba(255, 255, 255, 0.1);
+			// padding: 18vh 0 2vh;
+			background-color: var(--back-color);
+			height: 100vh;
+			right: -60vw;
+			transition: 1s;
+			width: 38vw;
+
+			.fp-slide.active & {
+				right: 0;
+				// transition: 2s;
+				transition: .8s;
+				width: 43vw;
+			}
+		}
+
+		&.layer-60 {
+			// height: 60vh;
+			background-image: url('/resources/img/vector/numbers/60.svg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 66%;
+			height: 100vh;
+			right: -106vw;
+			transition: 1.7s;
+			width: 100vw;
+
+			.fp-slide.active & {
+				right: -22vw;
+				transition: 1.2s;
+			}
+		}
+
+		&.layer-img {
+			// transform: translateX(-35vw);
+			bottom: 0;
+			right: -51vw;
+			transition: 1.2s;
+			width: 40vw;
+
+			.fp-slide.active & {
+				// transition: 2s;
+				transition: 1.6s;
+				right: 9.4vw;
+			}
+
+			> img {
+				height: auto;
+				transform: translateY(2vh);
+				width: 100%;
+			}
+		}
+
+		.fp-slide.active & {
+			// transform: translateX(0);
+			right: 0;
+		}
+	}
+	.layer-text-1 {
+		left: 80vw;
+		left: 8vw;
+		top: 27vh;
+		width: 40vw;
+		opacity: 0;
+		pointer-events: none;
+		user-select: none;
+		transition: .8s;
+
+		.fp-slide.active & {
+			opacity: 1;
+			pointer-events: initial;
+			user-select: initial;
+			transition: 1.8s;
+			left: 8vw;
+		}
+		h3 {
+			padding-right: 10em;
+		}
+	}
+	.layer-text-2 {
+		right: 8vw;
+		top: 28vh;
+		width: 28vw;
+
+		h3 {
+			padding-right: 7vw;
+		}
+		.fp-slide.active & {
+			right: 8vw;
+		}
+	}
+}

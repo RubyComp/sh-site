@@ -26,15 +26,15 @@
 
 	// TODO Sizes
 	--size-1: ~"calc(var(--column-unit) * 3.8)";
-	--timeline-height: 148px; 
+	// --timeline-height: var(--row-unit);
 
 }
 @size-hd-max:  1920px;
 @size-xlg-max: 1320px;
 @size-lg-max:  1024px;
-@size-md-max:  820px;
-@size-sm-max:  640px;
-@size-xs-max:  480px;
+@size-md-max:   820px;
+@size-sm-max:   640px;
+@size-xs-max:   480px;
 
 @size-hd-min:  calc(@size-hd-max  + 1px);
 @size-xlg-min: calc(@size-xlg-max + 1px);
@@ -53,10 +53,10 @@
 // }
 #wrapper::after {
 	content: '—';
-	background-color: rgba(0, 25, 105, 0.08);
+	background-color: rgba(155, 157, 163, 0.137);
 	border-radius: 4px;
 	bottom: .4vh;
-	color: #02061be3;
+	color: #02061b6b;
 	display: block;
 	position: fixed;
 	padding: 0 .2em;

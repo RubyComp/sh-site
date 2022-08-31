@@ -19,8 +19,9 @@
 			flex-direction: column;
 			justify-content: center;
 			// padding-right: 18vw;
-			padding-top: 15vh;
-			padding-top: var(--row-unit);
+			// padding-top: 15vh;
+			padding-top: ~"calc(var(--row-unit) * .5)";
+			padding-left: var(--column-mini-unit);
 		}
 
 		.banner-svg {
@@ -33,6 +34,9 @@
 			margin-bottom: 1em;
 			width: ~"calc(686px * var(--ration))";
 
+			@media (min-width: @size-xlg-min) {
+				--ration: 1.16;
+			}
 			@media (min-width: @size-md-min) and (max-width: @size-lg-max) {
 				--ration: .8;
 			}

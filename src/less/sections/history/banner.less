@@ -1,0 +1,92 @@
+.history {
+	background-color: var(--passive-color-3);
+	display: grid;
+	padding-top: var(--row-unit);
+
+	&__time-line {
+		display: flex;
+		font-size: 1.34em;
+		grid-gap: 2em;
+		height: var(--row-unit);
+		justify-content: flex-end;
+		padding: 1em 1.6em;
+		width: 100vw;
+	
+		> li {
+			align-items: center;
+			display: flex;
+
+			// a.active { // TODO
+			// 	&::after {
+			// 		content: '';
+			// 		display: block;
+			// 		background-color: var(--text-color);
+			// 		height: 1px;
+			// 		width: 2em;
+			// 	}
+			// }
+		}
+	}
+
+	&__banner {
+		--strip: calc(var(--row-unit) * 1.2);
+		position: relative;
+		height: ~"calc(100vh - var(--row-unit))";
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 100vw;
+			left: 0;
+			z-index: 0;
+		}
+		&::before {
+			background-image:  url("/resources/img/photo/old-photo-1-dark.jpg");
+			background-position: center ~"calc(var(--row-unit) * -1)";
+			background-repeat: no-repeat;
+			background-size: 100%;
+			top: 0;
+			height: ~"calc(100vh - var(--strip))";
+		}
+		&::after {
+			background-color: var(--acent-color);
+			bottom: 0;
+			height: var(--strip);
+			// height: var(--row-unit);
+		}
+	
+		&-text {
+			bottom: calc(var(--row-unit) * 0.8);
+			display: grid;
+			gap: 2.52em 0;
+			left: var(--row-unit);
+			padding-right: calc(var(--column-unit) * 10);
+			position: absolute;
+			text-transform: uppercase;
+			z-index: 1;
+
+			&-wrapper {
+				width: 100vw;
+				height: 100vh;
+			}
+
+			> .monsto-title:first-child {
+				grid-column-start: 1;
+				grid-column-end: 3;
+
+				&::after {
+					content: '-';
+				}
+			}
+			h2 {
+				letter-spacing: .0054em;
+				transform: translateY(-.28em);
+				// font-size: var(--text-size-large);
+				font-size: 1.3em;
+			}
+		}
+	}
+
+}
