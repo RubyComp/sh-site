@@ -25,7 +25,7 @@
 	--text-size-micro:   11px;
 
 	// TODO Sizes
-	--TEMP-size-1: 156px;
+	--size-1: ~"calc(var(--column-unit) * 3.8)";
 	--timeline-height: 148px; 
 
 }
@@ -51,13 +51,14 @@
 // }
 #wrapper::after {
 	content: '—';
+	background-color: rgba(0, 25, 105, 0.062);
+	border-radius: 1em;
+	bottom: .4vh;
+	color: #02061be3;
 	display: block;
 	position: fixed;
-	bottom: .4vh;
 	right: .6vw;
-	background-color: rgba(0, 25, 105, 0.062);
 	z-index: 99;
-	color: #02061be3;
 }
 :root {
 	--column-unit: 6vh;
