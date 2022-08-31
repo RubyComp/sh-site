@@ -4,8 +4,9 @@
 	--passive-color-3: #000000;
 	--acent-color: #793d3d;
 	--font-famaly: 'Roboto';
-	--column-unit: 6vh;
-	--column-mini-unit: ~"calc(var(--column-unit)*.66)";
+	// --row-unit: 6vh;
+	// --column-unit: 6vh;
+	// --column-mini-unit: ~"calc(var(--column-unit)*.66)";
 	--form-width: 30.6vw;
 	--text-size: var(--text-size-big);
 	--text-color: var(--passive-color);
@@ -26,4 +27,58 @@
 	// TODO Sizes
 	--TEMP-size-1: 156px;
 	--timeline-height: 148px; 
+
+}
+@size-xlg-max: 1320px;
+@size-lg-max:  1024px;
+@size-md-max:  820px;
+@size-sm-max:  640px;
+@size-xs-max:  480px;
+
+@size-lg-min: calc(@size-xlg-max + 1px);
+@size-lg-min: calc(@size-lg-max  + 1px);
+@size-md-min: calc(@size-md-max  + 1px);
+@size-sm-min: calc(@size-sm-max  + 1px);
+@size-xs-min: calc(@size-xs-max  + 1px);
+
+// Example:
+// @media (min-width: @size-md-min) and (max-width: @size-lg-max) {
+	
+// 	body {
+// 		opacity: .6;
+// 	}
+
+// }
+#wrapper::after {
+	content: '—';
+	display: block;
+	position: fixed;
+	bottom: .4vh;
+	right: .6vw;
+	background-color: rgba(0, 25, 105, 0.062);
+	z-index: 99;
+	color: #02061be3;
+}
+:root {
+	--column-unit: 6vh;
+	--column-mini-unit: 2vh;
+	--row-unit: 6vw;
+	--row-mini-unit: 2vw;
+
+	@media (min-width: @size-md-min) and (max-width: @size-lg-max) {
+		--text-size: var(--text-size-medium);
+		--column-unit: 5vh;
+		--column-mini-unit: 1vh;
+		#wrapper::after {content: 'md–lg'}
+	}
+
+	@media (min-width: @size-sm-min) and (max-width: @size-md-max) {
+		--text-size: var(--text-size-medium);
+		#wrapper::after {content: 'sm–md'}
+	}
+
+	@media (min-width: @size-xs-min) and (max-width: @size-sm-max) {
+		--text-size: var(--text-size-normal);
+		#wrapper::after {content: 'xs–sm'}
+	}
 }

@@ -8,10 +8,18 @@
 
 	.video-banner__content-container
 		.video-banner__content
-			include ../../resources/img/vector/storm.svg
+			.banner-svg
+			//- 	include ../../resources/img/vector/storm.svg
 			h1 Бойцовский Клуб СЭНЭ
-			div
-				a.btn.btn-glass.btn-video.btn-start Смотреть видео
+			//- Old btn:
+			//- div
+			//- 	a.btn.btn-glass.btn-video.btn-start Смотреть видео
 
 	aside.video-banner__second-aside
+		.btn-set-compact
+			include ../parts/btns/pause-compact.pug
+			//- include ../parts/btns/play-compact.pug
+			include ../parts/btns/sound-on-compact.pug
+			//- include ../parts/btns/sound-off-compact.pug
+
 		include ../modules/social.pug
