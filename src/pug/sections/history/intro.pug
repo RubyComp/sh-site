@@ -1,25 +1,34 @@
 .slide-section.history
 	//- aside
-	#timeline
-	
-		ol.history__time-line
-			li.active
-				a 1960
-			li
-				a 1970
-			li
-				a 1980
-			li
-				a 1990
-			li
-				a 2000
-			li
-				a 2010
-			li
-				a 2020
+	#history-gui.paraslider-gui
 
-		.scrollbar
-			.scrollbar__toddler
+		header#timeline.paraslider-gui__header
+			ol.history__time-line
+				li
+					a(href="#istorya/1960") 1960
+				li
+					a 1970
+				li
+					a 1980
+				li
+					a 1990
+				li
+					a 2000
+				li
+					a 2010
+				li
+					a 2020
+			.btn-container
+				a.btn.btn-glass Вся история
+
+		#history-bar.scrollbar
+			ol
+				li
+				li
+				li
+				li
+				li
+			.toddler
 
 	.history__banner
 		.history__banner-text-wrapper
