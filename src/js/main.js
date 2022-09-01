@@ -47,9 +47,18 @@ function toggleScrolbars(show) {
 }
 
 function selectGuiHeader(elem, val) {
-	const link = $(elem).find(`[data-value="${val}"]`)
-	$(link).closest('li').addClass('selected');
-	$(elem).addClass('active');
+
+	if (val) {
+		const link = $(elem).find(`[data-value="${val}"]`)
+		$(link).closest('li').addClass('selected');
+		$(elem).addClass('active');
+
+	} else {
+		$(elem).find('.time-line li').removeClass('selected');
+		$(elem).removeClass('active');
+
+	}
+
 }
 
 function setScroll(elem, index) {
