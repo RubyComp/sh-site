@@ -290,3 +290,30 @@ h3 {
 		width: 100%;
 	}
 }
+
+/**/
+
+.videoplayer-placeholder {
+	align-items: center;
+	background-image: url('resources/img/video-2-placeholder.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: pointer;
+	display: flex;
+	height: 364px;
+	justify-content: center;
+	width: 500px;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		background-image: url('resources/img/vector/icons/play-2.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		height: 80px;
+		width: 80px;
+	}
+}
