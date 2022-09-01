@@ -33,17 +33,48 @@
 	top: 0;
 	width: 100vw;
 	z-index: 5;
-	// transition: font-size .4s;
-
 
 	&.active {
 
-		.history__time-line {
+		.time-line {
 
-			a {
-				font-size: .62em;
+			li {
+
+				a {
+					font-size: .62em;
+					opacity: .9;
+
+					&:hover {
+						transform: scale(1);
+						text-shadow: 0px 0px 1px var(--text-color);
+						opacity: 1;
+					}
+				}
+
+				&.selected {
+
+					a {
+						transform: scale(2);
+						margin: 0 .72em;
+						opacity: 1;
+
+						&:hover {
+							text-shadow: none;
+						}
+					}
+
+					&::after {
+						width: 2em;
+					}
+
+				}
+
 			}
 
+		}
+		.btn-container {
+			opacity: 1;
+			width: ~"calc(var(--column-unit) * 3)";
 		}
 	}
 
@@ -58,23 +89,20 @@
 		pointer-events: all;
 		width: 100%;
 
-		.history__time-line {
+		.time-line {
 			background-color: var(--passive-color-3);
 			display: flex;
-			// font-size: 1.34em;
-			grid-gap: 2vw;
+			font-size: 1.34em;
+			// grid-gap: 2vw;
 			height: var(--row-unit);
 			justify-content: flex-end;
-			// padding: 1vw 1.6vw;
-			width: 100vw;
 			pointer-events: all;
+			width: 100vw;
 		
 			> li {
 				align-items: center;
 				display: flex;
 				user-select: none;
-				// transition: .4s;
-				// transition: font-size .6s;
 	
 				&::after {
 					content: '';
@@ -82,32 +110,33 @@
 					background-color: var(--text-color);
 					height: 1px;
 					width: 0;
+					transition: width .9s ease-in-out;
+					margin: 0 .5em;
 				}
-				a {
-					transition: .6s;
-				}
-				&.active {
-					// a {
-					// 	font-size: 2.4em;
-					// }
-					&::after {
-						// transition: margin-left .3s, width 1s;
-						// margin-left: .4em;
-						// width: 2em;
-					}
+			}
+			a {
+				transition: font-size .4s ease-in-out, transform .4s, opacity .2s, padding .8s;
+				padding: .06em .3em;
+				cursor: pointer;
+				text-decoration: none;
+
+				&:hover {
+					transform: scale(1.3);
+					transform-origin: center;
 				}
 			}
 		}
 		.btn-container {
-			white-space: nowrap;
 			font-size: .68em;
-			transition: .7s;
-			width: 0;
+			opacity: 0;
 			overflow: hidden;
-		}
-		.btn {
-			transform: translateX(0);
-			// transform: translateX(120%);
+			transition: .7s;
+			white-space: nowrap;
+			width: 0;
+
+			.btn {
+				width: 100%;
+			}
 		}
 	}
 
