@@ -50,6 +50,7 @@ function selectGuiHeader(elem, val) {
 
 	if (val) {
 		const link = $(elem).find(`[data-value="${val}"]`)
+		$(link).closest('ol').find('li').removeClass('selected');
 		$(link).closest('li').addClass('selected');
 		$(elem).addClass('active');
 
@@ -119,6 +120,55 @@ const timelineWatcher = (sectionId, slideId) => {
 
 }
 
+function lockWatcher(data) {
+
+	if('skip' in data.item.dataset)
+		fullpage_api.setAllowScrolling(false,'down right');
+		
+}
+
+function skipWatcher(e) {
+
+	console.log('window.slideAnimationIsOn', window.slideAnimationIsOn);
+	
+
+	if (e.originalEvent.wheelDelta /120 < 0 && !window.slideAnimationIsOn) {
+
+		const slide = fullpage_api.getActiveSlide();
+
+		if ('skip' in slide.item.dataset) {
+			fullpage_api.moveSectionDown();
+			fullpage_api.setAllowScrolling(true);
+		}
+	}
+		
+}
+
+$('#wrapper').bind('mousewheel', function(e){
+	skipWatcher(e);
+});
+
+$('.layer-next').on('click', function() {
+	fullpage_api.moveSlideRight();
+});
+
+// function skipWatcher(data) {
+// 	if('skip' in data) {
+
+// 		fullpage_api.setAllowScrolling(false,'down right');
+// 		console.log('Skip');
+
+// 		$('#wrapper').bind('mousewheel', function(e){
+// 			if(e.originalEvent.wheelDelta /120 < 0) {
+// 				console.log('scrolling down!');
+// 				fullpage_api.moveSectionDown();
+// 				fullpage_api.setAllowScrolling(true);
+// 			}
+// 		});
+// 	}
+		
+// }
+
 
 // $('#history-bar li').on('click', function() {
 
@@ -140,9 +190,26 @@ const timelineWatcher = (sectionId, slideId) => {
 toggleScrolbars(false);
 
 $('#main-content').fullpage({
+	anchors: [
+		'bojcovskij-klub',
+		'istorya',
+		'o-nas',
+		'informaciya',
+		'kontakty'
+	],
 	// anchors: [
 	// 	'bojcovskij-klub',
 	// 	'istorya',
+	// 	'1960-1',
+	// 	'1960-2',
+	// 	'1960-3',
+	// 	'1960-4',
+	// 	'1960-5',
+	// 	'1970-1',
+	// 	'1970-2',
+	// 	'1970-3',
+	// 	'1970-4',
+	// 	'1970-5',
 	// 	'o-nas',
 	// 	'informaciya',
 	// 	'kontakty'
@@ -159,6 +226,7 @@ $('#main-content').fullpage({
 	// 	toggleScrolbars(false);
 	// },
 	afterSlideLoad: function(section, origin, destination, direction){
+		window.slideAnimationIsOn = false;
 		// console.log({
 		// 	section: section,
 		// 	origin: origin,
@@ -169,23 +237,36 @@ $('#main-content').fullpage({
 		// 	section: , 
 		// 	destination: ,
 		// });
-		// console.log('afterSlideLoad');
-		
+		console.log('afterSlideLoad');
+	
 	},
+	beforeLeave: function(origin, destination, direction, trigger){
+
+		console.log('beforeLeave');
+	// 	console.log({
+	// 		origin: origin,
+	// 		destination: destination,
+	// 		direction: direction,
+	// 		trigger: trigger,
+	// 	});
+	// },
 	// onLeave: function(){
 	// 	toggleScrolbars(false);
-	// },
+	},
 	onSlideLeave: function(section, origin, destination, direction){
+		window.slideAnimationIsOn = true;
+		console.log('onSlideLeave');
 		// console.log({
 		// 	section: section,
 		// 	origin: origin,
 		// 	destination: destination,
 		// 	direction: direction
 		// });
-		// console.log('onSlideLeave');
+		lockWatcher(destination);
 		timelineWatcher(section.anchor, destination.anchor);
 	}
 });
+
 
 /*
 	* Timeline
