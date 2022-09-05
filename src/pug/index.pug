@@ -5,32 +5,15 @@ block vars
 
 block content
 
+	aside#site-menu
+		include modules/aside-menu
+
 	main#main-content
 		.section.active(data-anchor="bojcovskij-klub")
 			include sections/video-banner
 
 		.section(data-anchor="istorya")
 			include sections/history/main
-
-				//- center — Слайд 1960 —
-
-			//- #slide3.slide(data-anchor="1970")
-			//- 	center — Слайд 1970 —
-
-			//- #slide3.slide(data-anchor="1980")
-			//- 	center — Слайд 1980 —
-
-			//- #slide3.slide(data-anchor="1990")
-			//- 	center — Слайд 1990 —
-
-			//- #slide3.slide(data-anchor="2000")
-			//- 	center — Слайд 2000 —
-
-			//- #slide3.slide(data-anchor="2010")
-			//- 	center — Слайд 2010 —
-
-			//- #slide3.slide(data-anchor="2020")
-			//- 	center — Слайд 2020 —
 
 		.section(data-anchor="o-nas")
 			include sections/about/main

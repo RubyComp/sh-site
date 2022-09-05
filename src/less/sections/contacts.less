@@ -2,17 +2,17 @@
 	// --content-width: 58.7%;
 	--box-width: calc(var(--form-width) + var(--size-1)); 
 	display: flex;
-	padding: 4em 0;
+	padding: var(--row-unit) 0 var(--row-mini-unit);
 	position: relative;
 	background-color: var(--passive-color-2);
-	height: calc(100vh - 50px);
+	height: calc(100vh - var(--row-mini-unit));
 	// background-image: linear-gradient(
 	// 	90deg,
 	// 	var(--passive-color-2) var(--content-width),
 	// 	var(--passive-color) 0
 	// );
 	.contacnt-info {
-		width: var(--content-width);
+		// width: var(--content-width);
 
 		&__main {
 			padding: 0 1em 0 6em;
