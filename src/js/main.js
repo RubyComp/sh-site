@@ -1,4 +1,4 @@
-console.log('Main js');
+// console.log('Main js');
 
 $(document).ready(function() {
 
@@ -90,57 +90,52 @@ $('.scrollbar li').on('click', function() {
 
 const timelineWatcher = (sectionId, slideId) => {
 
-	console.log({
-		section: sectionId, 
-		slide: slideId
-	});
-
-	toggleScrolbars(!!slideId);
-
-	// const sectionId = 'istorya';
-	// const slideId = '1960-4';
-
 	const section = $(`[data-anchor="${sectionId}"]`);
-	const slide = $(`[data-anchor="${slideId}"]`);
+	const gui = $(section).find('.paraslider-gui');
 
+	if (gui.length != 1) return;
+
+	const slide = $(`[data-anchor="${slideId}"]`);
 	const parent = $(slide).data('parent');
 	const index = $(slide).data('index');
 
-	const gui = $(section).find('.paraslider-gui');
-
-	if (gui.length != 1) {
-		console.error('selectGuiScroll: GUI error');
-		return; 
-	}
-
+	toggleScrolbars(!!slideId);
 	selectGuiHeader(gui, parent);
 	selectGuiScroll(gui, index);
-
-	console.log(index);
 
 }
 
 function lockWatcher(data) {
 
-	if('skip' in data.item.dataset)
-		fullpage_api.setAllowScrolling(false,'down right');
+	if ('skip' in data.item.dataset)
+		fullpage_api.setAllowScrolling(false,'down');
 		
 }
 
-function skipWatcher(e) {
+function skipWatcher(event) {
 
-	console.log('window.slideAnimationIsOn', window.slideAnimationIsOn);
+	if (customSlider.animationIsOn) return;
 	
-
-	if (e.originalEvent.wheelDelta /120 < 0 && !window.slideAnimationIsOn) {
+	if (event.originalEvent.wheelDelta /120 < 0) {
 
 		const slide = fullpage_api.getActiveSlide();
 
-		if ('skip' in slide.item.dataset) {
+		if (slide && 'skip' in slide.item.dataset) {
 			fullpage_api.moveSectionDown();
 			fullpage_api.setAllowScrolling(true);
 		}
 	}
+		
+}
+
+function insideSliderCheck(isFirst, item) {
+
+	const cssClass = 'inside-slider'
+	
+	if (isFirst)
+		$(item).removeClass(cssClass);
+	else
+		$(item).addClass(cssClass);
 		
 }
 
@@ -152,40 +147,14 @@ $('.layer-next').on('click', function() {
 	fullpage_api.moveSlideRight();
 });
 
-// function skipWatcher(data) {
-// 	if('skip' in data) {
 
-// 		fullpage_api.setAllowScrolling(false,'down right');
-// 		console.log('Skip');
+const customSlider = {
 
-// 		$('#wrapper').bind('mousewheel', function(e){
-// 			if(e.originalEvent.wheelDelta /120 < 0) {
-// 				console.log('scrolling down!');
-// 				fullpage_api.moveSectionDown();
-// 				fullpage_api.setAllowScrolling(true);
-// 			}
-// 		});
-// 	}
-		
-// }
+	prevSection: '111',
+	prevSlide: '222',
+	animationIsOn: false,
 
-
-// $('#history-bar li').on('click', function() {
-
-// 	const bar = $(this).closest('.scrollbar');
-// 	const ol = $(bar).find('ol > li');
-// 	const toddler = $(bar).find('.toddler');
-
-// 	const index = $(this).index();
-// 	const count = $(ol).length;
-
-// 	const width = 100 / count;
-
-// 	console.log(index, count, width);
-	
-// 	$(toddler).css('transform', 'translateX(' + index + '00%)');
-// 	$(toddler).css('width', width + '%');
-// })
+};
 
 toggleScrolbars(false);
 
@@ -197,91 +166,53 @@ $('#main-content').fullpage({
 		'informaciya',
 		'kontakty'
 	],
-	// anchors: [
-	// 	'bojcovskij-klub',
-	// 	'istorya',
-	// 	'1960-1',
-	// 	'1960-2',
-	// 	'1960-3',
-	// 	'1960-4',
-	// 	'1960-5',
-	// 	'1970-1',
-	// 	'1970-2',
-	// 	'1970-3',
-	// 	'1970-4',
-	// 	'1970-5',
-	// 	'o-nas',
-	// 	'informaciya',
-	// 	'kontakty'
-	// ],
+
 	menu: '#menu',
 	slidesNavigation: true,
 	scrollHorizontally: true,
 	controlArrows: false,
 	slidesNavPosition: 'top',
-	// navigation: false,
-	// slidesNavigation: false,
-	//scrollHorizontallyKey: 'YWx2YXJvdHJpZ28uY29tX01mU2MyTnliMnhzU0c5eWFYcHZiblJoYkd4NVNRcg==',
-	// afterLoad: function(origin, destination, direction, trigger){
-	// 	toggleScrolbars(false);
-	// },
-	afterSlideLoad: function(section, origin, destination, direction){
-		window.slideAnimationIsOn = false;
-		// console.log({
-		// 	section: section,
-		// 	origin: origin,
-		// 	destination: destination,
-		// 	direction: direction
-		// });
-		// console.log({
-		// 	section: , 
-		// 	destination: ,
-		// });
-		console.log('afterSlideLoad');
-	
-	},
-	beforeLeave: function(origin, destination, direction, trigger){
 
-		console.log('beforeLeave');
-	// 	console.log({
-	// 		origin: origin,
-	// 		destination: destination,
-	// 		direction: direction,
-	// 		trigger: trigger,
-	// 	});
-	// },
-	// onLeave: function(){
-	// 	toggleScrolbars(false);
+	afterSlideLoad: function(section, origin, destination, direction){
+		console.log('%c afterSlideLoad', 'color: #3c3e41');
+		customSlider.animationIsOn = false;
+		
 	},
+
+	beforeLeave: function(origin, destination, direction, trigger){
+		console.log('%c beforeLeave', 'color: #3c3e41');
+		customSlider.prevSection = fullpage_api.getActiveSection();
+		customSlider.prevSlide = fullpage_api.getActiveSlide();
+		// console.log(customSlider);
+	},
+
 	onSlideLeave: function(section, origin, destination, direction){
-		window.slideAnimationIsOn = true;
-		console.log('onSlideLeave');
-		// console.log({
-		// 	section: section,
-		// 	origin: origin,
-		// 	destination: destination,
-		// 	direction: direction
-		// });
+		console.log('%c onSlideLeave', 'color: #3c3e41');
+		// console.log(destination);
+		customSlider.animationIsOn = true;
+
 		lockWatcher(destination);
 		timelineWatcher(section.anchor, destination.anchor);
-	}
+		insideSliderCheck(destination.isFirst, section.item);
+	},
+	afterLoad: function(origin, destination, direction, trigger){
+		console.log('%c afterLoad', 'color: #3c3e41');
+		// console.log(fullpage_api.getActiveSection(), fullpage_api.getActiveSlide());
+		// insideSliderCheck();
+		
+	},
+	afterSlideLoad: function(origin, destination, direction, trigger){
+		console.log('%c afterSlideLoad', 'color: #3c3e41');
+		customSlider.animationIsOn = false;
+
+	},
+
 });
 
 
 /*
 	* Timeline
 	*/
-// const timeLine = $('#timeline');
-// const timeNav = $('[data-anchor="istorya"] .fp-slidesNav');
-// const scrolbar = $('#history-bar');
-
-// $(timeLine).prependTo(timeNav);
-// $(scrolbar).prependTo(timeNav);
-// $(timeNav).addClass('timeline-attached');
-
-// const historyContainer = $('[data-anchor="istorya"]');
-// const historyGui = $('#history-gui');
-// $(historyGui).prependTo(historyContainer);
 
 // slide 
 
