@@ -19,7 +19,7 @@ $('#timeline a').on('click', function() {
 /*
  * Person popup placeholder
  */
-$('.persons-list__item').on('click', function() {
+$('.pirson-inter').on('click', function() {
 	$('body').toggleClass('popupShowed');
 });
 $('.close-popup').on('click', function() {
