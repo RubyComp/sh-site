@@ -134,7 +134,6 @@ function skipWatcher(event) {
 
 		if (slide && 'skip' in slide.item.dataset) {
 			fullpage_api.moveSectionDown();
-			fullpage_api.setAllowScrolling(true);
 		}
 	}
 		
@@ -195,6 +194,7 @@ $('#main-content').fullpage({
 		console.log('%c beforeLeave', 'color: #3c3e41');
 		customSlider.prevSection = fullpage_api.getActiveSection();
 		customSlider.prevSlide = fullpage_api.getActiveSlide();
+		customSlider.animationIsOn = true;
 		// console.log(customSlider);
 	},
 
@@ -216,6 +216,7 @@ $('#main-content').fullpage({
 	afterSlideLoad: function(origin, destination, direction, trigger){
 		console.log('%c afterSlideLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
+		fullpage_api.setAllowScrolling(true);
 
 	},
 
