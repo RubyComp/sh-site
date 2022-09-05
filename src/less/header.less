@@ -41,23 +41,11 @@
 		transform: scale(0);
 		width: 100%;
 		z-index: -1;
-		transition: transform .3s;
+		transition: transform .26s;
 	}
 
 	&:hover:after  {
 		transform: scale(1);
-	}
-	&__container {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		left: var(--column-mini-unit);
-		pointer-events: none;
-		position: absolute;
-		user-select: none;
-		width: calc(var(--column-unit) * 3);
-    height: var(--row-unit);
-		z-index: 50;
 	}
 
 	.menu-opened & {
@@ -104,8 +92,8 @@
 // .menu-opened
 #aside-menu {
 	align-items: center;
-	backdrop-filter: blur(50px);
-	background-color: #000000B2;
+	backdrop-filter: var(--backdrop-blur);
+	background-color: var(--backdrop-color);
 	display: grid;
 	grid-template-columns: calc(var(--column-unit) * 3) auto;
 	grid-template-rows: 1fr 2fr 1fr;
@@ -125,11 +113,11 @@
 	> .phone {
 		grid-column: 1;
 		grid-row: 2;
+		padding: .4em .4em .4em .5em;
 		text-decoration: none;
 		transform: rotate(-90deg);
-		white-space: nowrap;
-		padding: .4em;
 		transition: transform .3s;
+		white-space: nowrap;
 
 		&:hover {
 			transform: rotate(-90deg) scale(1.4);
@@ -238,4 +226,8 @@
 	position: absolute;
 	top: 0;
 	z-index: 50;
+	
+	.side-icon {
+		left: var(--column-mini-unit);
+	}
 }
