@@ -1,14 +1,14 @@
 #main-header {
+	align-items: center;
 	background: var(--passive-color-3);
 	display: flex;
 	justify-content: space-between;
 	left: 0;
+	padding: .46em var(--column-mini-unit);
 	position: absolute; // TODO
 	right: 0;
 	width: 100%;
 	z-index: 10;
-	padding: .46em var(--column-unit);
-	align-items: center;
 }
 
 .burger {
@@ -77,6 +77,12 @@
 	img {
 		height: 100%;
 		width: auto;
+	}
+	&__container {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		width: calc(var(--column-unit) * 3);
 	}
 }
 
