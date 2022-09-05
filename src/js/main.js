@@ -279,9 +279,18 @@ $('#main-content').fullpage({
 // $(scrolbar).prependTo(timeNav);
 // $(timeNav).addClass('timeline-attached');
 
-const historyContainer = $('[data-anchor="istorya"]');
-const historyGui = $('#history-gui');
-$(historyGui).prependTo(historyContainer);
+// const historyContainer = $('[data-anchor="istorya"]');
+// const historyGui = $('#history-gui');
+// $(historyGui).prependTo(historyContainer);
+
+// slide 
+
+$('.to-slide-top').each(function() {
+
+	const slide = $(this).closest('.section ');
+	$(this).prependTo(slide);
+
+});
 
 });
 
