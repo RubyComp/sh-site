@@ -44,6 +44,7 @@
 			position: absolute;
 			right: 0;
 			top: calc(100% - var(--row-mini-unit));
+			transform: translateY(1px);
 			width: var(--left-column-width);
 		}
 	}
@@ -66,6 +67,9 @@
 			font-size: 1.44em;
 			font-weight: inherit;
 			line-height: 1.4em;
+		}
+		@media (min-width: @size-xg) and (max-width: @size-hd--) {
+			font-size: .72em;
 		}
 	}
 

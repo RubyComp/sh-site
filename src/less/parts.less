@@ -66,7 +66,7 @@ h3 {
 	display: inline-block;
 	font-size: .8em;
 	letter-spacing: 0.044em;
-	padding: .49em 1.68em .47em;
+	padding: .5em .8em .47em;
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
@@ -157,9 +157,9 @@ h3 {
 	cursor: pointer;
 	display: block;
 	height: 100%;
-	width: 100%;
+	position: relative;
 	transition: background-position .4s;
-
+	width: 100%;
 	&:hover {
 		background-position: 75% 50%;
 	}
@@ -181,6 +181,18 @@ h3 {
 	}
 	// background-image: url('resources/img/placeholder.png') !important;
 	// background-size: cover !important;
+		
+	&_fix-strip::before {
+		content: '';
+		background-color: var(--passive-color);
+		display: block;
+		height: 100%;
+		position: absolute;
+		right: 100%;
+		top: 0;
+		transform: translateX(1px);
+		width: 2px;
+	}
 }
 
 @keyframes shake {
@@ -274,7 +286,7 @@ h3 {
 		margin-top: .6em;
 	}
 	.legal {
-		font-size: .76em;
+		font-size: .9em;
 	}
 
 	.checkbox {
