@@ -4,8 +4,8 @@
 #timeline {
 	background-color: var(--passive-color-3);
 	// display: none;
-	left: 0;
-	top: 0;
+	// left: 0;
+	// top: 0;
 }
 
 // [data-anchor="istorya"] {
@@ -74,30 +74,29 @@
 		}
 		.btn-container {
 			opacity: 1;
-			width: ~"calc(var(--column-unit) * 3)";
+			width: var(--left-column-width);
 		}
 	}
-
-
 
 
 	&__header {
 		align-items: center;
 		display: flex;
 		justify-content: flex-end;
-		padding-right: var(--column-mini-unit);
+		padding: 0 var(--column-mini-unit);
 		pointer-events: all;
 		width: 100%;
+    height: var(--row-unit);
 
 		.time-line {
 			background-color: var(--passive-color-3);
 			display: flex;
 			font-size: 1.34em;
 			// grid-gap: 2vw;
-			height: var(--row-unit);
+			// height: var(--row-unit);
 			justify-content: flex-end;
 			pointer-events: all;
-			width: 100vw;
+			// width: 100vw;
 		
 			> li {
 				align-items: center;

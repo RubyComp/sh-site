@@ -2,9 +2,10 @@
 	align-items: center;
 	background: var(--passive-color-3);
 	display: flex;
+	height: calc(var(--row-unit) * .5);
 	justify-content: space-between;
 	left: 0;
-	padding: .46em var(--column-mini-unit);
+	padding: 0 var(--column-mini-unit);
 	position: absolute; // TODO
 	right: 0;
 	width: 100%;
@@ -95,7 +96,7 @@
 	backdrop-filter: var(--backdrop-blur);
 	background-color: var(--backdrop-color);
 	display: grid;
-	grid-template-columns: calc(var(--column-unit) * 3) auto;
+	grid-template-columns: var(--left-column-width) auto;
 	grid-template-rows: 1fr 2fr 1fr;
 	height: 100vh;
 	left: -100%;
@@ -103,7 +104,8 @@
 	position: fixed;
 	top: 0;
 	transition: .6s;
-	width: 25vw;
+	// width: 25vw;
+	width: calc(var(--left-column-width-full) * 2);
 	z-index: 5;
 
 	.menu-opened & {
@@ -173,7 +175,7 @@
 		align-items: center;
 		display: flex;
 		justify-content: center;
-		width: calc(var(--column-unit) * 3);
+		width: var(--left-column-width);
 	}
 }
 

@@ -7,8 +7,8 @@
 		// margin: 0 var(--size-1) 0 0;
 		background-color: var(--acent-color);
 		font-size: 2.5em;
-		margin: 0 calc(var(--column-unit) * 3) 0 0;
-		padding: var(--row-unit) 0 .8vh var(--size-1);
+		margin: 0 var(--left-column-width) 0 0;
+		padding: var(--row-unit) 0 calc(var(--row-mini-unit) * .1) var(--left-column-width-full);
 		position: relative;
 		z-index: 1;
 		// transform: translateY(var(--tanslate));
@@ -33,12 +33,16 @@
 		grid-gap: var(--column-unit);
 		grid-template-columns: auto var(--form-width);
 		height: 64vh;
-		padding: ~"calc(var(--row-unit) / 2)" calc(var(--column-unit) * 3);
+		padding: ~"calc(var(--row-unit) / 2)" var(--left-column-width) 0 var(--left-column-width-full);
 		position: relative;
 		z-index: 0;
 
 		article {
 			line-height: 1.72em;
+		}
+
+		h3 {
+			font-size: 1.8em;
 		}
 
 		strong {

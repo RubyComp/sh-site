@@ -1,5 +1,4 @@
 .video-banner {
-	--side: ~"calc(var(--column-unit) * 3)";
 	background-image: url('/resources/img/video-placeholder.png');
 	background-position: right center;
 	background-repeat: no-repeat;
@@ -7,7 +6,7 @@
 	display: grid;
 	// grid-template-columns: 1fr auto 1fr;
 	// grid-template-columns: 18vh auto 18vh;
-	grid-template-columns: var(--side) auto var(--side);
+	grid-template-columns: var(--left-column-width) auto var(--left-column-width);
 	// max-height: 834px;
 	padding: 0 var(--column-mini-unit);
 

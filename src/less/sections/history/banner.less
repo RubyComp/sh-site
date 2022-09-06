@@ -36,10 +36,12 @@
 			bottom: calc(var(--row-unit) * 0.8);
 			display: grid;
 			gap: 2.52em 0;
-			left: var(--row-unit);
+			left: var(--left-column-width-full);
+			margin-left: -0.7em; /*fix browser font render*/
 			padding-right: calc(var(--column-unit) * 10);
 			position: absolute;
 			text-transform: uppercase;
+			transition: .5s;
 			z-index: 1;
 
 			&-wrapper {
