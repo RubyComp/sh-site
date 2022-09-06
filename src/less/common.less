@@ -54,3 +54,36 @@ body {
 	position: absolute;
 	z-index: 10;
 }
+
+
+#flow {
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	left: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	user-select: none;
+	width: 100vw;
+	z-index: 50;
+}
+#blackout {
+	background-color: transparent;
+	height: 100%;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	user-select: none;
+	width: 100%;
+	transition: background-color .3s;
+
+	&.active {
+		background-color: #00020454;
+		cursor: pointer;
+		pointer-events: all;
+		user-select: initial;
+	}
+}

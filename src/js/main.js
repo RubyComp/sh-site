@@ -2,14 +2,39 @@
 
 $(document).ready(function() {
 
-/*
- * Burger
- */
-$('#burger').on('click', function() {
-	$('body').toggleClass('menu-opened');
-	console.log('Menu toggler placeholer');
-})
+const config = {
+	'menu': 'menu-opened'
+}
 
+const blackout = (active) => {
+	if (active) {
+		$('#blackout').addClass('active');
+	} else {
+		$('#blackout').removeClass('active');
+	}
+}
+
+const burgerMenu = (active) => {
+	if (active)
+		$('body').addClass(config.menu);
+	else
+		$('body').removeClass(config.menu);
+
+	blackout(active);
+}
+
+const toggleBurgerMenu = () => {
+	const opened = $('body').hasClass(config.menu);
+	burgerMenu(!opened);
+}
+
+$('#burger').on('click', () => toggleBurgerMenu() );
+$('#blackout').on('click', () => burgerMenu(false) );
+
+
+/*
+ * Timeline placeholder
+ */
 $('#timeline a').on('click', function() {
 	$(this).closest('.time-line').find('li').removeClass('selected');
 	$(this).closest('li').addClass('selected');
@@ -25,7 +50,6 @@ $('.pirson-inter').on('click', function() {
 $('.close-popup').on('click', function() {
 	$('body').removeClass('popupShowed');
 });
-
 
 
 /*

@@ -678,3 +678,21 @@ h3 {
 	width: var(--left-column-width);
 	z-index: 50;
 }
+.note {
+	align-items: center;
+	backdrop-filter: var(--backdrop-blur);
+	background-color: var(--backdrop-color);
+	background: #000000ad;
+	bottom: calc(var(--row-unit) * .5);
+	display: flex;
+	font-size: 0.8em;
+	font-weight: 700;
+	height: calc(var(--row-unit) * 2/3);
+	justify-content: center;
+	letter-spacing: .02em;
+	pointer-events: all;
+	position: absolute;
+	text-transform: uppercase;
+	user-select: initial;
+	width: calc(var(--column-unit) *6);
+}
