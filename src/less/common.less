@@ -42,6 +42,11 @@ body {
 // 	}
 
 // }
+.fp-slide,
+.slide,
+.fp-slidesContainer {
+	height: 100vh;
+}
 .fp-slidesNav {
 	display: none;
 	&.fp-top {
@@ -76,14 +81,14 @@ body {
 	pointer-events: none;
 	position: absolute;
 	top: 0;
+	transition: background-color .8s;
 	user-select: none;
 	width: 100%;
-	transition: background-color .3s;
 
 	&.active {
 		background-color: #00020454;
 		cursor: pointer;
 		pointer-events: all;
-		user-select: initial;
+		user-select: text;
 	}
 }

@@ -28,9 +28,37 @@ const toggleBurgerMenu = () => {
 	burgerMenu(!opened);
 }
 
+const showNote = (data) => {
+	
+	let classList = 'note note_togguble';
+
+	if ('mode' in data && data.mode == 'success')
+		classList += ' note_success';
+
+	$("#item").attr('class', classList);
+	$('#note .note__content').text(data.text);
+	$('#note').show();
+	
+}
+const hideNote = (note) => {
+	$(note).hide();
+}
+
 $('#burger').on('click', () => toggleBurgerMenu() );
 $('#blackout').on('click', () => burgerMenu(false) );
+$('.note_togguble').on('click', (e) => hideNote(e.currentTarget) );
 
+
+/*
+ * Form submit placeholder
+ */
+$('[value="Записаться"]').on('click', (e) => {
+	const note = {
+		text: 'Заявка отправлена',
+		mode: 'success'
+	};
+	showNote(note);
+});
 
 /*
  * Timeline placeholder
@@ -59,6 +87,7 @@ $('.close-popup').on('click', function() {
 $('.paraslider-gui').on('click', function(e) {
 	/*
 	 * Dev only
+	 * TODO
 	 */
 
 	if (e.shiftKey) {
