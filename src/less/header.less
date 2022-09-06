@@ -19,16 +19,21 @@
 .burger {
 	--line-with: 32px; /*TODO*/
 	--line-margin: 3px;
-	--color: var(--text-color);
+	--color: #ffffffb8;
 	border-radius: 50%;
 	border: 2px solid var(--color);
 	cursor: pointer;
 	display: block;
 	height: 61px;
 	pointer-events: all;
-	transition: .26s;
-	width: 61px;
 	position: relative;
+	transition: .26s;
+	transition: transform .84s;
+	width: 61px;
+
+	&_hide {
+    transform: translateY(-20vh);
+	}
 
 	&:after {
 		background-color: var(--acent-color);

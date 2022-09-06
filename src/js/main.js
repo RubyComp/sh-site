@@ -23,9 +23,20 @@ const burgerMenu = (active) => {
 	blackout(active);
 }
 
+const burgerIcon = (show) => {
+	if (show)
+		$('#burger').removeClass('burger_hide');
+	else
+		$('#burger').addClass('burger_hide');
+}
+
 const toggleBurgerMenu = () => {
 	const opened = $('body').hasClass(config.menu);
 	burgerMenu(!opened);
+}
+
+const burgerWatcher = (dist) => {
+	burgerIcon(!dist.isFirst)
 }
 
 const showNote = (data) => {
@@ -272,6 +283,10 @@ $('#main-content').fullpage({
 		fullpage_api.setAllowScrolling(true);
 
 	},
+	onLeave: function(origin, destination, direction, trigger){
+		console.log('destination', destination);
+		burgerWatcher(destination);
+	}
 
 });
 

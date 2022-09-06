@@ -10,6 +10,10 @@ export const resBuild = (cb) => {
 		.pipe(plumber())
 		.pipe(gulp.dest(config.dest.res));
 
+	gulp.src(`${config.src.root}/favicon.ico`)
+		.pipe(plumber())
+		.pipe(gulp.dest(config.dest.root));
+
 	cb();
 
 }
