@@ -33,18 +33,18 @@
 			margin-bottom: 1em;
 			width: ~"calc(686px * var(--ration))";
 
-			@media (min-width: @size-xlg-min) {
+			@media (min-width: @size-xg) {
 				--ration: 1.16;
 			}
-			@media (min-width: @size-md-min) and (max-width: @size-lg-max) {
+			@media (min-width: @size-md) and (max-width: @size-lg--) {
 				--ration: .8;
 			}
 
-			@media (min-width: @size-sm-min) and (max-width: @size-md-max) {
+			@media (min-width: @size-sm) and (max-width: @size-md--) {
 				--ration: .6;
 			}
 
-			@media (min-width: @size-xs-min) and (max-width: @size-sm-max) {
+			@media (min-width: @size-xs) and (max-width: @size-sm--) {
 				--ration: .4;
 			}
 		}
