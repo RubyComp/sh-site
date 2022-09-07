@@ -37,6 +37,7 @@ const toggleBurgerMenu = () => {
 
 const burgerWatcher = (dist) => {
 	burgerIcon(!dist.isFirst)
+	burgerMenu(false);
 }
 
 const showNote = (data) => {
@@ -54,6 +55,11 @@ const showNote = (data) => {
 const hideNote = (note) => {
 	$(note).hide();
 }
+
+$(document).keyup(function(e) {
+	if (e.key === 'Escape') 
+		burgerMenu(false);
+});
 
 $('#burger').on('click', () => toggleBurgerMenu() );
 $('#blackout').on('click', () => burgerMenu(false) );
@@ -270,6 +276,7 @@ $('#main-content').fullpage({
 		lockWatcher(destination);
 		timelineWatcher(section.anchor, destination.anchor);
 		insideSliderCheck(destination.isFirst, section.item);
+		burgerMenu(false);
 	},
 	afterLoad: function(origin, destination, direction, trigger){
 		console.log('%c afterLoad', 'color: #3c3e41');

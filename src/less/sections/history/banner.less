@@ -38,11 +38,15 @@
 			gap: 2.52em 0;
 			left: var(--left-column-width-full);
 			margin-left: -0.7em; /*fix browser font render*/
-			padding-right: calc(var(--column-unit) * 10);
+			padding-right: calc(var(--column-unit) * 8);
 			position: absolute;
 			text-transform: uppercase;
 			transition: .5s;
 			z-index: 1;
+
+			@media (min-width: @size-xg) and (max-width: @size-hd--) {
+				padding-right: var(--column-unit);
+			}
 
 			&-wrapper {
 				width: 100vw;

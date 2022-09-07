@@ -19,7 +19,7 @@
 .burger {
 	--line-with: 32px; /*TODO*/
 	--line-margin: 3px;
-	--color: #ffffffb8;
+	--color: #ffffff85;
 	border-radius: 50%;
 	border: 2px solid var(--color);
 	cursor: pointer;
@@ -50,9 +50,14 @@
 		transition: transform .26s;
 	}
 
-	&:hover:after  {
-		transform: scale(1);
+	&:hover {
+		--color: #ffffffb4;
+
+		&:after  {
+			transform: scale(1);
+		}
 	}
+	
 
 	.menu-opened & {
 	  --color: var(--acent-color);
