@@ -221,7 +221,7 @@ h3 {
 .numb-list {
 	counter-reset: list-counter;
 	// font-size: var(--text-size-normal);
-	font-size: .72em;
+	font-size: .8em;
 	line-height: 1.34em;
 	list-style: none;
 	li {
@@ -230,6 +230,19 @@ h3 {
 		margin-bottom: 1.1em;
 		> span {
 			padding-top: .06em;
+		}
+	}
+	@media (min-width: @size-xg--) and (max-width: @size-hd--) {
+		font-size: .75em;
+
+		li {
+			margin-bottom: 1.1em;
+		}
+	}
+	@media (min-width: @size-lg) and (max-width: @size-xg--) {
+		font-size: .7em;
+		li {
+			margin-bottom: 1em;
 		}
 	}
 	li::before {
@@ -330,6 +343,7 @@ h3 {
 
 			label {
 				cursor: pointer;
+				user-select: none;
 			}
 		}
 	}
@@ -343,12 +357,12 @@ h3 {
 		font-weight: 300;
 	}
 
-	.form-actions {
-		@media (max-width: @size-xg--) {
-			display: flex;
-			flex-direction: column;
-		}
-	}
+	// .form-actions {
+	// 	@media (max-width: @size-xg--) {
+	// 		display: flex;
+	// 		flex-direction: column;
+	// 	}
+	// }
 	&__note {
 		margin-top: .72em;
 	}
@@ -363,6 +377,13 @@ h3 {
 
 	.btn {
 		width: 100%;
+	}
+	
+	@media (min-width: @size-lg) and (max-width: @size-xg--) {
+		display: flex;
+		flex-direction: column-reverse;
+		font-size: 1em;
+		grid-gap: 1.8em;
 	}
 }
 
@@ -615,12 +636,13 @@ h3 {
 	// &__text {
 	// 	font-size: .8em;
 	// }
-	@media (min-width: @size-xg) and (max-width: @size-hd--) {
-		&__text {
+	&__text {
+		@media (min-width: @size-xg) and (max-width: @size-hd--) {
 			font-size: .8em;
 		}
-		// padding-left: calc(var(--column-unit) * 2);
-		// padding-right: calc(var(--column-unit) * 1.5);
+		@media (min-width: @size-lg) and (max-width: @size-xg--) {
+			font-size: .9em;
+		}
 	}
 }
 .list-article {
@@ -660,6 +682,10 @@ h3 {
 	user-select: text;
 	width: calc(var(--left-column-width-full) * 3);
 
+	@media (min-width: @size-lg) and (max-width: @size-xg--) {
+    padding-right: var(--column-unit);
+	}
+
 	&__content {
 		margin-bottom: .4em;
 	}
@@ -680,7 +706,7 @@ h3 {
 	}
 
 	.popupShowed & {
-		right: 0;
+		right: -2px;
 		transition: right .48s;
 	}
 }
@@ -714,7 +740,7 @@ h3 {
 	pointer-events: none;
 	position: absolute;
 	user-select: none;
-	width: var(--left-column-width);
+	width: calc(var(--column-unit) * 2);
 	z-index: 50;
 }
 .note {

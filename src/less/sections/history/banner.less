@@ -41,11 +41,16 @@
 			padding-right: calc(var(--column-unit) * 8);
 			position: absolute;
 			text-transform: uppercase;
+			transform-origin: bottom left;
 			transition: .5s;
 			z-index: 1;
 
 			@media (min-width: @size-xg) and (max-width: @size-hd--) {
 				padding-right: var(--column-unit);
+			}
+			@media (min-width: @size-lg) and (max-width: @size-xg--) {
+				transform: scale(.9);
+				left: var(--left-column-width);
 			}
 
 			&-wrapper {

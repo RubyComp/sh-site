@@ -4,19 +4,34 @@
 	padding: var(--row-unit) 0 var(--row-mini-unit);
 	position: relative;
 	background-color: var(--passive-color-2);
-	height: calc(100vh - var(--row-mini-unit));
+	height: calc(100vh - var(--row-mini-unit) + 4px /*fix line bug*/);
 	// background-image: linear-gradient(
 	// 	90deg,
 	// 	var(--passive-color-2) var(--content-width),
 	// 	var(--passive-color) 0
 	// );
-	.contacnt-info {
+	.contacts-info {
 		// width: var(--content-width);
 
 		&__main {
 			padding: 0 var(--column-mini-unit) 0 var(--left-column-width-full);
-			line-height: 1em;
+			line-height: .85em;
 			margin-top: var(--row-mini-unit);
+
+			.social {
+				margin-top: .8em;
+			}
+
+			small {
+				opacity: .84;
+			}
+			@media (min-width: @size-lg) and (max-width: @size-xg--) {
+				line-height: 1.2em;
+				font-size: .9em;
+				small {
+					font-size: .8em;
+				}
+			}
 		}
 	}
 	.social {
@@ -39,6 +54,7 @@
 		right: 0;
 		width: calc(var(--form-width) + var(--left-column-width));
 		z-index: 0;
+		transform: tr;
 	}
 	&::before {
 		background-color: var(--acent-color);
@@ -65,4 +81,6 @@
 	li {
 		margin-bottom: .6em;
 	}
+
 }
+
