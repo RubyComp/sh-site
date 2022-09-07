@@ -89,7 +89,7 @@ $('#timeline a').on('click', function() {
 /*
  * Person popup placeholder
  */
-$('.pirson-inter').on('click', function() {
+$('.person-inter').on('click', function() {
 	$('body').toggleClass('popupShowed');
 });
 $('.close-popup').on('click', function() {

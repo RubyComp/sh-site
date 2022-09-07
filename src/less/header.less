@@ -10,6 +10,10 @@
 	right: 0;
 	width: 100%;
 	z-index: 10;
+	
+	@media (min-width: @size-lg) and (max-width: @size-xg--) {
+		height: calc(var(--row-unit) * 2/3);
+	}
 
 	.menu__sublist {
 		display: none;
@@ -171,13 +175,17 @@
 
 
 .aside-logo {
+	--size: calc(var(--row-unit) * .4);
 	align-items: center;
 	display: flex;
-	height: calc(var(--row-unit) * 0.4);
+	height: var(--size);
 	justify-content: center;
 	opacity: .9;
-	width: calc(var(--row-unit) * 0.4);
+	width: var(--size);
 
+	@media (min-width: @size-lg) and (max-width: @size-xg--) {
+		--size: calc(var(--row-unit) * .5);
+	}
 	img {
 		height: 100%;
 		width: auto;

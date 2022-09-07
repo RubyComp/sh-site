@@ -355,6 +355,10 @@ h3 {
 		// font-size: var(--text-size-micro);
 		font-size: .7em;
 		font-weight: 300;
+
+		@media (min-width: @size-lg) and (max-width: @size-xg--) {
+			font-size: .9em;
+		}
 	}
 
 	// .form-actions {
@@ -561,13 +565,16 @@ h3 {
 		text-decoration: none;
 		transition: .3s;
 
+		@media (max-width: @size-xg--) {
+			font-size: .9em;
+		}
 		&:hover {
 			text-decoration: inherit;
 		}
 		header {
 			padding-left: calc(var(--move) * 1.4);
 			word-wrap: break-word;
-			@media (min-width: @size-xg) and (max-width: @size-hd--) {
+			@media (max-width: @size-hd--) {
 				padding-left: calc(var(--move) * 2.4);
 			}
 		}
@@ -602,7 +609,7 @@ h3 {
 		}
 	}
 }
-.pirson-inter {
+.person-inter {
 	cursor: help;
 
 	&:hover {
