@@ -245,6 +245,12 @@ h3 {
 			margin-bottom: 1em;
 		}
 	}
+	@media (min-width: @size-md) and (max-width: @size-lg--) {
+		font-size: .7em;
+		li {
+			margin-bottom: .6em;
+		}
+	}
 	li::before {
 		background-image: linear-gradient(to bottom, #ff000000 0%, #ff000000 26%, var(--acent-color) 0%, var(--acent-color) 82%, #ffa50000 0%);
 		content: counter(list-counter);
@@ -420,6 +426,13 @@ h3 {
 	left: var(--column-unit);
 	// padding: var(--row-mini-unit) 0;
 	width: calc(var(--column-unit) * 2);
+
+	@media (min-width: @size-md) and (max-width: @size-lg--) {
+		transition: 1s;
+		.inside-slider & {
+			left: 0;
+		}
+	}
 
 	svg {
 		opacity: .4;
@@ -629,7 +642,7 @@ h3 {
 	p+p {
 		margin-top: 1em;
 	}
-	@media (min-width: @size-xg) and (max-width: @size-hd--) {
+	@media /*(min-width: @size-xg) and*/ (max-width: @size-hd--) {
 		padding-top: calc(var(--row-unit) / 2);
 	}
 }
@@ -643,11 +656,19 @@ h3 {
 	// &__text {
 	// 	font-size: .8em;
 	// }
+	@media (min-width: @size-md) and (max-width: @size-lg--) {
+		font-size: .9em;
+		padding-left: var(--column-unit);
+		padding-right: var(--column-unit);
+	}
 	&__text {
 		@media (min-width: @size-xg) and (max-width: @size-hd--) {
 			font-size: .8em;
 		}
 		@media (min-width: @size-lg) and (max-width: @size-xg--) {
+			font-size: .9em;
+		}
+		@media (min-width: @size-md) and (max-width: @size-lg--) {
 			font-size: .9em;
 		}
 	}

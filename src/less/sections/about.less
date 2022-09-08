@@ -30,6 +30,9 @@
 		@media (min-width: @size-xg) and (max-width: @size-hd--) {
 			padding-left: calc(var(--column-unit) * 2);
 		}
+		@media (min-width: @size-md) and (max-width: @size-lg--) {
+			padding-left: calc(var(--column-unit) * 1.5);
+		}
 	}
 
 	// &::after,
@@ -52,7 +55,7 @@
 		@media (min-width: @size-xg) and (max-width: @size-hd--) {
 			background-position: right calc(var(--row-unit) * -.33);
 		}
-		@media (min-width: @size-lg) and (max-width: @size-xg--) {
+		@media /*(min-width: @size-lg) and */(max-width: @size-xg--) {
 			background-position: top right;
 			background-size: cover;
 		}
@@ -98,7 +101,7 @@
 		z-index: 1;
     grid-column: 1;
 
-		@media (min-width: @size-xg) and (max-width: @size-hd--) {
+		@media /*(min-width: @size-xg) and*/ (max-width: @size-hd--) {
 			grid-gap: var(--column-mini-unit);
 			padding-bottom: 0;
 			padding-top: 0;
@@ -126,6 +129,9 @@
 [data-parent="o-nas"] .fp-tableCell {
 	padding-left: var(--left-column-width);
 	// padding-right: var(--left-column-width);
+	@media (min-width: @size-md) and (max-width: @size-lg--) {
+		padding-left: var(--left-column-width);
+	}
 }
 
 .info-slide {
@@ -138,6 +144,9 @@
 			grid-template-columns: auto calc(var(--column-unit) * 5) calc(var(--column-unit) * 2);
 		}
 		@media (min-width: @size-lg) and (max-width: @size-xg--) {
+			grid-template-columns: auto calc(var(--column-unit) * 5) calc(var(--column-unit) * 2);
+		}
+		@media (min-width: @size-md) and (max-width: @size-lg--) {
 			grid-template-columns: auto calc(var(--column-unit) * 5) calc(var(--column-unit) * 2);
 		}
 	}
@@ -153,6 +162,9 @@
 
 	@media (min-width: @size-xg) and (max-width: @size-hd--) {
 		padding-top: calc(var(--row-unit) / 2);
+	}
+	@media (min-width: @size-md) and (max-width: @size-lg--) {
+		padding-top: 0;
 	}
 	h3 {
 		margin-bottom: var(--row-mini-unit);

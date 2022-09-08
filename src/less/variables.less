@@ -93,22 +93,24 @@
 		--text-size: var(--text-size-medium);
 		--column-unit: 3.5vw;
 		--column-mini-unit: 1.5vw;
-		--row-unit: 13vh;
+		--row-unit: 14vh;
 		--row-mini-unit: 5vh;
 		--text-size-mega: 90px;
 		#wrapper::after {content: '1024 — 1439'}
 	}
 
 	@media (min-width: @size-md) and (max-width: @size-lg--) {
-		--text-size: var(--text-size-medium);
-		--column-unit: 5vw;
+		--text-size: var(--text-size-normal);
+		--column-unit: 4vw;
 		--column-mini-unit: 1vw;
-		#wrapper::after {content: '820 — 1023'}
+		--row-unit: 14vh;
+		--row-mini-unit: 4vh;
+		#wrapper::after {content: '800 — 1023'}
 	}
 
 	@media (min-width: @size-sm) and (max-width: @size-md--) {
 		--text-size: var(--text-size-medium);
-		#wrapper::after {content: '640 — 819'}
+		#wrapper::after {content: '640 — 799'}
 	}
 
 	@media (min-width: @size-xs) and (max-width: @size-sm--) {
@@ -127,11 +129,10 @@
 	content: ' — ';
 	background-color: rgba(155, 157, 163, 0.42);
 	border-radius: 4px;
-	bottom: .4vh;
-	bottom: 6vh;
+	bottom: 8vh;
 	color: #02061b6b;
 	display: block;
-	font-size: 28px;
+	font-size: 2.6vw;
 	font-weight: 700;
 	padding: 0 .2em;
 	pointer-events: none;

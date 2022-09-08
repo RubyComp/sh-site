@@ -52,6 +52,11 @@
 				transform: scale(.9);
 				left: var(--left-column-width);
 			}
+			@media (min-width: @size-md) and (max-width: @size-lg--) {
+				transform: scale(.7);
+				left: calc(var(--column-unit) * 2);
+			}
+		
 
 			&-wrapper {
 				width: 100vw;
