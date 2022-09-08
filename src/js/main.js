@@ -62,6 +62,7 @@ $(document).keyup(function(e) {
 });
 
 $('#burger').on('click', () => toggleBurgerMenu() );
+$('#mobile-burger').on('click', () => toggleBurgerMenu() );
 $('#blackout').on('click', () => burgerMenu(false) );
 $('.note_togguble').on('click', (e) => hideNote(e.currentTarget) );
 
@@ -253,6 +254,7 @@ $('#main-content').fullpage({
 	scrollHorizontally: true,
 	controlArrows: false,
 	slidesNavPosition: 'top',
+	dragAndMove: true,
 
 	afterSlideLoad: function(section, origin, destination, direction){
 		console.log('%c afterSlideLoad', 'color: #3c3e41');
