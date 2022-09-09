@@ -102,6 +102,18 @@ $('.close-popup').on('click', function() {
  * Slider
  */
 
+const setHistorySection = (e) => {
+	const decade = e.target.attributes['data-value'].value;
+	const section = fullpage_api.getActiveSection();
+	setSlide(section.anchor, decade, 1);
+}
+
+$('#timeline a').on('click', function(e) {
+
+	setHistorySection(e);
+
+})
+
 $('.paraslider-gui').on('click', function(e) {
 	/*
 	 * Dev only
@@ -118,7 +130,7 @@ $('.paraslider-gui').on('click', function(e) {
 
 ////
 
-function setSlide(section, id, slideSection) {
+function setSlide(section, slideSection, id) {
 	fullpage_api.moveTo(section, `${slideSection}-${id}`);
 }
 
@@ -142,7 +154,7 @@ function selectGuiHeader(elem, val) {
 
 }
 
-function setScroll(elem, index) {
+function setScrollbarState(elem, index) {
 	const toddler = $(elem).find('.toddler');
 	const ol = $(elem).find('ol > li');
 	const count = $(ol).length;
@@ -154,17 +166,19 @@ function setScroll(elem, index) {
 
 function selectGuiScroll(elem, val) {
 	const scrollbar = $(elem).find('.scrollbar');
-	setScroll(scrollbar, val);
+	setScrollbarState(scrollbar, val);
 }
 
 function scrollBarHandler(li) {
-	
+
 	const bar = $(li).closest('.scrollbar');
 	const val = $(li).index() + 1;
 	const slide = fullpage_api.getActiveSlide();
 	const slideSection = slide.item.attributes['data-parent'].value;
-	setScroll(bar, val);
-	setSlide('istorya', val, slideSection);
+
+	setScrollbarState(bar, val);
+	setSlide('istorya', slideSection, val);
+
 }
 
 $('.scrollbar li').on('click', function() {
