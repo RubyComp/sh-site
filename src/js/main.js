@@ -111,6 +111,9 @@ $('#mobile-burger').on('click', () => toggleBurgerMenu() );
 $('#blackout').on('click', () => burgerMenu(false) );
 $('.note_togguble').on('click', (e) => hideNote(e.currentTarget) );
 
+const togglePopup = (show) => {
+	$('body').toggleClass('popupShowed', show);
+}
 
 /*
  * Form submit placeholder
@@ -136,10 +139,10 @@ $('#timeline a').on('click', function() {
  * Person popup placeholder
  */
 $('.person-inter').on('click', function() {
-	$('body').toggleClass('popupShowed');
+	togglePopup(true);
 });
 $('.close-popup').on('click', function() {
-	$('body').removeClass('popupShowed');
+	togglePopup(false);
 });
 
 
@@ -322,6 +325,7 @@ $('#main-content').fullpage({
 		timelineWatcher(section.anchor, destination.anchor);
 		insideSliderCheck(destination.isFirst, section.item);
 		burgerMenu(false);
+		togglePopup(false);
 	},
 	afterLoad: function(origin, destination, direction, trigger){
 		console.log('%c afterLoad', 'color: #3c3e41');
@@ -341,6 +345,7 @@ $('#main-content').fullpage({
 		burgerWatcher(destination);
 		videoSliderWatcher(destination);
 		customSlider.animationIsOn = true;
+		togglePopup(false);
 	}
 	// afterLoad: function(origin, destination, direction, trigger){
 	// }
