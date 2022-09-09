@@ -29,6 +29,7 @@
 		&-box {
 			background-color: var(--back-color);
 			height: 100%;
+			pointer-events: none;
 			right: 0;
 			transform-origin: right;
 			transition: transform 1.3s;
@@ -70,19 +71,21 @@
 
 				.fp-slide.active & {
 					transform: scaleX(1) translateX(-20vw);
+					@media (min-width: @size-xg) and (max-width: @size-hd--) {
+						transform: scaleX(1) translateX(-36vw);
+					}
 				}
 			}
 
 		}
 		&-numb {
-			// opacity: 1;
-			// background-color: #00e0054a;
 			background-image: url('/resources/img/sprites/numbs-sprite.svg');
 			background-position-x: center;
 			background-position-y: 0;
 			background-repeat: no-repeat;
 			background-size: cover;
 			height: 740px;
+			pointer-events: none;
 			transform-origin: left bottom;
 			transform: scale(1.2);
 			transition: 1.9s;
@@ -110,7 +113,6 @@
 
 			&_a {
 				transform: var(--numb-scale) translate(61vw, var(--numb-h-move));
-				// transform: var(--numb-scale);
 
 				@media (min-width: @size-xg) and (max-width: @size-hd--) {
 					transform: var(--numb-scale) translate(83vw, var(--numb-h-move));
@@ -118,7 +120,6 @@
 				
 				.fp-slide.active & {
 					transform: var(--numb-scale) translate(-4vw, var(--numb-h-move));
-					// transform: var(--numb-scale) translate(10vw, var(--numb-h-move));
 
 					@media (min-width: @size-xg) and (max-width: @size-hd--) {
 						transform: var(--numb-scale) translate(8vw, var(--numb-h-move))
@@ -150,16 +151,22 @@
 				.fp-slide.active & {
 					transform: var(--numb-scale) translate(23vw, -5vh);
 					transition: 2s;
+					@media (min-width: @size-xg) and (max-width: @size-hd--) {
+						transform: var(--numb-scale) translate(28vw, -5vh);
+					}
 				}
 			}
 
 			&_e {
 				filter: grayscale(0);
+				opacity: 0;
 				transform: var(--numb-scale) translate(-38vw, -5vh);
+				transition: opacity .3s, transform 2s;
 
 				.fp-slide.active & {
+					opacity: 1;
 					transform: var(--numb-scale) translate(-47vw, -5vh);
-					transition: 2s;
+					transition: opacity .3s, transform 2s;
 				}
 			}
 
@@ -223,6 +230,11 @@
 				h3 {
 					font-size: 1.7em;
 					padding-right: 3em;
+				}
+			}
+			@media (min-width: @size-lg) and (max-width: @size-xg--) {
+				h3 {
+					padding-right: 7em;
 				}
 			}
 			.fp-slide.active & {
