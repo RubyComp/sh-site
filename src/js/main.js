@@ -1,82 +1,8 @@
-// console.log('Main js');
-
 $(document).ready(function() {
 
 const config = {
 	'menu': 'menu-opened'
 }
-
-
-
-// const video = {
-// 	controll: '#banner-video-control',
-// 	// 
-// 		// actions: {
-// 		// 	'sound-on': this.test(),
-// 		// 	'sound-off': this.test(),
-// 		// 	'play': this.test(),
-// 		// 	'pause': this.test()
-// 		// },
-
-// 		// test() {
-// 		// 	console.log('Test');
-			
-// 		// },
-
-// 		// guiHandler() {
-// 		// 	debugger
-
-
-// 		// 	const actions = {
-// 		// 		'sound-on': this.test,
-// 		// 		'sound-off': this.test,
-// 		// 		'play': this.test,
-// 		// 		'pause': this.test
-// 		// 	};
-
-
-
-
-// 		// 	$(`${this.controll} .btn`).on('click', (e) => {
-// 		// 		const action = e.target.dataset.action;
-// 		// 		// debugger
-// 		// 		// this.actions[action];
-// 		// 		console.log(action);
-// 		// 		// debugger
-// 		// 	});
-
-// 		// 	// $(`${this.controll} .btn-sound-off`).on('click', (e) => {
-// 		// 	// 	this.sound.off();
-// 		// 	// });
-		
-// 		// 	// $(`${this.controll} .btn-play`).on('click', (e) => {
-// 		// 	// 	this.play.on();
-// 		// 	// });
-
-// 		// 	// $(`${this.controll} .btn-pause`).on('click', (e) => {
-// 		// 	// 	this.play.off();
-// 		// 	// });
-
-// 		// },
-
-// 	sound: {
-// 		on() {
-// 			$('#banner-video').prop('muted', false);
-// 		},
-// 		off() {
-// 			$('#banner-video').prop('muted', true);
-// 		},
-// 	},
-
-// 	play: {
-// 		on() {
-// 			$('#banner-video').trigger('play');
-// 		},
-// 		off() {
-// 			$('#banner-video').trigger('pause');
-// 		},
-// 	},
-// };
 
 const videoControl = (action, param) => {
 
@@ -419,11 +345,9 @@ $('#main-content').fullpage({
 		customSlider.animationIsOn = true;
 	}
 	// afterLoad: function(origin, destination, direction, trigger){
-	// 	videoGuiHandler();
 	// }
 
 });
-
 
 /*
  * Timeline
