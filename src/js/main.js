@@ -124,8 +124,8 @@ const videoControl = (action, param) => {
 }
 videoControl('init');
 
-const videoSliderWatcher = (dist) => {
-	const isVideo = $(dist.item).hasClass('auto-video');
+const videoSliderWatcher = (dest) => {
+	const isVideo = $(dest.item).hasClass('auto-video');
 	if (isVideo) {
 		videoControl('play', 'muted');
 	}
@@ -156,8 +156,8 @@ const toggleBurgerMenu = () => {
 	burgerMenu(!opened);
 }
 
-const burgerWatcher = (dist) => {
-	burgerIcon(!dist.isFirst)
+const burgerWatcher = (dest) => {
+	burgerIcon(!dest.isFirst)
 	burgerMenu(false);
 }
 
@@ -230,23 +230,7 @@ const setHistorySection = (e) => {
 }
 
 $('#timeline a').on('click', function(e) {
-
 	setHistorySection(e);
-
-})
-
-$('.paraslider-gui').on('click', function(e) {
-	/*
-	 * Dev only
-	 * TODO
-	 */
-
-	if (e.shiftKey) {
-		$(this).removeClass('active');
-		$(this).find('li').removeClass('selected');
-	} else {
-		$(this).addClass('active');	
-	}
 })
 
 ////
@@ -417,6 +401,7 @@ $('#main-content').fullpage({
 	},
 	afterLoad: function(origin, destination, direction, trigger){
 		console.log('%c afterLoad', 'color: #3c3e41');
+		customSlider.animationIsOn = false;
 		// console.log(fullpage_api.getActiveSection(), fullpage_api.getActiveSlide());
 		// insideSliderCheck();
 		
@@ -431,6 +416,7 @@ $('#main-content').fullpage({
 		console.log('destination', destination);
 		burgerWatcher(destination);
 		videoSliderWatcher(destination);
+		customSlider.animationIsOn = true;
 	}
 	// afterLoad: function(origin, destination, direction, trigger){
 	// 	videoGuiHandler();
@@ -440,14 +426,11 @@ $('#main-content').fullpage({
 
 
 /*
-	* Timeline
-	*/
-
-// slide 
-
+ * Timeline
+ */
 $('.to-slide-top').each(function() {
 
-	const slide = $(this).closest('.section ');
+	const slide = $(this).closest('.section');
 	$(this).prependTo(slide);
 
 });
