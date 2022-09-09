@@ -118,15 +118,12 @@ $('.paraslider-gui').on('click', function(e) {
 
 ////
 
-function setSlide(section, id) {
-	fullpage_api.moveTo(section, id);
+function setSlide(section, id, slideSection) {
+	fullpage_api.moveTo(section, `${slideSection}-${id}`);
 }
 
-function toggleScrolbars(show) {
-	if (show)
-		$('.scrollbar').show();
-	else
-		$('.scrollbar').hide();
+function toggleScrolbar(show) {
+	$('.scrollbar').toggle(show);
 }
 
 function selectGuiHeader(elem, val) {
@@ -161,10 +158,13 @@ function selectGuiScroll(elem, val) {
 }
 
 function scrollBarHandler(li) {
+	
 	const bar = $(li).closest('.scrollbar');
 	const val = $(li).index() + 1;
+	const slide = fullpage_api.getActiveSlide();
+	const slideSection = slide.item.attributes['data-parent'].value;
 	setScroll(bar, val);
-	setSlide('istorya', val);
+	setSlide('istorya', val, slideSection);
 }
 
 $('.scrollbar li').on('click', function() {
@@ -182,7 +182,7 @@ const timelineWatcher = (sectionId, slideId) => {
 	const parent = $(slide).data('parent');
 	const index = $(slide).data('index');
 
-	toggleScrolbars(!!slideId);
+	toggleScrolbar(!!slideId);
 	selectGuiHeader(gui, parent);
 	selectGuiScroll(gui, index);
 
@@ -238,7 +238,7 @@ const customSlider = {
 
 };
 
-toggleScrolbars(false);
+toggleScrolbar(false);
 
 $('#main-content').fullpage({
 	anchors: [

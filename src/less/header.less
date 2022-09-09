@@ -134,6 +134,9 @@
 	.logo {
     width: var(--row-mini-unit);
 	}
+	@media  (min-width: @size-md) {
+		display: none;
+	}
 }
 .mobile-burger {
 	border: none;
@@ -225,6 +228,15 @@
 	> .btn {
 		grid-column: 2;
 		grid-row: 3;
+	}
+	@media (max-width: @size-md--) {
+		width: 100%;
+
+		.phone,
+		.social,
+		.btn {
+			display: none;
+		}
 	}
 }
 

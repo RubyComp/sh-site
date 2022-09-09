@@ -1,17 +1,16 @@
 .contacts {
-	// --content-width: 58.7%;
 	display: flex;
 	padding: var(--row-unit) 0 var(--row-mini-unit);
 	position: relative;
 	background-color: var(--passive-color-2);
 	height: calc(100vh - var(--row-mini-unit) + 4px /*fix line bug*/);
-	// background-image: linear-gradient(
-	// 	90deg,
-	// 	var(--passive-color-2) var(--content-width),
-	// 	var(--passive-color) 0
-	// );
+
+	@media  (max-width: @size-md--) {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
 	.contacts-info {
-		// width: var(--content-width);
 
 		&__main {
 			padding: 0 var(--column-mini-unit) 0 var(--left-column-width-full);
@@ -43,6 +42,11 @@
 		line-height: .72em;
 		// color: #d35c4c; // TODO Temp
 		transform: translateX(-.06em);
+		@media  (max-width: @size-md--) {
+			font-size: 3.2em;
+    display: flex;
+    flex-direction: column;
+		}
 	}
 	&::before,
 	&::after {
@@ -54,7 +58,9 @@
 		right: 0;
 		width: calc(var(--form-width) + var(--left-column-width));
 		z-index: 0;
-		transform: tr;
+		@media  (max-width: @size-md--) {
+			display: none;
+		}
 	}
 	&::before {
 		background-color: var(--acent-color);
@@ -72,6 +78,9 @@
 	> iframe {
 		height: 100%; // TODO
 		width: 49vw;
+		@media  (max-width: @size-md--) {
+			width: 100%;
+		}
 	}
 }
 .contacts-list {
