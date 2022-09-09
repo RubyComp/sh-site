@@ -58,8 +58,6 @@ const videoSliderWatcher = (dest) => {
 }
 
 $('#banner-video-control .btn').on('click', (e) => {
-	console.log(e.currentTarget.dataset.action);
-	
 	videoControl(e.currentTarget.dataset.action);
 });
 // video.sound.on();
