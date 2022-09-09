@@ -1,26 +1,34 @@
-.slide-section.video-banner
+.slide-section.banner
 
-	//- TODO
 	include ../modules/header
 
-	aside.video-banner__first-aside
-		include ../parts/phone.pug
+	.banner__video-wrapper
 
-	.video-banner__content-container
-		.video-banner__content
-			.banner-svg
-			//- 	include ../../resources/img/vector/storm.svg
-			h1 Бойцовский Клуб СЭНЭ
-			//- Old btn:
-			//- div
-			//- 	a.btn.btn-glass.btn-video.btn-start Смотреть видео
+		video#banner-video.banner__video(loop="" muted="" autoplay="" poster="/resources/img/video-placeholder.png")
+			source(src="resources/video/stock-video.mp4" type="video/webm")
 
-	aside.video-banner__second-aside
-		.btn-set-compact
-			include ../parts/btns/pause-compact.pug
-			//- include ../parts/btns/play-compact.pug
-			include ../parts/btns/sound-on-compact.pug
-			//- include ../parts/btns/sound-off-compact.pug
+	.banner__body
 
-		include ../parts/phone.pug
-		include ../modules/social.pug
+		aside.banner__first-aside
+			include ../parts/phone.pug
+
+		.banner__content-container
+		
+			.banner__content
+				.banner-svg
+				//- 	include ../../resources/img/vector/storm.svg
+				h1 Бойцовский Клуб СЭНЭ
+				//- Old btn:
+				//- div
+				//- 	a.btn.btn-glass.btn-video.btn-start Смотреть видео
+
+		aside.banner__second-aside
+			#banner-video-control
+				.btn-set-compact
+					include ../parts/btns/pause-compact.pug
+					include ../parts/btns/play-compact.pug
+					include ../parts/btns/sound-on-compact.pug
+					include ../parts/btns/sound-off-compact.pug
+
+			include ../parts/phone.pug
+			include ../modules/social.pug

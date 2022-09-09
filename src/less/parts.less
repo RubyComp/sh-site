@@ -71,6 +71,7 @@ h3 {
 	text-align: center;
 	text-transform: uppercase;
 	transition: .26s;
+	background-color: initial;
 
 	&:hover {
 		transition: .14s;
@@ -127,7 +128,7 @@ h3 {
 	&-play {
 		background-color: var(--acent-color);
 		background-image: url('/resources/img/vector/icons/play.svg');
-		background-position: ~"calc(100% - .64em) center";
+		background-position: ~"calc(100% - .5em) center";
 		background-size: 46%;
 	}
 	&-sound-on {
@@ -141,9 +142,13 @@ h3 {
 
 	&-set-compact {
 		display: flex;
-		> .btn + .btn {
+		border-left: 1px solid var(--passive-color);
+		> .btn {
 			border-left: none;
 		}
+		// > .btn + .btn {
+		// 	border-left: none;
+		// }
 	}
 }
 

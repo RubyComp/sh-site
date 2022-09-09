@@ -6,28 +6,142 @@ const config = {
 	'menu': 'menu-opened'
 }
 
-const blackout = (active) => {
-	if (active) {
-		$('#blackout').addClass('active');
-	} else {
-		$('#blackout').removeClass('active');
+
+
+// const video = {
+// 	controll: '#banner-video-control',
+// 	// 
+// 		// actions: {
+// 		// 	'sound-on': this.test(),
+// 		// 	'sound-off': this.test(),
+// 		// 	'play': this.test(),
+// 		// 	'pause': this.test()
+// 		// },
+
+// 		// test() {
+// 		// 	console.log('Test');
+			
+// 		// },
+
+// 		// guiHandler() {
+// 		// 	debugger
+
+
+// 		// 	const actions = {
+// 		// 		'sound-on': this.test,
+// 		// 		'sound-off': this.test,
+// 		// 		'play': this.test,
+// 		// 		'pause': this.test
+// 		// 	};
+
+
+
+
+// 		// 	$(`${this.controll} .btn`).on('click', (e) => {
+// 		// 		const action = e.target.dataset.action;
+// 		// 		// debugger
+// 		// 		// this.actions[action];
+// 		// 		console.log(action);
+// 		// 		// debugger
+// 		// 	});
+
+// 		// 	// $(`${this.controll} .btn-sound-off`).on('click', (e) => {
+// 		// 	// 	this.sound.off();
+// 		// 	// });
+		
+// 		// 	// $(`${this.controll} .btn-play`).on('click', (e) => {
+// 		// 	// 	this.play.on();
+// 		// 	// });
+
+// 		// 	// $(`${this.controll} .btn-pause`).on('click', (e) => {
+// 		// 	// 	this.play.off();
+// 		// 	// });
+
+// 		// },
+
+// 	sound: {
+// 		on() {
+// 			$('#banner-video').prop('muted', false);
+// 		},
+// 		off() {
+// 			$('#banner-video').prop('muted', true);
+// 		},
+// 	},
+
+// 	play: {
+// 		on() {
+// 			$('#banner-video').trigger('play');
+// 		},
+// 		off() {
+// 			$('#banner-video').trigger('pause');
+// 		},
+// 	},
+// };
+
+const videoControl = (action, param) => {
+
+	const video = '#banner-video';
+	const control = '#banner-video-control';
+
+	switch(action) {
+		case 'sound-on':
+			$(video).prop('muted', false);
+			$(`${control} .btn-sound-off`).show();
+			$(`${control} .btn-sound-on`).hide();
+			break
+	
+		case 'sound-off':
+			$(video).prop('muted', true);
+			$(`${control} .btn-sound-on`).show();
+			$(`${control} .btn-sound-off`).hide();
+			break
+	
+		case 'play':
+			$(video).trigger('play');
+			$(`${control} .btn-pause`).show();
+			$(`${control} .btn-play`).hide();
+			$(`${control} .btn-sound-on`).prop('disabled', false);
+			$(`${control} .btn-sound-off`).prop('disabled', false);
+			if (param != 'muted')
+				videoControl('sound-on');
+			break
+	
+		case 'pause':
+			$(video).trigger('pause');
+			$(`${control} .btn-play`).show();
+			$(`${control} .btn-pause`).hide();
+			$(`${control} .btn-sound-on`).prop('disabled', true);
+			$(`${control} .btn-sound-off`).prop('disabled', true);
+			break
+	
+		case 'init':
+			videoControl('play', 'muted');
+			videoControl('sound-off');
+			$(control).show();
+			break
+
 	}
+}
+videoControl('init');
+
+$('#banner-video-control .btn').on('click', (e) => {
+	console.log(e.currentTarget.dataset.action);
+	
+	videoControl(e.currentTarget.dataset.action);
+});
+// video.sound.on();
+
+const blackout = (active) => {
+	$('#blackout').toggleClass('active', active);
 }
 
 const burgerMenu = (active) => {
-	if (active)
-		$('body').addClass(config.menu);
-	else
-		$('body').removeClass(config.menu);
-
+	$('body').toggleClass(config.menu, active);
 	blackout(active);
 }
 
 const burgerIcon = (show) => {
-	if (show)
-		$('#burger').removeClass('burger_hide');
-	else
-		$('#burger').addClass('burger_hide');
+	$('#burger').toggleClass('burger_hide', !show);
 }
 
 const toggleBurgerMenu = () => {
@@ -310,6 +424,9 @@ $('#main-content').fullpage({
 		console.log('destination', destination);
 		burgerWatcher(destination);
 	}
+	// afterLoad: function(origin, destination, direction, trigger){
+	// 	videoGuiHandler();
+	// }
 
 });
 

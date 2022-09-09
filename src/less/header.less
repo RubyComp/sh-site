@@ -2,11 +2,11 @@
 	align-items: center;
 	background: var(--passive-color-3);
 	display: flex;
-	height: calc(var(--row-unit) * .5);
+	height: var(--header-size);
 	justify-content: space-between;
 	left: 0;
 	padding: 0 var(--column-mini-unit);
-	position: absolute; // TODO
+	// position: absolute; // TODO
 	right: 0;
 	width: 100%;
 	z-index: 10;
@@ -19,7 +19,6 @@
 		display: none;
 	}
 	@media (max-width: @size-md--) {
-		--text-size: var(--text-size-medium);
 		display: none;
 	}
 }
@@ -279,6 +278,7 @@
 			padding: 1em 1em .82em;
 			position: relative;
 			text-decoration: none;
+			z-index: 1;
 
 			&:hover {
 				// font-weight: 900;
