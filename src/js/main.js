@@ -124,6 +124,13 @@ const videoControl = (action, param) => {
 }
 videoControl('init');
 
+const videoSliderWatcher = (dist) => {
+	const isVideo = $(dist.item).hasClass('auto-video');
+	if (isVideo) {
+		videoControl('play', 'muted');
+	}
+}
+
 $('#banner-video-control .btn').on('click', (e) => {
 	console.log(e.currentTarget.dataset.action);
 	
@@ -423,6 +430,7 @@ $('#main-content').fullpage({
 	onLeave: function(origin, destination, direction, trigger){
 		console.log('destination', destination);
 		burgerWatcher(destination);
+		videoSliderWatcher(destination);
 	}
 	// afterLoad: function(origin, destination, direction, trigger){
 	// 	videoGuiHandler();
