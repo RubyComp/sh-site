@@ -1,7 +1,5 @@
 .slide-section.banner
 
-	include ../modules/header
-
 	.banner__video-wrapper
 
 		video#banner-video.banner__video(loop="" muted="" autoplay="" poster="/resources/img/video-placeholder.png")
@@ -9,15 +7,17 @@
 
 	.banner__body
 
-		aside.banner__first-aside
-			include ../parts/phone.pug
+		//- aside.banner__first-aside
+		//- 	include ../parts/phone.pug
 
 		.banner__content-container
 		
 			.banner__content
-				.banner-svg
+				.emblem
+				.full-text-logo
+				//- .banner-svg
 				//- 	include ../../resources/img/vector/storm.svg
-				h1 Бойцовский Клуб СЭНЭ
+				h1(hidden) Бойцовский Клуб СЭНЭ
 				//- Old btn:
 				//- div
 				//- 	a.btn.btn-glass.btn-video.btn-start Смотреть видео

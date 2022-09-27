@@ -1,0 +1,29 @@
+
+.about-2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.back-video {
+	height: 100vh;
+	background-color: black;
+	// height: calc(100vh - var(--header-size));
+	position: absolute;
+	width: 100vw;
+	z-index: -1;
+}
+
+.longread {
+	overflow-y: auto;
+	padding-left: calc(var(--left-column-width) * 2);
+	height: 100%;
+	
+
+	&-container {
+		background-color: rgba(0, 0, 0, 0.7);
+		height: calc(100% - var(--row-unit) * 1);
+		padding-top: var(--row-mini-unit);
+		padding-bottom: var(--row-mini-unit);
+	}
+}

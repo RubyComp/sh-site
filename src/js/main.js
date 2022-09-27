@@ -80,10 +80,10 @@ const toggleBurgerMenu = () => {
 	burgerMenu(!opened);
 }
 
-const burgerWatcher = (dest) => {
-	burgerIcon(!dest.isFirst)
-	burgerMenu(false);
-}
+// const burgerWatcher = (dest) => { // disabled at new design
+// 	burgerIcon(!dest.isFirst)
+// 	burgerMenu(false);
+// }
 
 const showNote = (data) => {
 	
@@ -342,7 +342,7 @@ $('#main-content').fullpage({
 	},
 	onLeave: function(origin, destination, direction, trigger){
 		console.log('destination', destination);
-		burgerWatcher(destination);
+		// burgerWatcher(destination);
 		videoSliderWatcher(destination);
 		customSlider.animationIsOn = true;
 		togglePopup(false);

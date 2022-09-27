@@ -16,17 +16,23 @@ body {
 #wrapper {
 	position: relative;
 }
-
+.slide.slide_glass {
+	.fp-tableCell {
+		background-color: transparent;
+	}
+}
 /*
  * Slider
  */
 .slide-section {
+	padding-top: var(--header-size);
 	height: 100vh;
 	overflow: hidden;
 }
 .fp-tableCell {
 	vertical-align: baseline;
 	background-color: var(--back-color);
+	background-color: steelblue;
 }
 .slide .fp-tableCell {
 	background-color: var(--passive-color-2);

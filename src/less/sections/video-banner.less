@@ -21,43 +21,48 @@
 	&__video-wrapper {
 		align-items: center;
 		display: flex;
-		height: calc(100vh - var(--header-size));
+		// height: calc(100vh - var(--header-size));
+		height: 100%;
 		justify-content: center;
 		overflow: hidden;
 		position: relative;
 		background-color: black;
+		// margin-top: var(--header-size);
 	}
 	&__video {
 		min-height: 100%;
 		min-width: 100%;
 		opacity: .7;
-    object-fit: cover;
+		object-fit: cover;
 	}
 	&__body {
 		display: grid;
-		grid-template-columns: var(--left-column-width) auto var(--left-column-width);
+		// grid-template-columns: var(--left-column-width) auto var(--left-column-width);
+		grid-template-columns: auto var(--left-column-width);
 		padding: 0 var(--column-mini-unit);
 	}
 	&__body {
 		position: absolute;
 		top: 0;
-		padding-top: var(--header-size);
+		// padding-top: var(--header-size);
 		left: 0;
 		width: 100vw;
 		height: 100vh;
 	}
 
 	&__content {
+		align-items: flex-end;
+		display: flex;
+		grid-gap: calc(var(--column-unit) * 1.28);
 
 		&-container {
 			align-items: flex-start;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			// padding-right: 18vw;
-			// padding-top: 15vh;
-			padding-top: ~"calc(var(--row-unit) * .25)";
-			padding-left: var(--column-mini-unit);
+			// padding-top: ~"calc(var(--row-unit) * .25)";
+			// padding-left: var(--column-mini-unit);
+			margin-left: var(--left-column-width-full);
 
 			@media (max-width: @size-sm--) {
 				align-items: center;
@@ -66,15 +71,44 @@
 			}
 		}
 
-		.banner-svg {
+		.full-text-logo {
 			--ration: 1;
-			background-image: url('/resources/img/vector/storm.svg');
+			background-image: url('/resources/img/vector/full-text-logo.svg');
 			background-position: left top;
 			background-repeat: no-repeat;
 			background-size: contain;
 			height: ~"calc(126px * var(--ration))";
-			margin-bottom: 1em;
 			width: ~"calc(686px * var(--ration))";
+
+			@media (min-width: @size-xg) {
+				--ration: 1.16;
+			}
+			@media (min-width: @size-md) and (max-width: @size-lg--) {
+				--ration: .8;
+			}
+
+			@media (min-width: @size-sm) and (max-width: @size-md--) {
+				--ration: .6;
+			}
+
+			@media (min-width: @size-xs) and (max-width: @size-sm--) {
+				--ration: .4;
+			}
+
+			@media (max-width: @size-sm--) {
+				--ration: .42;
+			}
+		}
+		.emblem {
+			--ration: 1;
+			background-image: url('/resources/img/vector/emblem.svg');
+			background-position: left top;
+			background-repeat: no-repeat;
+			background-size: contain;
+			height: ~"calc(206px * var(--ration))";
+			margin-bottom: 1em;
+			margin-bottom: calc(var(--row-unit) * -0.15);
+			width: ~"calc(134px * var(--ration))";
 
 			@media (min-width: @size-xg) {
 				--ration: 1.16;

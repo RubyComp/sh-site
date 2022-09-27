@@ -6,11 +6,12 @@
 	justify-content: space-between;
 	left: 0;
 	padding: 0 var(--column-mini-unit);
-	// position: absolute; // TODO
+	position: fixed;
 	right: 0;
 	width: 100%;
 	z-index: 10;
-	
+	opacity: .66; // TODO Dev Only!
+
 	@media (min-width: @size-lg) and (max-width: @size-xg--) {
 		height: calc(var(--row-unit) * 2/3);
 	}
@@ -267,7 +268,7 @@
 .main-nav {
 	.menu {
 		display: flex;
-		font-size: var(--text-size-small);
+		font-size: var(--text-size-compact);
 		grid-gap: .44em;
 		letter-spacing: 0.01em;
 		text-transform: uppercase;
@@ -320,4 +321,15 @@
 	.side-icon {
 		left: var(--column-unit);
 	}
+}
+
+
+.header-actions {
+	align-items: center;
+	display: flex;
+	flex-grow: 1;
+	font-size: .8em;
+	grid-gap: var(--column-mini-unit);
+	justify-content: center;
+	justify-content: flex-end;
 }
