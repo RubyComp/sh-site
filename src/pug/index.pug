@@ -8,16 +8,20 @@ block content
 
 	main#main-content
 		.section.auto-video.active(data-anchor="bojcovskij-klub")
-			include sections/video-banner
+			.section__content
+				include sections/video-banner
 
 		.section(data-anchor="o-nas")
-			include sections/about-2/main
+			.section__content
+				include sections/about-2/main
 
 		.section(data-anchor="informaciya")
-			include sections/info-2/main
+			.section__content
+				include sections/info-2/main
 
 		.section(data-anchor="kontakty")
-			include modules/footer
+			.section__content
+				include modules/footer
 
 	#flow
 		aside#site-menu

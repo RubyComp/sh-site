@@ -2,15 +2,16 @@
 	align-items: center;
 	background: var(--passive-color-3);
 	display: flex;
+	grid-gap: var(--column-mini-unit);
 	height: var(--header-size);
 	justify-content: space-between;
 	left: 0;
-	padding: 0 var(--column-mini-unit);
+	opacity: .66; // TODO Dev Only!
+	padding-left: var(--column-mini-unit);
 	position: fixed;
-	right: 0;
+	top: 0;
 	width: 100%;
 	z-index: 10;
-	opacity: .66; // TODO Dev Only!
 
 	@media (min-width: @size-lg) and (max-width: @size-xg--) {
 		height: calc(var(--row-unit) * 2/3);

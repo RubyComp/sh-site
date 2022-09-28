@@ -289,7 +289,6 @@ toggleScrolbar(false);
 $('#main-content').fullpage({
 	anchors: [
 		'bojcovskij-klub',
-		'istorya',
 		'o-nas',
 		'informaciya',
 		'kontakty'
