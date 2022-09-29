@@ -171,7 +171,7 @@ body {
 .news-list {
 	display: grid;
 	grid-template-columns: 5fr 6fr;
-	grid-gap: 2em;
+	grid-gap: 1em 2em;
 
 	h3 {
 		&:before {
@@ -183,29 +183,66 @@ body {
 
 .news {
 
+	display: flex;
 	background-color: var(--passive-color-1a);
-	padding: 1em;
-	font-size: .76em;
 	border-bottom: 2px solid var(--acent-color);
+	color: var(--text-color);
+	font-size: .76em;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		grid-gap: .2em;
+		padding: 1.7em 1.8em;
+	}
 
 	&_imaged {
-		color: var(--passive-color);
+		--text-color: var(--passive-color);
+		--acent-color: var(--text-color);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		.news__content {
+			background-image: linear-gradient(0deg, black, transparent);
+		}
+		a {
+			--text-color: var(--passive-color);
+		}
 	}
 
 	&__footer {
-		display: flex;
-		justify-content: space-between;
 		align-items: center;
 		color: var(--acent-color);
+		display: flex;
+		font-size: .9em;
+		justify-content: space-between;
+		margin-top: .3em;
 
 		a {
 			font-weight: bold;
 			font-style: italic;
+			color: var(--text-color);
+		}
+		svg path {
+			fill: var(--text-color);
 		}
 	}
 
 }
 
+.promo {
+	padding: 1.1em 1.3em;
+	font-size: .76em;
+	margin-bottom: 1em;
+	&__body {
+		display: flex;
+		align-items: flex-start;
+		grid-gap: 2em;
+	}
+	.btn {
+		font-size: 1.12em;
+	}
+}

@@ -1,3 +1,58 @@
 #slide1.slide
-	.slide-section
-		big slides/form
+	.slide-section.info-2.info-2_deco
+
+		div.info-2__body
+
+			article.info-2__article
+				h3 С&nbsp;1&nbsp;сентября до&nbsp;31&nbsp;октября
+				div
+					p
+						strong Открыт набор учеников в&nbsp;группы бойцовского клуба ШТУРМ
+					p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+
+			aside.info-2__aside
+				form.glass-form
+
+					div
+						fieldset
+							input(
+								type='text'
+								placeholder='Имя *'
+								required
+							)
+							input(
+								type='text'
+								placeholder='Телефон *'
+								required
+							)
+							input(
+								type='text'
+								placeholder='E-Mail *'
+								required
+							)
+							input(
+								type='text'
+								placeholder='Возраст *'
+								required
+							)
+						p.glass-form__note
+							small поля отмеченые&nbsp;<b>*</b> обязательны к&nbsp;заполнению
+
+					.form-actions
+						.checkbox-container
+							label(for='legal').checkbox
+								input(
+									type='checkbox'
+									id='legal'
+									required
+								)
+							.legal
+								label(for='legal')
+									p нажимая на&nbsp;кнопку, вы&nbsp;даёте согласие на&nbsp;обработку своих персональных данных
+								p
+									a(href='/') Политика конфиденциальности
+						div
+							input.btn(
+								type='button'
+								value='Записаться'
+							)

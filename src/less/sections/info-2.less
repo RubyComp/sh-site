@@ -1,114 +1,107 @@
 .info-2 {
 	display: grid;
 	grid-template-columns: auto var(--left-column-width);
-	// background-color: var(--back-color);
+	position: relative;
 
-	// display: grid;
-	// grid-template-rows: calc(var(--row-unit) * 1.5) auto calc(var(--row-unit) * 2/3);
-
-	// &::after {
-	// 	content: '';
-	// 	background-color: var(--acent-color);
-	// 	bottom: 0;
-	// 	display: block;
-	// 	height: 100%;
-	// 	height: calc(var(--row-unit) * 2/3);
-	// 	position: absolute;
-	// 	right: 0;
-	// 	width: calc(var(--form-width) + var(--left-column-width));
-	// }
+	&_deco {
+		.info-2__body {
+			padding-top: var(--row-unit);
+			padding-bottom: calc(var(--row-unit) * 2/3);
+		}
+		&::after {
+			content: '';
+			background-color: var(--acent-color);
+			bottom: 0;
+			display: block;
+			height: 100%;
+			height: calc(var(--row-unit) * 2/3);
+			position: absolute;
+			right: 0;
+			width: calc(var(--form-width) + var(--left-column-width));
+		}
+		&::before {
+			content: '';
+			background-color: var(--passive-color);
+			bottom: 0;
+			display: block;
+			height: 100%;
+			height: calc(var(--row-unit) * 2/3);
+			position: absolute;
+			left: 0;
+			width: 100vw;
+		}
+	}
 	&__title {
 		align-items: center;
 		background-color: var(--acent-color);
 		display: flex;
 		font-size: 2.5em;
-		height: calc(var(--row-unit));
+		height: var(--row-unit);
 		justify-content: flex-end;
 		margin-top: var(--header-size);
 		padding-right: calc(var(--column-unit) * 2);
 		width: calc(100% - var(--left-column-width));
 
-		// padding-bottom: 0.1em;
-		// padding-left: var(--left-column-width-full);
-		// position: relative;
-		// z-index: 1;
-
-		// &::before {
-		// 	background-color: var(--passive-color);
-		// 	content: '';
-		// 	display: block;
-		// 	height: 100%;
-		// 	position: absolute;
-		// 	right: 0;
-		// 	top: 0;
-		// 	width: var(--left-column-width);
-		// }
-
-		// &::after {
-		// 	background-color: var(--passive-color-2);
-		// 	content: '';
-		// 	display: block;
-		// 	height: var(--row-mini-unit);
-		// 	position: absolute;
-		// 	right: 0;
-		// 	top: calc(100% - var(--row-mini-unit));
-		// 	transform: translateY(1px);
-		// 	width: var(--left-column-width);
-		// }
+	}
+	.news-list {
+		padding: var(--row-unit) var(--column-unit) var(--row-mini-unit);
 	}
 
 	&__body {
 		--text-color: var(--passive-color-2);
-		padding: var(--row-unit) var(--column-unit) var(--row-mini-unit);
-		background-color: var(--passive-color);
-		color: var(--text-color);
     display: flex;
     align-items: center;
-	// 	display: grid;
-	// 	font-size: .88em;
-	// 	grid-gap: var(--column-unit);
-	// 	grid-template-columns: auto var(--form-width);
-	// 	padding: calc(var(--row-unit) * 2/3) var(--left-column-width) 0 var(--left-column-width-full);
-	// 	position: relative;
-	// 	z-index: 0;
 
-	// 	article {
-	// 		line-height: 1.72em;
-	// 	}
+		&_light {
+			background-color: var(--passive-color);
+			color: var(--text-color);
+		}
+		display: grid;
+		font-size: .88em;
+		grid-template-columns: auto var(--form-width);
+		position: relative;
+		z-index: 0;
 
-	// 	strong {
-	// 		font-size: 1.44em;
-	// 		font-weight: inherit;
-	// 		line-height: 1.4em;
-	// 	}
-	// 	@media (min-width: @size-xg) and (max-width: @size-hd--) {
-	// 		font-size: .72em;
-	// 	}
-	// 	@media (min-width: @size-lg) and (max-width: @size-xg--) {
-	// 		font-size: .8em;
-	// 	}
+		article {
+			line-height: 1.72em;
+			margin-bottom: 1.2em;
+		}
+
+		strong {
+			font-size: 1.44em;
+			font-weight: inherit;
+			line-height: 1.4em;
+		}
+		@media (min-width: @size-xg) and (max-width: @size-hd--) {
+			font-size: .72em;
+		}
+		@media (min-width: @size-lg) and (max-width: @size-xg--) {
+			font-size: .8em;
+		}
 	}
 
-	// &__article {
-	// 	padding-right: calc(var(--column-unit) * 2.5);
-	// }
+	&__article {
+		// padding-right: calc(var(--column-unit) * 2.5);
+		padding-right: calc(var(--left-column-width));
+		padding-left: calc(var(--left-column-width-full));
+	}
+	
 
-	// h3 {
-	// 	font-size: 1.8em;
-	// 	margin-bottom: .32em;
-  //   margin-top: -0.2em;
+	h3 {
+		font-size: 2em;
+		margin-bottom: .32em;
+    margin-top: -0.2em;
 
-	// 	&::before {
-	// 		display: none;
-	// 	}
-	// }
+		&::before {
+			display: none;
+		}
+	}
 
-	// p + p {
-	// 	margin-top: 1em;
-	// }
+	p + p {
+		margin-top: 1em;
+	}
+
 	.news-list {
-
-
 		.news:first-child {
 			grid-row-start: 1;
 			grid-row-end: 4;
