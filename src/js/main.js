@@ -97,6 +97,11 @@ const showNote = (data) => {
 	$('#note').show();
 	
 }
+const showSplash = (place, hide, note) => {
+	$(hide).hide();
+	$(place).prepend(`<div class="splash"><span>${note.text}</span></div>`);
+	
+}
 const hideNote = (note) => {
 	$(note).hide();
 }
@@ -118,12 +123,15 @@ const togglePopup = (show) => {
 /*
  * Form submit placeholder
  */
-$('[value="Записаться"]').on('click', (e) => {
+$('[value="Записаться"]').on('click', function() {
 	const note = {
 		text: 'Заявка отправлена',
 		mode: 'success'
 	};
-	showNote(note);
+	const form = $(this).closest('form');
+	const formContainer = $(form).parent();
+	// showNote(note);
+	showSplash(formContainer, form, note);
 });
 
 /*

@@ -148,9 +148,6 @@ body {
 	--scroll-track-color: rgba(121, 61, 61, .5);
 	--scroll-radius: 20px;
 
-	&:hover {
-		--scroll-thumb-color: #973c3c;
-	}
 	&::-webkit-scrollbar {
 		width: 8px;
 		
@@ -162,6 +159,9 @@ body {
 	}
 	
 	&::-webkit-scrollbar-thumb {
+		&:hover {
+			--scroll-thumb-color: #973c3c;
+		}
 		background-color: var(--scroll-thumb-color);
 		border-radius: var(--scroll-radius);
 	}
@@ -187,13 +187,14 @@ body {
 	background-color: var(--passive-color-1a);
 	border-bottom: 2px solid var(--acent-color);
 	color: var(--text-color);
-	font-size: .76em;
+	font-size: .8em;
 
 	&__content {
 		display: flex;
 		flex-direction: column;
 		grid-gap: .2em;
 		padding: 1.7em 1.8em;
+		width: 100%;
 	}
 
 	&_imaged {
@@ -234,15 +235,21 @@ body {
 }
 
 .promo {
-	padding: 1.1em 1.3em;
-	font-size: .76em;
+	padding: 1.1em 0 1.1em 1.3em;
+	font-size: .8em;
 	margin-bottom: 1em;
 	&__body {
 		display: flex;
 		align-items: flex-start;
 		grid-gap: 2em;
+		width: 100%;
+    justify-content: space-between;
 	}
 	.btn {
 		font-size: 1.12em;
+
+		&:hover {
+			color: var(--passive-color);
+		}
 	}
 }

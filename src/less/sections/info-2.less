@@ -7,6 +7,18 @@
 		.info-2__body {
 			padding-top: var(--row-unit);
 			padding-bottom: calc(var(--row-unit) * 2/3);
+
+			&::before {
+				content: '';
+				background-color: var(--acent-color);
+				bottom: 0;
+				display: block;
+				height: 100%;
+				height: calc(var(--row-unit) * 2/3);
+				position: absolute;
+				right: 0;
+				width: calc(var(--form-width) + var(--left-column-width));
+			}
 		}
 		&::after {
 			content: '';
@@ -56,9 +68,11 @@
 			background-color: var(--passive-color);
 			color: var(--text-color);
 		}
+		&_columed {
+			grid-template-columns: auto var(--form-width);
+		}
 		display: grid;
 		font-size: .88em;
-		grid-template-columns: auto var(--form-width);
 		position: relative;
 		z-index: 0;
 
