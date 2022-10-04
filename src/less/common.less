@@ -23,10 +23,9 @@ body {
 	}
 }
 
-// .section__content {
-// 	padding-top: var(--header-size);
-// 	max-height: calc(100vh - var(--header-size));
-// }
+.section__content {
+	height: 100%;
+}
 /*
  * Slider
  */
@@ -244,6 +243,18 @@ body {
 		grid-gap: 2em;
 		width: 100%;
     justify-content: space-between;
+
+		@media (max-width: @size-md--) {
+			flex-direction: column;
+
+			.btn-wide {
+				max-width: 280px;
+				width: 100%;
+			}
+		}
+	}
+	@media (max-width: @size-md--) {
+		padding-right: 1.1em;
 	}
 	.btn {
 		font-size: 1.12em;

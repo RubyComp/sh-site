@@ -13,29 +13,34 @@
 			aside.info-2__aside
 				form.glass-form
 					div
-						fieldset
+						fieldset.glass-form__main-fieldset
 							input(
 								type='text'
+								name='name'
 								placeholder='Имя *'
 								required
 							)
 							input(
 								type='text'
+								name='phone'
 								placeholder='Телефон *'
 								required
 							)
 							input(
 								type='text'
+								name='email'
 								placeholder='E-Mail *'
 								required
 							)
 							input(
 								type='text'
+								name='age'
 								placeholder='Возраст *'
 								required
 							)
 						p.glass-form__note
-							small поля отмеченые&nbsp;<b>*</b> обязательны к&nbsp;заполнению
+							//- small поля отмеченые&nbsp;<b>*</b> обязательны к&nbsp;заполнению
+							small <b>*</b>&nbsp;обязательные поля
 
 					.form-actions
 						.checkbox-container
