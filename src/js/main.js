@@ -88,8 +88,6 @@ const videoControl = (action, param) => {
 }
 videoControl('init');
 
-
-
 const setVideo = (item, file, format) => {
 	const video = `${file}.${format}`
 	$(item).html(`<source src="${video}" type="video/${format}">"`)
@@ -136,6 +134,11 @@ const blackout = (active) => {
 
 const burgerMenu = (active) => {
 	$('body').toggleClass(config.menu, active);
+	if (active) {
+		setTitle({'type': 'phone'});
+	} else {
+		resetTitle();
+	}
 	blackout(active);
 }
 
@@ -172,6 +175,41 @@ const showSplash = (place, hide, note) => {
 }
 const hideNote = (note) => {
 	$(note).hide();
+}
+
+const getSectionTitle = (section) => {
+	return section.item.attributes['data-title'] || false
+}
+
+const setTitle = (titleInfo) => {
+
+	titleHtml = '';
+
+	if (titleInfo.type == 'phone') {
+		titleHtml = '<a class="phone" href="tel:+74951234567">+7 495 123-45-67</a>'
+	} else {
+		titleHtml = titleInfo.html;
+	}
+
+	$('#title').html(titleHtml);
+
+}
+const titleWatcher = (section) => {
+
+	const title = getSectionTitle(section);
+	let titleInfo = '';
+
+	if (title) {
+		titleInfo = {'html': title.value}
+	} else {
+		titleInfo = {'type': 'phone'}
+	}
+	
+	setTitle(titleInfo);
+}
+const resetTitle = () => {
+	const curSection = fullpage_api.getActiveSection();
+	titleWatcher(curSection);
 }
 
 $(document).keyup(function(e) {
@@ -411,8 +449,9 @@ $('#main-content').fullpage({
 			config.firstVideoReseize = true;
 			videoWatcher();
 		}
-		if (destination.anchor == 'bojcovskij-klub')
+		if (destination.anchor == 'bojcovskij-klub') {
 			bannerFlow();
+		}
 		
 	},
 	afterSlideLoad: function(origin, destination, direction, trigger){
@@ -428,6 +467,7 @@ $('#main-content').fullpage({
 		customSlider.animationIsOn = true;
 		togglePopup(false);
 		clearBannerFlow();
+		titleWatcher(destination);
 	},
 
 });
