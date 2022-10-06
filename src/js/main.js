@@ -1,7 +1,42 @@
 $(document).ready(function() {
 
 const config = {
-	'menu': 'menu-opened'
+	'menu': 'menu-opened',
+	'firstVideoReseize': false
+}
+
+const hideBannerFlow = () => {
+	$('.banner__content').css('opacity', 0).css('transition', '0.5s');
+}
+
+const bannerFlow = () => {
+
+	window.brakeHideBannerCounter = false;
+	window.hideBannerCounter = 0;
+
+	let timer = setInterval(function () {
+
+		console.log('counter', window.hideBannerCounter);
+
+		if (window.brakeHideBannerCounter) {
+			clearInterval(timer);
+		}
+
+		if (window.hideBannerCounter >= 1) {
+			hideBannerFlow();
+			clearInterval(timer);
+		}
+
+		window.hideBannerCounter++;
+
+	}, 3000);
+}
+
+const clearBannerFlow = () => {
+	setTimeout(() => {
+		$('.banner__content').css('opacity', 'initial');
+	}, 180);
+	window.brakeHideBannerCounter = true;
 }
 
 const videoControl = (action, param) => {
@@ -28,8 +63,10 @@ const videoControl = (action, param) => {
 			$(`${control} .btn-play`).hide();
 			$(`${control} .btn-sound-on`).prop('disabled', false);
 			$(`${control} .btn-sound-off`).prop('disabled', false);
-			if (param != 'muted')
+			if (param != 'muted') {
 				videoControl('sound-on');
+				hideBannerFlow();
+			}
 			break
 	
 		case 'pause':
@@ -38,6 +75,7 @@ const videoControl = (action, param) => {
 			$(`${control} .btn-pause`).hide();
 			$(`${control} .btn-sound-on`).prop('disabled', true);
 			$(`${control} .btn-sound-off`).prop('disabled', true);
+			clearBannerFlow();
 			break
 	
 		case 'init':
@@ -49,6 +87,36 @@ const videoControl = (action, param) => {
 	}
 }
 videoControl('init');
+
+
+
+const setVideo = (item, file, format) => {
+	const video = `${file}.${format}`
+	$(item).html(`<source src="${video}" type="video/${format}">"`)
+	console.log(`Video ${item} is "${video}" now.`);
+}
+
+const videoResizer = (item, videoSizes, videoPath, format) => {
+	let screenWidth = window.window.innerWidth;
+	let videoSize = '';
+
+	videoSizes.some( (size) => {
+		isGoodSize = size >= screenWidth;
+		videoSize = isGoodSize ? size : false;
+		return isGoodSize;
+	});
+
+	if (!videoSize)
+		videoSize = videoSizes[videoSizes.length - 1];
+
+	const curVideo = `${videoPath}/${videoSize}`
+	setVideo(item, curVideo, format);
+}
+
+const videoWatcher = () => {
+	videoResizer('#banner-video', [1280, 1920, 1921], 'resources/video/main-banner', 'mp4');
+	videoResizer('#about-video', [1024, 1920], 'resources/video/inside', 'mp4');
+}
 
 const videoSliderWatcher = (dest) => {
 	const isVideo = $(dest.item).hasClass('auto-video');
@@ -339,6 +407,12 @@ $('#main-content').fullpage({
 		customSlider.animationIsOn = false;
 		// console.log(fullpage_api.getActiveSection(), fullpage_api.getActiveSlide());
 		// insideSliderCheck();
+		if (!config.firstVideoReseize) {
+			config.firstVideoReseize = true;
+			videoWatcher();
+		}
+		if (destination.anchor == 'bojcovskij-klub')
+			bannerFlow();
 		
 	},
 	afterSlideLoad: function(origin, destination, direction, trigger){
@@ -348,14 +422,13 @@ $('#main-content').fullpage({
 
 	},
 	onLeave: function(origin, destination, direction, trigger){
-		console.log('destination', destination);
+		console.log('onLeave, destination', destination);
 		// burgerWatcher(destination);
 		videoSliderWatcher(destination);
 		customSlider.animationIsOn = true;
 		togglePopup(false);
-	}
-	// afterLoad: function(origin, destination, direction, trigger){
-	// }
+		clearBannerFlow();
+	},
 
 });
 
