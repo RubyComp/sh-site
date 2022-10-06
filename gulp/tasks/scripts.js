@@ -27,5 +27,4 @@ export const jsBuild = (cb) => {
 
 export const jsWatch = () => {
 	gulp.watch(`${config.src.js}/**/*.js`, jsBuild);
-	console.log('js');
 }

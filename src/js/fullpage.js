@@ -1,4 +1,3 @@
-
 $('#main-content').fullpage({
 	anchors: [
 		'bojcovskij-klub',
