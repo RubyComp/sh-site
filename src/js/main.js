@@ -1,4 +1,4 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
 const config = {
 	'menu': 'menu-opened',
@@ -482,5 +482,5 @@ $('.to-slide-top').each(function() {
 
 });
 
-});
+// });
 
