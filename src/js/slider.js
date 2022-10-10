@@ -130,10 +130,20 @@ $('.layer-next').on('click', function() {
 
 const customSlider = {
 
-	prevSection: '111',
-	prevSlide: '222',
+	// prevSection: '111',
+	// prevSlide: '222',
 	animationIsOn: false,
 
 };
+
+
+const scrollSlideWatcher = (dist) => {
+	console.log('////////////////////');
+	console.log(dist.item.dataset);
+	if ('scroll' in dist.item.dataset) {
+		const isScroll = dist.target.attributes['data-scroll'].value;
+		console.log('scrollSlideWatcher', isScroll)
+	}
+}
 
 toggleScrolbar(false);

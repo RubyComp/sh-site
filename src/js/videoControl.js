@@ -1,4 +1,3 @@
-
 const videoControl = (action, param) => {
 
 	const video = '#banner-video';

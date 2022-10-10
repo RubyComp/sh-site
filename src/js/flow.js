@@ -27,7 +27,7 @@ const toggleBurgerMenu = () => {
 // }
 
 const showNote = (data) => {
-	
+
 	let classList = 'note note_togguble';
 
 	if ('mode' in data && data.mode == 'success')
@@ -38,25 +38,36 @@ const showNote = (data) => {
 	$('#note').show();
 	
 }
+
 const showSplash = (place, hide, note) => {
 	$(hide).hide();
 	$(place).prepend(`<div class="splash"><span>${note.text}</span></div>`);
-	
 }
+
 const hideNote = (note) => {
 	$(note).hide();
 }
 
-
 $(document).keyup(function(e) {
-	if (e.key === 'Escape') 
+	if (e.key === 'Escape')
 		burgerMenu(false);
 });
 
-$('#burger').on('click', () => toggleBurgerMenu() );
-$('#mobile-burger').on('click', () => toggleBurgerMenu() );
-$('#blackout').on('click', () => burgerMenu(false) );
-$('.note_togguble').on('click', (e) => hideNote(e.currentTarget) );
+$('#burger').on('click',
+	() => toggleBurgerMenu()
+);
+
+$('#mobile-burger').on('click',
+	() => toggleBurgerMenu()
+);
+
+$('#blackout').on('click',
+	() => burgerMenu(false)
+);
+
+$('.note_togguble').on('click',
+	(e) => hideNote(e.currentTarget)
+);
 
 const togglePopup = (show) => {
 	$('body').toggleClass('popupShowed', show);

@@ -8,6 +8,7 @@ export const jsBuild = (cb) => {
 	gulp.src([
 		`${config.src.js}/_start.js`,
 		`${config.src.js}/init.js`,
+		`${config.src.js}/header.js`,
 		`${config.src.js}/bannerFlow.js`,
 		`${config.src.js}/videoControl.js`,
 		`${config.src.js}/flow.js`,

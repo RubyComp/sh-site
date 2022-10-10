@@ -181,13 +181,18 @@ body {
 }
 
 .news {
-
 	display: flex;
 	background-color: var(--passive-color-1a);
 	border-bottom: 2px solid var(--acent-color);
 	color: var(--text-color);
-	font-size: .8em;
+	// font-size: .8em;
 
+	// @media (max-width: @size-md) and (min-height: 600px) {
+	// 	font-size: 1em;
+	// }
+	// @media (max-width: @size-md) and (min-height: 720px) {
+	// 	font-size: 1.3em;
+	// }
 	&__content {
 		display: flex;
 		flex-direction: column;
@@ -235,20 +240,27 @@ body {
 
 .promo {
 	padding: 1.1em 0 1.1em 1.3em;
-	font-size: .8em;
+	// font-size: .8em;
 	margin-bottom: 1em;
+	// @media (max-width: @size-md) {
+	// 	font-size: 1em;
+	// }
 	&__body {
-		display: flex;
 		align-items: flex-start;
+		display: flex;
 		grid-gap: 2em;
+		justify-content: space-between;
 		width: 100%;
-    justify-content: space-between;
+
+		@media (max-width: @size-lg--) {
+			flex-direction: column;
+		}
 
 		@media (max-width: @size-md--) {
 			flex-direction: column;
-
 			.btn-wide {
-				max-width: 280px;
+				// max-width: 280px;
+				max-width: 22em;
 				width: 100%;
 			}
 		}
@@ -259,6 +271,11 @@ body {
 	.btn {
 		font-size: 1.12em;
 
+		@media (max-width: @size-md--) {
+			width: 100%;
+			font-size: 1.3em;
+			max-width: initial;
+		}
 		&:hover {
 			color: var(--passive-color);
 		}

@@ -66,6 +66,8 @@ $('#main-content').fullpage({
 		togglePopup(false);
 		clearBannerFlow();
 		titleWatcher(destination);
+		headerHandler(destination.anchor);
+		scrollSlideWatcher(destination)
 	},
 
 });

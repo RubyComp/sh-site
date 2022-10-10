@@ -20,7 +20,6 @@ $('#timeline a').on('click', function() {
 	$(this).closest('li').addClass('selected');
 })
 
-
 /*
  * Person popup placeholder
  */

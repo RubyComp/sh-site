@@ -4,10 +4,10 @@ const getSectionTitle = (section) => {
 
 const setTitle = (titleInfo) => {
 
-	titleHtml = '';
+	let titleHtml = '';
 
 	if (titleInfo.type == 'phone') {
-		titleHtml = '<a class="phone" href="tel:+74951234567">+7 495 123-45-67</a>'
+		titleHtml = config.phoneLinkHtml
 	} else {
 		titleHtml = titleInfo.html;
 	}
@@ -15,10 +15,11 @@ const setTitle = (titleInfo) => {
 	$('#title').html(titleHtml);
 
 }
+
 const titleWatcher = (section) => {
 
 	const title = getSectionTitle(section);
-	let titleInfo = '';
+	let titleInfo = {};
 
 	if (title) {
 		titleInfo = {'html': title.value}
