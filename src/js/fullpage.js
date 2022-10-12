@@ -19,6 +19,7 @@ $('#main-content').fullpage({
 	afterSlideLoad: function(section, origin, destination, direction){
 		console.log('%c afterSlideLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
+		window.animationIsOn = false;
 		
 	},
 
@@ -27,6 +28,7 @@ $('#main-content').fullpage({
 		customSlider.prevSection = fullpage_api.getActiveSection();
 		customSlider.prevSlide = fullpage_api.getActiveSlide();
 		customSlider.animationIsOn = true;
+		window.animationIsOn = true;
 		// console.log(customSlider);
 	},
 
@@ -34,6 +36,7 @@ $('#main-content').fullpage({
 		console.log('%c onSlideLeave', 'color: #3c3e41');
 		// console.log(destination);
 		customSlider.animationIsOn = true;
+		window.animationIsOn = true;
 
 		lockWatcher(destination);
 		timelineWatcher(section.anchor, destination.anchor);
@@ -44,6 +47,7 @@ $('#main-content').fullpage({
 	afterLoad: function(origin, destination, direction, trigger){
 		console.log('%c afterLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
+		window.animationIsOn = false;
 		// console.log(fullpage_api.getActiveSection(), fullpage_api.getActiveSlide());
 		// insideSliderCheck();
 		if (!config.firstVideoReseize) {
@@ -59,6 +63,7 @@ $('#main-content').fullpage({
 	afterSlideLoad: function(origin, destination, direction, trigger){
 		console.log('%c afterSlideLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
+		window.animationIsOn = false;
 		fullpage_api.setAllowScrolling(true);
 		scrollSlideWatcher(destination);
 	},
@@ -66,7 +71,8 @@ $('#main-content').fullpage({
 		console.log('onLeave, destination', destination);
 		// burgerWatcher(destination);
 		videoSliderWatcher(destination);
-		customSlider.animationIsOn = true;
+		customSlider.animationIsOn = true; /* todo: remove customSlider */
+		window.animationIsOn = true;
 		togglePopup(false);
 		clearBannerFlow();
 		titleWatcher(destination);

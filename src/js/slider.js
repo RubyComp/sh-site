@@ -200,19 +200,20 @@ const switchSlide = (move, wheel) => {
 const scrollBlockWatcher = (event) => {
 
 	// console.log('scrollBlockWatcher');
+	const slide = fullpage_api.getActiveSlide();
 
-	if (window.isScrollableSection && !window.isBlockScroll) {
+	if (window.isScrollableSection&& !window.isBlockScroll && slide  && !window.animationIsOn) {
 
 		window.isBlockScroll = true;
 		// console.log('SCROLL');
 
-		const slide = fullpage_api.getActiveSlide();
 		const curScrollBlock = $(slide.item).find('.scroll');
 		const curScrollValue = $(curScrollBlock).scrollTop();
 		const wheel = event.originalEvent.wheelDelta;
 		const moveUnit = config.scroll.value;
+		const block = curScrollBlock[0];
 
-		const scrollEnd = curScrollBlock[0].dataset.scroll;
+		const scrollEnd = ('dataset' in block) ? block.dataset.scroll : false;
 
 		if (scrollEnd) {
 
@@ -242,7 +243,7 @@ toggleScrolbar(false);
 
 $('.scroll').on('scroll', function(e) {
 
-	if (window.isScrollableSection) {
+	if (window.isScrollableSection && !window.animationIsOn) {
 		checkScrollEnd(e.target);
 	}
 })
