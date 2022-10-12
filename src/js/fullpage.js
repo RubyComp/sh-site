@@ -10,8 +10,11 @@ $('#main-content').fullpage({
 	slidesNavigation: true,
 	scrollHorizontally: true,
 	controlArrows: false,
-	slidesNavPosition: 'top',
+	// slidesNavPosition: 'top',
 	dragAndMove: true,
+	autoScrolling: true,
+	scrollOverflow: true,
+	normalScrollElements: '.scroll',
 
 	afterSlideLoad: function(section, origin, destination, direction){
 		console.log('%c afterSlideLoad', 'color: #3c3e41');
@@ -50,13 +53,14 @@ $('#main-content').fullpage({
 		if (destination.anchor == 'bojcovskij-klub') {
 			bannerFlow();
 		}
+		scrollSlideWatcher(destination);
 		
 	},
 	afterSlideLoad: function(origin, destination, direction, trigger){
 		console.log('%c afterSlideLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
 		fullpage_api.setAllowScrolling(true);
-
+		scrollSlideWatcher(destination);
 	},
 	onLeave: function(origin, destination, direction, trigger){
 		console.log('onLeave, destination', destination);
@@ -67,7 +71,10 @@ $('#main-content').fullpage({
 		clearBannerFlow();
 		titleWatcher(destination);
 		headerHandler(destination.anchor);
-		scrollSlideWatcher(destination)
 	},
+	onScrollOverflow: function( section, slide, position, direction){
+		console.log(section);
+		console.log("position: " + position);
+	}
 
 });

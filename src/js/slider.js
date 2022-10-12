@@ -1,7 +1,3 @@
-/*
- * Slider
- */
-
 const setHistorySection = (e) => {
 	const decade = e.target.attributes['data-value'].value;
 	const section = fullpage_api.getActiveSection();
@@ -89,15 +85,15 @@ const timelineWatcher = (sectionId, slideId) => {
 function lockWatcher(data) {
 
 	if ('skip' in data.item.dataset)
-		fullpage_api.setAllowScrolling(false,'down');
-		
+		fullpage_api.setAllowScrolling(false, 'down');
+
 }
 
 function skipWatcher(event) {
 
 	if (customSlider.animationIsOn) return;
-	
-	if (event.originalEvent.wheelDelta /120 < 0) {
+
+	if (event.originalEvent.wheelDelta / 120 < 0) {
 
 		const slide = fullpage_api.getActiveSlide();
 
@@ -105,7 +101,7 @@ function skipWatcher(event) {
 			fullpage_api.moveSectionDown();
 		}
 	}
-		
+
 }
 
 function insideSliderCheck(isFirst, item) {
@@ -119,31 +115,126 @@ function insideSliderCheck(isFirst, item) {
 		
 }
 
-$('#wrapper').bind('mousewheel', function(e){
-	skipWatcher(e);
-});
-
 $('.layer-next').on('click', function() {
 	fullpage_api.moveSlideRight();
 });
 
 
 const customSlider = {
-
-	// prevSection: '111',
-	// prevSlide: '222',
 	animationIsOn: false,
-
 };
 
+/**/
 
-const scrollSlideWatcher = (dist) => {
-	console.log('////////////////////');
-	console.log(dist.item.dataset);
-	if ('scroll' in dist.item.dataset) {
-		const isScroll = dist.target.attributes['data-scroll'].value;
-		console.log('scrollSlideWatcher', isScroll)
+const scrollSlideWatcher = () => {
+
+	const slide = fullpage_api.getActiveSlide();
+
+	if (slide && 'scroll' in slide.item.dataset) {
+		window.isScrollableSection = true;
+		fullpage_api.setAllowScrolling(false);
+	} else {
+		window.isScrollableSection = false;
+		fullpage_api.setAllowScrolling(true);
+	}
+
+}
+
+const scrollBlock = (block, scroll) => {
+
+	const time = config.scroll.time;
+
+	$(block).animate({ scrollTop: scroll }, time);
+
+	setTimeout(() => {
+		window.isBlockScroll = false;
+	}, time * 1.1);
+
+}
+
+const checkScrollEnd = (block) => {
+
+	setTimeout(function() {
+
+		const scrollTop = $(block).scrollTop();
+		const innerHeight = $(block).innerHeight();
+		const scrollHeight = $(block)[0].scrollHeight;
+
+		let pos = '';
+
+		if (scrollTop + innerHeight >= scrollHeight - 2) {
+			pos = 'end';
+		} else if (scrollTop === 0) {
+			pos = 'start';
+		}
+
+		$(block).attr('data-scroll', pos);
+
+	}, config.scroll.time);
+
+}
+
+const switchSlide = (move) => {
+
+	if (move == 'start') {
+		fullpage_api.moveSlideLeft();
+	} else if (move == 'end') {
+		fullpage_api.moveSlideRight();
+	}
+
+}
+
+const scrollBlockWatcher = (event) => {
+
+	// console.log('scrollBlockWatcher');
+
+	if (window.isScrollableSection && !window.isBlockScroll) {
+
+		window.isBlockScroll = true;
+		// console.log('SCROLL');
+
+		const slide = fullpage_api.getActiveSlide();
+		const curScrollBlock = $(slide.item).find('.scroll');
+		const curScrollValue = $(curScrollBlock).scrollTop();
+		const wheel = event.originalEvent.wheelDelta;
+		const moveUnit = config.scroll.value;
+
+		const scrollEnd = curScrollBlock[0].dataset.scroll;
+
+		if (scrollEnd) {
+
+			switchSlide(scrollEnd);
+			window.isBlockScroll = false;
+
+		}
+
+		let move = curScrollValue;
+
+		if (wheel < 0) {
+			move += moveUnit;
+		} else {
+			move -= moveUnit;
+		}
+
+		scrollBlock(curScrollBlock, move);
+		// checkScrollEnd(curScrollBlock);
+
 	}
 }
 
+
 toggleScrolbar(false);
+
+/**/
+
+$('.scroll').on('scroll', function(e) {
+
+	if (window.isScrollableSection) {
+		checkScrollEnd(e.target);
+	}
+})
+
+$('#wrapper').bind('mousewheel', function(e){
+	scrollBlockWatcher(e);
+	skipWatcher(e);
+});
