@@ -130,13 +130,28 @@ const scrollSlideWatcher = () => {
 
 	const slide = fullpage_api.getActiveSlide();
 
-	if (slide && 'scroll' in slide.item.dataset) {
-		window.isScrollableSection = true;
-		fullpage_api.setAllowScrolling(false);
-	} else {
-		window.isScrollableSection = false;
-		fullpage_api.setAllowScrolling(true);
+	if (slide) {
+
+		const scrollBlock = $(slide.item).find('.scroll');
+
+		const scrollHeight = $(scrollBlock).prop('scrollHeight');
+		const innerHeight = $(scrollBlock).innerHeight();
+	
+		const dif = innerHeight - scrollHeight;
+
+		if (dif > 2 || dif < -2) {
+	
+			if ('scroll' in slide.item.dataset) {
+				window.isScrollableSection = true;
+				fullpage_api.setAllowScrolling(false);
+			} else {
+				window.isScrollableSection = false;
+				fullpage_api.setAllowScrolling(true);
+			}
+	
+		}
 	}
+
 
 }
 
@@ -213,29 +228,32 @@ const scrollBlockWatcher = (event) => {
 		const moveUnit = config.scroll.value;
 		const block = curScrollBlock[0];
 
-		const scrollEnd = ('dataset' in block) ? block.dataset.scroll : false;
+		if (block) {
 
-		if (scrollEnd) {
+			const scrollEnd = ('dataset' in block) ? block.dataset.scroll : false;
 
-			switchSlide(scrollEnd, wheel);
-			window.isBlockScroll = false;
-
+			if (scrollEnd) {
+	
+				switchSlide(scrollEnd, wheel);
+				window.isBlockScroll = false;
+	
+			}
+	
+			let move = curScrollValue;
+	
+			if (wheel < 0) {
+				move += moveUnit;
+			} else {
+				move -= moveUnit;
+			}
+	
+			scrollBlock(curScrollBlock, move);
+			// checkScrollEnd(curScrollBlock);
 		}
 
-		let move = curScrollValue;
-
-		if (wheel < 0) {
-			move += moveUnit;
-		} else {
-			move -= moveUnit;
-		}
-
-		scrollBlock(curScrollBlock, move);
-		// checkScrollEnd(curScrollBlock);
 
 	}
 }
-
 
 toggleScrolbar(false);
 
