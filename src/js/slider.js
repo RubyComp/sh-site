@@ -217,7 +217,7 @@ const scrollBlockWatcher = (event) => {
 	// console.log('scrollBlockWatcher');
 	const slide = fullpage_api.getActiveSlide();
 
-	if (window.isScrollableSection&& !window.isBlockScroll && slide  && !window.animationIsOn) {
+	if (window.isScrollableSection && !window.isBlockScroll && slide  && !window.animationIsOn) {
 
 		window.isBlockScroll = true;
 		// console.log('SCROLL');
@@ -249,6 +249,8 @@ const scrollBlockWatcher = (event) => {
 	
 			scrollBlock(curScrollBlock, move);
 			// checkScrollEnd(curScrollBlock);
+		} else {
+			window.isBlockScroll = false;
 		}
 
 
@@ -261,12 +263,14 @@ toggleScrolbar(false);
 
 $('.scroll').on('scroll', function(e) {
 
+	console.log('on.scroll');
 	if (window.isScrollableSection && !window.animationIsOn) {
 		checkScrollEnd(e.target);
 	}
 })
 
-$('#wrapper').bind('mousewheel', function(e){
+$('#wrapper').bind('wheel mousewheel', function(e){
+	console.log('mousewheel');
 	scrollBlockWatcher(e);
 	skipWatcher(e);
 });

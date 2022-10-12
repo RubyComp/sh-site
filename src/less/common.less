@@ -34,8 +34,13 @@ body {
  */
 .slide-section {
 	padding-top: var(--header-size);
-	height: 100vh;
+	// height: 100vh;
+	height: 100%;
 	overflow: hidden;
+
+	&.banner {
+		height: initial;
+	}
 }
 .fp-tableCell {
 	vertical-align: baseline;

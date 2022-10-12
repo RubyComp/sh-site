@@ -10,7 +10,7 @@ $('#main-content').fullpage({
 	slidesNavigation: true,
 	scrollHorizontally: true,
 	controlArrows: false,
-	// slidesNavPosition: 'top',
+	slidesNavPosition: 'top',
 	dragAndMove: true,
 	autoScrolling: true,
 	// scrollOverflow: true,
