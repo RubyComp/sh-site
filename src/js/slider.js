@@ -174,12 +174,25 @@ const checkScrollEnd = (block) => {
 
 }
 
-const switchSlide = (move) => {
+const switchSlide = (move, wheel) => {
 
-	if (move == 'start') {
-		fullpage_api.moveSlideLeft();
-	} else if (move == 'end') {
-		fullpage_api.moveSlideRight();
+	const slide = fullpage_api.getActiveSlide();
+
+	if (move == 'start' && wheel > 0) {
+
+		if (slide.isFirst) {
+			fullpage_api.moveSectionUp();
+		} else {
+			fullpage_api.moveSlideLeft();
+		}
+
+	} else if (move == 'end' && wheel < 0) {
+
+		if (slide.isLasr) {
+			fullpage_api.moveSectionDown();
+		} else {
+			fullpage_api.moveSlideRight();
+		}
 	}
 
 }
@@ -203,7 +216,7 @@ const scrollBlockWatcher = (event) => {
 
 		if (scrollEnd) {
 
-			switchSlide(scrollEnd);
+			switchSlide(scrollEnd, wheel);
 			window.isBlockScroll = false;
 
 		}
