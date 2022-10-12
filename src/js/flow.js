@@ -72,3 +72,7 @@ $('.note_togguble').on('click',
 const togglePopup = (show) => {
 	$('body').toggleClass('popupShowed', show);
 }
+
+$('#aside-menu .menu a').on('click', () => {
+	burgerMenu(false);
+})
