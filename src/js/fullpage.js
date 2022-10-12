@@ -14,7 +14,7 @@ $('#main-content').fullpage({
 	dragAndMove: true,
 	autoScrolling: true,
 	// scrollOverflow: true,
-	normalScrollElements: '.scroll',
+	// normalScrollElements: '.scroll',
 
 	afterSlideLoad: function(section, origin, destination, direction){
 		console.log('%c afterSlideLoad', 'color: #3c3e41');

@@ -1,0 +1,115 @@
+const scrollSlideWatcher = () => {
+
+	const slide = fullpage_api.getActiveSlide();
+
+	if (slide) {
+
+		const block = $(slide.item).find('.scroll');
+		const scrollHeight = $(block).prop('scrollHeight');
+		const innerHeight = $(block).innerHeight();
+		const dif = innerHeight - scrollHeight;
+
+		if (Math.abs(dif) > 2) {
+	
+			let isScrollable = 'scroll' in slide.item.dataset;
+
+			window.isScrollableSection = isScrollable;
+			fullpage_api.setAllowScrolling(!isScrollable);
+	
+		}
+
+	}
+
+}
+
+const scrollBlock = (block, scroll) => {
+
+	const time = config.scroll.time;
+	window.isBlockScroll = true;
+
+	$(block).animate({ scrollTop: scroll }, time);
+
+	setTimeout(() => {
+		window.isBlockScroll = false;
+	}, time * 1.1);
+
+}
+
+const checkScrollEnd = (block) => {
+
+	setTimeout(() => {
+
+		const scrollTop = $(block).scrollTop();
+		const innerHeight = $(block).innerHeight();
+		const scrollHeight = $(block)[0].scrollHeight;
+
+		let pos = '';
+
+		if (scrollTop + innerHeight >= scrollHeight - 2) {
+			pos = 'end';
+		} else if (scrollTop === 0) {
+			pos = 'start';
+		}
+
+		$(block).attr('data-scroll', pos);
+
+	}, config.scroll.time);
+
+}
+
+const switchSlide = (move, wheel) => {
+
+	const slide = fullpage_api.getActiveSlide();
+
+	if (move == 'start' && wheel > 0) {
+
+		if (slide.isFirst)
+			fullpage_api.moveSectionUp();
+		else
+			fullpage_api.moveSlideLeft();
+
+
+	} else if (move == 'end' && wheel < 0) {
+
+		if (slide.isLasr)
+			fullpage_api.moveSectionDown();
+		else
+			fullpage_api.moveSlideRight();
+
+	}
+
+}
+
+const scrollBlockWatcher = (event) => {
+
+	const slide = fullpage_api.getActiveSlide();
+
+	if (window.isScrollableSection && !window.isBlockScroll && slide && !window.animationIsOn) {
+
+		window.isBlockScroll = true;
+
+		const block = $(slide.item).find('.scroll');
+		const curScrollValue = $(block).scrollTop();
+		const wheel = event.originalEvent.wheelDelta;
+		const moveUnit = config.scroll.value;
+		const blockItem = block[0];
+
+		if (blockItem) {
+
+			const scrollEnd = ('dataset' in blockItem) ? blockItem.dataset.scroll : false;
+
+			if (scrollEnd) {
+				switchSlide(scrollEnd, wheel);
+				window.isBlockScroll = false;
+			}
+	
+			let move = curScrollValue;
+			move += (wheel < 0) ? moveUnit : -moveUnit;
+			scrollBlock(block, move);
+
+		} else {
+			window.isBlockScroll = false;
+		}
+
+	}
+}

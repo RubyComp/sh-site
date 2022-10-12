@@ -7,10 +7,3 @@ const config = {
 		time: 310
 	}
 }
-
-$('.to-slide-top').each(function() {
-
-	const slide = $(this).closest('.section');
-	$(this).prependTo(slide);
-
-});

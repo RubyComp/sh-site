@@ -15,6 +15,7 @@ export const jsBuild = (cb) => {
 		`${config.src.js}/title.js`,
 		`${config.src.js}/placeholders.js`,
 		`${config.src.js}/slider.js`,
+		`${config.src.js}/scroll.js`,
 		`${config.src.js}/fullpage.js`,
 		`${config.src.js}/_end.js`,
 	])
