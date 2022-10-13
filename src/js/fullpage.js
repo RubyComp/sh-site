@@ -19,14 +19,14 @@ $('#main-content').fullpage({
 	// normalScrollElements: '.scroll',
 
 	afterSlideLoad: function(section, origin, destination, direction){
-		console.log('%c afterSlideLoad', 'color: #3c3e41');
+		// console.log('%c afterSlideLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
 		window.animationIsOn = false;
 		
 	},
 
 	beforeLeave: function(origin, destination, direction, trigger){
-		console.log('%c beforeLeave', 'color: #3c3e41');
+		// console.log('%c beforeLeave', 'color: #3c3e41');
 		customSlider.prevSection = fullpage_api.getActiveSection();
 		customSlider.prevSlide = fullpage_api.getActiveSlide();
 		customSlider.animationIsOn = true;
@@ -35,7 +35,7 @@ $('#main-content').fullpage({
 	},
 
 	onSlideLeave: function(section, origin, destination, direction){
-		console.log('%c onSlideLeave', 'color: #3c3e41');
+		// console.log('%c onSlideLeave', 'color: #3c3e41');
 		// console.log(destination);
 		customSlider.animationIsOn = true;
 		window.animationIsOn = true;
@@ -47,7 +47,7 @@ $('#main-content').fullpage({
 		togglePopup(false);
 	},
 	afterLoad: function(origin, destination, direction, trigger){
-		console.log('%c afterLoad', 'color: #3c3e41');
+		// console.log('%c afterLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
 		window.animationIsOn = false;
 		// insideSliderCheck();
@@ -62,14 +62,14 @@ $('#main-content').fullpage({
 		
 	},
 	afterSlideLoad: function(origin, destination, direction, trigger){
-		console.log('%c afterSlideLoad', 'color: #3c3e41');
+		// console.log('%c afterSlideLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
 		window.animationIsOn = false;
 		fullpage_api.setAllowScrolling(true);
 		scrollSlideWatcher(destination);
 	},
 	onLeave: function(origin, destination, direction, trigger){
-		console.log('onLeave, destination', destination);
+		// console.log('onLeave, destination', destination);
 		// burgerWatcher(destination);
 		videoSliderWatcher(destination);
 		customSlider.animationIsOn = true; /* todo: remove customSlider */
@@ -79,9 +79,9 @@ $('#main-content').fullpage({
 		titleWatcher(destination);
 		headerHandler(destination.anchor);
 	},
-	onScrollOverflow: function( section, slide, position, direction){
-		console.log(section);
-		console.log("position: " + position);
-	}
+	// onScrollOverflow: function( section, slide, position, direction){
+	// 	console.log(section);
+	// 	console.log("position: " + position);
+	// }
 
 });

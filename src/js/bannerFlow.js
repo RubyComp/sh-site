@@ -9,7 +9,7 @@ const bannerFlow = () => {
 
 	let timer = setInterval(function () {
 
-		console.log('counter', window.hideBannerCounter);
+		// console.log('counter', window.hideBannerCounter);
 
 		if (window.brakeHideBannerCounter) {
 			clearInterval(timer);

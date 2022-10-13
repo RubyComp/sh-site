@@ -1,6 +1,7 @@
 const scrollSlideWatcher = () => {
 
 	const slide = fullpage_api.getActiveSlide();
+	// debugger;
 
 	if (slide) {
 
@@ -16,6 +17,11 @@ const scrollSlideWatcher = () => {
 			window.isScrollableSection = isScrollable;
 			fullpage_api.setAllowScrolling(!isScrollable);
 	
+			if (isScrollable) {
+				const scrollBlock = $(slide.item).find('.scroll');
+				if (scrollBlock.length > 0)
+					checkScrollEnd(scrollBlock);
+			}
 		}
 
 	} else {

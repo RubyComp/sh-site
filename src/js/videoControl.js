@@ -50,7 +50,7 @@ videoControl('init');
 const setVideo = (item, file, format) => {
 	const video = `${file}.${format}`
 	$(item).html(`<source src="${video}" type="video/${format}">"`)
-	console.log(`Video ${item} is "${video}" now.`);
+	// console.log(`Video ${item} is "${video}" now.`);
 }
 
 const videoResizer = (item, videoSizes, videoPath, format) => {

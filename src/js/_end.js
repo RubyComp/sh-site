@@ -4,14 +4,14 @@ $('.to-slide-top').each(function() {
 });
 
 $('.scroll').on('scroll', function(e) {
-	console.log('on.scroll');
+	// console.log('on.scroll');
 	if (window.isScrollableSection && !window.animationIsOn) {
 		checkScrollEnd(e.target);
 	}
 })
 
 $('#wrapper').bind('wheel mousewheel', function(e){
-	console.log('mousewheel');
+	// console.log('mousewheel');
 	scrollBlockWatcher(e);
 	skipWatcher(e);
 });
