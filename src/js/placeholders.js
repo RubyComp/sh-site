@@ -3,7 +3,8 @@
  */
 $('[value="Записаться"]').on('click', function() {
 	const note = {
-		text: 'Заявка отправлена',
+		title: 'Cпасибо за заявку',
+		text: 'В ближайшее время наш сотрудник свяжется с&nbsp;вами.',
 		mode: 'success'
 	};
 	const form = $(this).closest('form');
@@ -19,13 +20,3 @@ $('#timeline a').on('click', function() {
 	$(this).closest('.time-line').find('li').removeClass('selected');
 	$(this).closest('li').addClass('selected');
 })
-
-/*
- * Person popup placeholder
- */
-$('.person-inter').on('click', function() {
-	togglePopup(true);
-});
-$('.close-popup').on('click', function() {
-	togglePopup(false);
-});

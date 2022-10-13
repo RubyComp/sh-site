@@ -680,7 +680,7 @@ h3 {
 			margin: .4em 0 .4em;
 		}
 		dd {
-			line-height: 1.12em;
+			line-height: 1.22em;
 		}
 
 		// > header {
@@ -705,6 +705,10 @@ h3 {
 			width: auto;
 		}
 	}
+}
+.shadow-article {
+	display: none;
+	visibility: hidden;
 }
 .person-inter {
 	cursor: help;
@@ -785,7 +789,7 @@ h3 {
 	background-color: var(--backdrop-color);
 	display: flex;
 	height: 100vh;
-	padding: var(--row-mini-unit) var(--left-column-width) var(--row-mini-unit) var(--column-unit) ;
+	padding: var(--row-mini-unit) calc(var(--left-column-width) * 2/3) var(--row-mini-unit) var(--column-unit) ;
 	pointer-events: all;
 	position: fixed;
 	right: -100%;
@@ -803,6 +807,19 @@ h3 {
 		height: 100%;
 		padding: var(--header-size) var(--column-unit) var(--row-mini-unit);
 	}
+
+	ul {
+		li {
+			line-height: 1.4em;
+			list-style: disc;
+			margin-bottom: 0.15em;
+			margin-left: 1.4em;
+		}
+	}
+	h4 {
+		margin-bottom: .2em;
+	}
+
 	&__content {
 		margin-bottom: .4em;
 		@media (min-width: @size-lg) and (max-width: @size-xg--) {
@@ -818,6 +835,7 @@ h3 {
 		}
 		h2 {
 			font-size: 1.2em;
+			letter-spacing: .01em;
 		}
 	}
 
@@ -923,9 +941,19 @@ h3 {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	font-weight: bold;
 	grid-gap: 1em;
 	justify-content: center;
+	line-height: 1.2em;
+	padding: 0 3em;
+	text-align: center;
+
+	&__title {
+		font-weight: bold;
+	}
+
+	&__text {
+		font-size: .9em;
+	}
 
 	&::before {
 		--size: calc(var(--column-unit) + var(--row-mini-unit));

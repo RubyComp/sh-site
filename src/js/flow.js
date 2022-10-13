@@ -41,7 +41,12 @@ const showNote = (data) => {
 
 const showSplash = (place, hide, note) => {
 	$(hide).hide();
-	$(place).prepend(`<div class="splash"><span>${note.text}</span></div>`);
+	$(place).prepend(`
+		<div class="splash">
+			<div class="splash__title">${note.title}</div>
+			<div class="splash__text">${note.text}</div>
+		</div>
+	`);
 }
 
 const hideNote = (note) => {
@@ -69,10 +74,35 @@ $('.note_togguble').on('click',
 	(e) => hideNote(e.currentTarget)
 );
 
-const togglePopup = (show) => {
+const togglePopup = (show, content) => {
+
+	if (content) {
+		$('#popup .popup__title h2').html(content.dt);
+		$('#popup .popup__title p').html(content.dd);
+		$('#popup .popup__text').html(content.text);
+	}
 	$('body').toggleClass('popupShowed', show);
+
 }
 
 $('#aside-menu .menu a').on('click', () => {
 	burgerMenu(false);
 })
+
+/* */
+
+$('.person-inter').on('click', function() {
+	const text = $(this).find('.shadow-article').html();
+	const dt = $(this).find('dt').html();
+	const dd = $(this).find('dd').html();
+
+	const content = {
+		dt: dt,
+		dd: dd,
+		text: text,
+	}
+	togglePopup(true, content);
+});
+$('.close-popup').on('click', function() {
+	togglePopup(false);
+});
