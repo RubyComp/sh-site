@@ -31,7 +31,7 @@ const scrollBlock = (block, scroll) => {
 
 	setTimeout(() => {
 		window.isBlockScroll = false;
-	}, time * 1.1);
+	}, time);
 
 }
 
@@ -39,9 +39,11 @@ const checkScrollEnd = (block) => {
 
 	setTimeout(() => {
 
-		const scrollTop = $(block).scrollTop();
-		const innerHeight = $(block).innerHeight();
-		const scrollHeight = $(block)[0].scrollHeight;
+		$block = $(block);
+
+		const scrollTop = $block.scrollTop();
+		const innerHeight = $block.innerHeight();
+		const scrollHeight = $block[0].scrollHeight;
 
 		let pos = '';
 

@@ -3,7 +3,7 @@ const config = {
 	firstVideoReseize: false,
 	phoneLinkHtml: '<a class="phone" href="tel:+74951234567">+7 495 123-45-67</a>',
 	scroll: {
-		value: 230,
-		time: 310
+		value: 240,
+		time: 240
 	}
 }

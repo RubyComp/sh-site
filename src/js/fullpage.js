@@ -48,7 +48,6 @@ $('#main-content').fullpage({
 		console.log('%c afterLoad', 'color: #3c3e41');
 		customSlider.animationIsOn = false;
 		window.animationIsOn = false;
-		// console.log(fullpage_api.getActiveSection(), fullpage_api.getActiveSlide());
 		// insideSliderCheck();
 		if (!config.firstVideoReseize) {
 			config.firstVideoReseize = true;
