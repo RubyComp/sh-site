@@ -18,6 +18,8 @@ const scrollSlideWatcher = () => {
 	
 		}
 
+	} else {
+		fullpage_api.setAllowScrolling(true);
 	}
 
 }

@@ -42,7 +42,8 @@ h3 {
 	font-size: var(--text-size-mega);
 }
 .ultra-title {
-  font-size: var(--text-size-ultra);
+  // font-size: var(--text-size-ultra);
+  font-size: 6em;
 }
 .monsto-title {
 	font-size: var(--text-size-monsto);
@@ -467,11 +468,11 @@ h3 {
 .side-title {
 	align-items: center;
 	display: flex;
-	height: 100vh;
+	height: 100%;
 	justify-content: center;
 	left: var(--column-unit);
 	letter-spacing: .06em;
-	padding-top: var(--header-size);
+	// padding-top: var(--header-size);
 	width: calc(var(--column-unit) * 2);
 
 	.side-title__text {
@@ -518,13 +519,12 @@ h3 {
 	&::before {
 		content: '';
 		background-color: var(--acent-color);
-		bottom: 0;
+		bottom: calc(var(--header-size) * -1);
 		display: block;
-		height: 50vh;
+		height: calc(50vh + var(--header-size));
 		position: absolute;
-		// right: 2px;
 		right: -7%;
-		transition: .8s;
+		transition: 0.8s;
 		width: 68%;
 	}
 
@@ -784,12 +784,13 @@ h3 {
 }
 
 .popup {
-	align-items: center;
+	// align-items: center;
+	align-items: flex-start;
 	backdrop-filter: var(--backdrop-blur);
 	background-color: var(--backdrop-color);
 	display: flex;
 	height: 100vh;
-	padding: var(--row-mini-unit) calc(var(--left-column-width) * 2/3) var(--row-mini-unit) var(--column-unit) ;
+	padding: calc(var(--header-size) + var(--row-unit)) calc(var(--left-column-width) * 2/3) var(--row-mini-unit) var(--column-unit) ;
 	pointer-events: all;
 	position: fixed;
 	right: -100%;

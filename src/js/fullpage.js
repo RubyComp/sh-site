@@ -13,6 +13,8 @@ $('#main-content').fullpage({
 	slidesNavPosition: 'top',
 	dragAndMove: true,
 	autoScrolling: true,
+	fitToSection: false,
+	paddingTop: 'var(--header-size)',
 	// scrollOverflow: true,
 	// normalScrollElements: '.scroll',
 
