@@ -20,30 +20,34 @@
 					p Стоимость месячного абонемента 4&nbsp;000&nbsp;руб <br>2&nbsp;занятия в&nbsp;неделю по&nbsp;2,5&nbsp;часа 
 
 			aside.info-2__aside
-				form.glass-form
+				form.glass-form(action="/", method="get")
 					div
 						fieldset.glass-form__main-fieldset
 							input(
 								type='text'
 								name='name'
+								id='name'
 								placeholder='Имя *'
 								required
 							)
 							input(
 								type='text'
 								name='phone'
+								id='phone'
 								placeholder='Телефон *'
 								required
 							)
 							input(
 								type='text'
 								name='email'
+								id='email'
 								placeholder='E-Mail *'
 								required
 							)
 							input(
 								type='text'
 								name='age'
+								id='age'
 								placeholder='Возраст *'
 								required
 							)
