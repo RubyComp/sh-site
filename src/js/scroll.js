@@ -90,7 +90,7 @@ const switchSlide = (move, wheel) => {
 
 }
 
-const scrollBlockWatcher = (wheel) => {
+const scrollBlockWatcher = (wheel, useDefault) => {
 
 	const slide = fullpage_api.getActiveSlide();
 
@@ -100,8 +100,18 @@ const scrollBlockWatcher = (wheel) => {
 
 		const block = $(slide.item).find('.scroll');
 		const curScrollValue = $(block).scrollTop();
-		// const moveUnit = config.scroll.value;
-		const moveUnit = wheel;
+
+		let moveUnit;
+		let move;
+		if (useDefault) {
+			moveUnit = config.scroll.value;
+			move = (wheel < 0) ? moveUnit : -moveUnit;
+		} else {
+			move = -wheel;
+		}
+
+		console.log(wheel, move);
+
 		const blockItem = block[0];
 
 		if (blockItem) {
@@ -112,10 +122,11 @@ const scrollBlockWatcher = (wheel) => {
 				switchSlide(scrollEnd, wheel);
 				window.isBlockScroll = false;
 			}
-	
-			let move = curScrollValue;
-			move += (wheel < 0) ? moveUnit : -moveUnit;
-			scrollBlock(block, move);
+			
+			const pos = curScrollValue + move;
+			// let move = curScrollValue;
+			// move += (wheel < 0) ? moveUnit : -moveUnit;
+			scrollBlock(block, pos);
 
 		} else {
 			window.isBlockScroll = false;

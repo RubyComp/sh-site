@@ -13,17 +13,17 @@ $('.scroll').on('scroll', function(e) {
 
 $('#wrapper').bind('wheel mousewheel', function(e){
 	// console.log('mousewheel');
-	scrollBlockWatcher(e.originalEvent.wheelDelta);
+	scrollBlockWatcher(e.originalEvent.wheelDelta, true);
 	skipWatcher(e);
 });
 
 
 $('#wrapper').on('swipeup',function (e,data){
-	scrollBlockWatcher(-60);
+	scrollBlockWatcher(-90);
 });
 
 $('#wrapper').on('swipedown',function (e,data){
-	scrollBlockWatcher(60);
+	scrollBlockWatcher(90);
 });
 
 const form = '#main-form';

@@ -62,18 +62,19 @@
 	&__body {
 		// grid-template-columns: var(--left-column-width) auto var(--left-column-width);
 		// padding-top: var(--header-size);
+		// height: 100%;
 		display: grid;
 		grid-template-columns: auto var(--left-column-width);
 		height: 100%;
-		// height: 100%;
 		left: 0;
+		max-height: calc(100vh - var(--header-size));
 		padding: 0 var(--column-mini-unit) 0;
 		position: absolute;
 		top: 0;
 		width: 100vw;
 		@media (max-width: @size-md--) {
 			grid-template-columns: auto;
-			padding-top: calc(var(--header-size) * 2.5);
+			padding-top: var(--header-size);
 		}
 	}
 
