@@ -19,11 +19,11 @@ $('#wrapper').bind('wheel mousewheel', function(e){
 
 
 $('#wrapper').on('swipeup',function (e,data){
-	scrollBlockWatcher(-90);
+	scrollBlockWatcher(-110);
 });
 
 $('#wrapper').on('swipedown',function (e,data){
-	scrollBlockWatcher(90);
+	scrollBlockWatcher(110);
 });
 
 const form = '#main-form';
