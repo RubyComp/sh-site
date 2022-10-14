@@ -47,12 +47,13 @@ $('#main-content').fullpage({
 		togglePopup(false);
 	},
 	afterLoad: function(origin, destination, direction, trigger){
-		// console.log('%c afterLoad', 'color: #3c3e41');
+		console.log('%c afterLoad', 'color: #3c3e41');
+		// debugger;
 		customSlider.animationIsOn = false;
 		window.animationIsOn = false;
 		// insideSliderCheck();
 		if (!config.firstVideoReseize) {
-			config.firstVideoReseize = true;
+			// config.firstVideoReseize = true;
 			videoWatcher();
 		}
 		if (destination.anchor == 'bojcovskij-klub') {

@@ -51,16 +51,11 @@ const videoControl = (action, param) => {
 
 	}
 }
-videoControl('init');
-
-const isMobile = window.mobileCheck();
-
-if (!isMobile) videoControl('sound-on');
 
 const setVideo = (item, file, format) => {
 	const video = `${file}.${format}`
-	$(item).html(`<source src="${video}" type="video/${format}">"`)
-	// console.log(`Video ${item} is "${video}" now.`);
+	$(item).html(`<source src="${video}" type="video/${format}">`)
+	console.log(`Video ${item} is "${video}" now.`);
 }
 
 const videoResizer = (item, videoSizes, videoPath, format) => {
@@ -80,7 +75,12 @@ const videoResizer = (item, videoSizes, videoPath, format) => {
 	setVideo(item, curVideo, format);
 }
 
+// const videoMontage = () => {
+// 	$('#placeholder_banner-video').html();
+// }
+
 const videoWatcher = () => {
+	// videoMontage();
 	videoResizer('#banner-video', [1280, 1920, 1921], 'resources/video/main-banner', 'mp4');
 	videoResizer('#about-video', [1024, 1920], 'resources/video/inside', 'mp4');
 }
@@ -95,4 +95,9 @@ const videoSliderWatcher = (dest) => {
 $('#banner-video-control .btn').on('click', (e) => {
 	videoControl(e.currentTarget.dataset.action);
 });
-// video.sound.on();
+
+videoControl('init');
+
+const isMobile = window.mobileCheck();
+
+if (!isMobile) videoControl('sound-on');

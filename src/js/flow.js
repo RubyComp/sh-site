@@ -45,6 +45,7 @@ const showNote = (data) => {
 }
 
 const showSplash = (place, hide, note) => {
+	// debugger;
 	$(hide).hide();
 	$(place).prepend(`
 		<div class="splash">

@@ -52,14 +52,21 @@ $(form).submit(function (event) {
 				mode: 'success',
 				time: '5000'
 			}
-			$(form).trigger('reset');
+			// $(form).trigger('reset');
+			const splashPlace = $(form).parent();
+			note = {
+				title: 'Заявка отправлена',
+				text: 'В ближайшее время наш сотрудник свяжется с вами',
+			}
+			showSplash(splashPlace, form, note)
+
 		} else {
 			note = {
 				text: 'Ошибка отправки формы',
 				mode: 'fail'
 			}
+			showNote(note);
 		}
-		showNote(note);
 	});
 
 	event.preventDefault();
