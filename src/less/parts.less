@@ -414,6 +414,7 @@ h3 {
 	}
 
 	&__note {
+		margin-left: .08em;
 		margin-top: .72em;
 	}
 	@media (max-width: @size-md--) {
@@ -702,6 +703,9 @@ h3 {
 			margin-top: calc(var(--img-size) / 10);
 		}
 		img {
+			@media (max-width: @size-xs--) {
+				box-shadow: calc(var(--move) * -1) var(--move) 0 0 var(--color);
+			}
 			// box-shadow: 0 0 0 var(--color);
 			box-shadow: var(--move) var(--move) 0 0 var(--color);
 			transition: .3s;
