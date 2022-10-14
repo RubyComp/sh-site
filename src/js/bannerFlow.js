@@ -16,8 +16,8 @@ const bannerFlow = () => {
 		}
 
 		if (window.hideBannerCounter >= 1) {
-			hideBannerFlow();
-			clearInterval(timer);
+			// hideBannerFlow();
+			// clearInterval(timer);
 		}
 
 		window.hideBannerCounter++;

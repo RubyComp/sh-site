@@ -57,9 +57,9 @@ $('#main-content').fullpage({
 			videoWatcher();
 			console.log('videoWatcher');
 		}
-		if (destination.anchor == 'bojcovskij-klub') {
-			bannerFlow();
-		}
+		// if (destination.anchor == 'bojcovskij-klub') {
+		// 	bannerFlow();
+		// }
 		scrollSlideWatcher(destination);
 		
 	},
@@ -78,7 +78,7 @@ $('#main-content').fullpage({
 		customSlider.animationIsOn = true; /* todo: remove customSlider */
 		window.animationIsOn = true;
 		togglePopup(false);
-		clearBannerFlow();
+		// clearBannerFlow();
 		titleWatcher(destination);
 		headerHandler(destination.anchor);
 	},

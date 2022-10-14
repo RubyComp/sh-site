@@ -1,7 +1,13 @@
-const videoControl = (action, param) => {
+const bannerVideoId = 'banner-video';
+const bannerVideo = '#' + bannerVideoId;
 
-	const video = '#banner-video';
-	const control = '#banner-video-control';
+const aboutVideoId = 'about-video';
+const aboutVideo = '#' + aboutVideoId;
+
+const videoControl = (videoId, action, param) => {
+
+	const video = '#' + videoId;
+	const control = video + '-control';
 
 	switch(action) {
 		case 'sound-on':
@@ -23,8 +29,8 @@ const videoControl = (action, param) => {
 			$(`${control} .btn-sound-on`).prop('disabled', false);
 			$(`${control} .btn-sound-off`).prop('disabled', false);
 			if (param != 'muted') {
-				videoControl('sound-on');
-				hideBannerFlow();
+				videoControl(videoId, 'sound-on');
+				// hideBannerFlow();
 			}
 			break
 	
@@ -34,25 +40,25 @@ const videoControl = (action, param) => {
 			$(`${control} .btn-pause`).hide();
 			$(`${control} .btn-sound-on`).prop('disabled', true);
 			$(`${control} .btn-sound-off`).prop('disabled', true);
-			clearBannerFlow();
+			// clearBannerFlow();
 			break
 	
 		case 'init':
-			videoControl('play', 'muted');
-			videoControl('sound-off');
+			videoControl(videoId, 'play', 'muted');
+			videoControl(videoId, 'sound-off');
 			$(control).show();
 			break
 
 	}
 }
 
-const setVideo = (item, file, format) => {
+const setVideo = (itemId, file, format) => {
 	const video = `${file}.${format}`
-	$(item).replaceWith(`<video id="${item}" class="banner__video" loop muted autoplay poster><source src="${video}" type="video/${format}"></video>`)
-	console.log(`Video ${item} is "${video}" now.`);
+	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay poster><source src="${video}" type="video/${format}"></video>`)
+	console.log(`Video #${itemId} is "${video}" now.`);
 }
 
-const videoMontage = (item, videoSizes, videoPath, format) => {
+const videoMontage = (itemId, videoSizes, videoPath, format) => {
 	let screenWidth = window.window.innerWidth;
 	let videoSize = '';
 
@@ -66,32 +72,35 @@ const videoMontage = (item, videoSizes, videoPath, format) => {
 		videoSize = videoSizes[videoSizes.length - 1];
 
 	const curVideo = `${videoPath}/${videoSize}`
-	setVideo(item, curVideo, format);
+	setVideo(itemId, curVideo, format);
 }
 
-// const videoMontage = () => {
-// 	$('#placeholder_banner-video').html();
+// const addVideoControll () => {
+
 // }
 
 const videoWatcher = () => {
-	// videoMontage();
-	videoMontage('#banner-video', [1280, 1920, 1921], 'resources/video/main-banner', 'mp4');
-	videoMontage('#about-video', [1024, 1920], 'resources/video/inside', 'mp4');
+
+	videoMontage(bannerVideoId, [1280, 1920, 1921], 'resources/video/main-banner', 'mp4');
+	videoMontage(aboutVideoId, [1024, 1920], 'resources/video/inside', 'mp4');
+	
+	videoControl(bannerVideoId, 'init');
+
 }
 
 const videoSliderWatcher = (dest) => {
 	const isVideo = $(dest.item).hasClass('auto-video');
 	if (isVideo) {
-		videoControl('play', 'muted');
+		videoControl(bannerVideoId, 'play', 'muted');
 	}
 }
 
 $('#banner-video-control .btn').on('click', (e) => {
-	videoControl(e.currentTarget.dataset.action);
+	videoControl(bannerVideoId, e.currentTarget.dataset.action);
 });
 
-videoControl('init');
+// videoControl(bannerVideo, 'init');
 
 const isMobile = window.mobileCheck();
 
-if (!isMobile) videoControl('sound-on');
+if (!isMobile) videoControl(bannerVideoId, 'sound-on');
