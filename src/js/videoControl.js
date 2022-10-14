@@ -23,6 +23,7 @@ const videoControl = (videoId, action, param) => {
 			break
 	
 		case 'play':
+
 			$(video).trigger('play');
 			$(`${control} .btn-pause`).show();
 			$(`${control} .btn-play`).hide();
@@ -32,6 +33,7 @@ const videoControl = (videoId, action, param) => {
 				videoControl(videoId, 'sound-on');
 				// hideBannerFlow();
 			}
+
 			break
 	
 		case 'pause':
@@ -44,9 +46,32 @@ const videoControl = (videoId, action, param) => {
 			break
 	
 		case 'init':
-			videoControl(videoId, 'play', 'muted');
-			videoControl(videoId, 'sound-off');
 			$(control).show();
+			$(`${control} .btn-pause`).show();
+			$(`${control} .btn-play`).hide();
+			$(`${control} .btn-sound-off`).hide();
+			// videoControl(videoId, 'play', 'muted');
+			// videoControl(videoId, 'sound-off');
+			// var clearVideo = document.getElementById(videoId);
+			// var playPromise = clearVideo.play();
+
+			// if (playPromise !== undefined) {
+			playPromise.then(_ => {
+				console.log('Automatic playback started!');
+				// Show playing UI.
+				$(video).trigger('play');
+				$(video).trigger('load');
+				$(`${control} .btn-sound-on`).prop('disabled', false);
+				$(`${control} .btn-sound-off`).prop('disabled', false);
+				if (param != 'muted') {
+					videoControl(videoId, 'sound-on');
+					// hideBannerFlow();
+				}
+			})
+			.catch(error => {
+				console.log('Auto-play was prevented', error);
+				// Show paused UI.
+			});
 			break
 
 	}
@@ -54,7 +79,7 @@ const videoControl = (videoId, action, param) => {
 
 const setVideo = (itemId, file, format) => {
 	const video = `${file}.${format}`
-	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay poster><source src="${video}" type="video/${format}"></video>`)
+	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" preload="none" loop muted autoplay poster><source src="${video}" type="video/${format}"></video>`)
 	console.log(`Video #${itemId} is "${video}" now.`);
 }
 
@@ -75,16 +100,16 @@ const videoMontage = (itemId, videoSizes, videoPath, format) => {
 	setVideo(itemId, curVideo, format);
 }
 
-// const addVideoControll () => {
-
-// }
-
 const videoWatcher = () => {
 
 	videoMontage(bannerVideoId, [1280, 1920, 1921], 'resources/video/main-banner', 'mp4');
 	videoMontage(aboutVideoId, [1024, 1920], 'resources/video/inside', 'mp4');
 	
 	videoControl(bannerVideoId, 'init');
+
+	const isMobile = window.mobileCheck();
+
+	if (!isMobile) videoControl(bannerVideoId, 'sound-on');
 
 }
 
@@ -98,9 +123,3 @@ const videoSliderWatcher = (dest) => {
 $('#banner-video-control .btn').on('click', (e) => {
 	videoControl(bannerVideoId, e.currentTarget.dataset.action);
 });
-
-// videoControl(bannerVideo, 'init');
-
-const isMobile = window.mobileCheck();
-
-if (!isMobile) videoControl(bannerVideoId, 'sound-on');
