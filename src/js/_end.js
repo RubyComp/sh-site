@@ -17,4 +17,42 @@ $('#wrapper').bind('wheel mousewheel', function(e){
 });
 
 
+const form = '#main-form';
+$(form).submit(function (event) {
+	const formData = {
+		name: $("#name").val(),
+		email: $("#email").val(),
+		phone: $("#phone").val(),
+		age: $("#age").val(),
+	};
+
+	$.ajax({
+		type: "POST",
+		url: "process.php",
+		data: formData,
+		dataType: "json",
+		encode: true,
+	}).done(function (data) {
+		console.log(data);
+
+		let note = {};
+		if (data.success) {
+			note = {
+				text: 'Cпасибо за заявку',
+				mode: 'success',
+				time: '5000'
+			}
+			$(form).trigger('reset');
+		} else {
+			note = {
+				text: 'Ошибка отправки формы',
+				mode: 'fail'
+			}
+		}
+		showNote(note);
+	});
+
+	event.preventDefault();
+});
+
 });

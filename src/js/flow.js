@@ -36,7 +36,12 @@ const showNote = (data) => {
 	$("#item").attr('class', classList);
 	$('#note .note__content').text(data.text);
 	$('#note').show();
-	
+
+	if (data.time) {
+		setTimeout(() => {
+			$('#note').hide();
+		}, data.time);
+	}
 }
 
 const showSplash = (place, hide, note) => {
