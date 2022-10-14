@@ -20,7 +20,7 @@
 					p Стоимость месячного абонемента 4&nbsp;000&nbsp;руб <br>2&nbsp;занятия в&nbsp;неделю по&nbsp;2,5&nbsp;часа 
 
 			aside.info-2__aside
-				form#main-form.glass-form(action="/", method="get")
+				form#main-form.glass-form(action="/process.php", method="get")
 					div
 						fieldset.glass-form__main-fieldset
 							input(
@@ -60,6 +60,7 @@
 							label(for='legal').checkbox
 								input(
 									type='checkbox'
+									name='legal'
 									id='legal'
 									required
 								)
@@ -67,9 +68,9 @@
 								label(for='legal')
 									p согласен на&nbsp;обработку своих персональных данных
 								p
-									a(href='/') Политика конфиденциальности
+									a(href='upload/Политика_защиты_и_обработки_персональных_данных.pdf', target='_blank') Политика конфиденциальности
 						div
 							input.btn(
-								type='button'
+								type='submit'
 								value='Записаться'
 							)

@@ -55,4 +55,7 @@ $(form).submit(function (event) {
 	event.preventDefault();
 });
 
+const selector = document.getElementById('phone');
+Inputmask({'mask': '+9 (999) 999-9999'}).mask(selector);
+
 });
