@@ -50,29 +50,12 @@ const videoControl = (videoId, action, param) => {
 			$(`${control} .btn-pause`).show();
 			$(`${control} .btn-play`).hide();
 			$(`${control} .btn-sound-off`).hide();
-			// videoControl(videoId, 'play', 'muted');
-			// videoControl(videoId, 'sound-off');
-			// var clearVideo = document.getElementById(videoId);
-			// var playPromise = '';
-			// if (playPromise !== undefined) {
-				
-			(_ => {
-	
-				console.log('Automatic playback started!');
-				// Show playing UI.
-				$(video).trigger('play');
-				$(video).trigger('load');
-				$(`${control} .btn-sound-on`).prop('disabled', false);
-				$(`${control} .btn-sound-off`).prop('disabled', false);
-				if (param != 'muted') {
-					videoControl(videoId, 'sound-on');
-					// hideBannerFlow();
-				}
-			})
-			.catch(error => {
-				console.log('Auto-play was prevented', error);
-				// Show paused UI.
-			});
+
+			videoControl(videoId, 'play', 'muted');
+			
+			$(`${control} .btn-sound-on`).prop('disabled', false);
+			$(`${control} .btn-sound-off`).prop('disabled', false);
+
 			break
 
 	}
@@ -80,7 +63,7 @@ const videoControl = (videoId, action, param) => {
 
 const setVideo = (itemId, file, format) => {
 	const video = `${file}.${format}`
-	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" preload="none" loop muted autoplay poster><source src="${video}" type="video/${format}"></video>`)
+	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay poster><source src="${video}" type="video/${format}"></video>`)
 	console.log(`Video #${itemId} is "${video}" now.`);
 }
 
@@ -108,9 +91,8 @@ const videoWatcher = () => {
 	
 	videoControl(bannerVideoId, 'init');
 
-	const isMobile = window.mobileCheck();
-
-	if (!isMobile) videoControl(bannerVideoId, 'sound-on');
+	// const isMobile = window.mobileCheck();
+	// if (!isMobile) videoControl(bannerVideoId, 'sound-on');
 
 }
 
