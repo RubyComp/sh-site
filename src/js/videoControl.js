@@ -15,15 +15,14 @@ const videoControl = (videoId, action, param) => {
 			$(`${control} .btn-sound-off`).show();
 			$(`${control} .btn-sound-on`).hide();
 			break
-	
+
 		case 'sound-off':
 			$(video).prop('muted', true);
 			$(`${control} .btn-sound-on`).show();
 			$(`${control} .btn-sound-off`).hide();
 			break
-	
-		case 'play':
 
+		case 'play':
 			$(video).trigger('play');
 			$(`${control} .btn-pause`).show();
 			$(`${control} .btn-play`).hide();
@@ -35,7 +34,7 @@ const videoControl = (videoId, action, param) => {
 			}
 
 			break
-	
+
 		case 'pause':
 			$(video).trigger('pause');
 			$(`${control} .btn-play`).show();
@@ -44,7 +43,7 @@ const videoControl = (videoId, action, param) => {
 			$(`${control} .btn-sound-off`).prop('disabled', true);
 			// clearBannerFlow();
 			break
-	
+
 		case 'init':
 			$(control).show();
 			$(`${control} .btn-pause`).show();
@@ -63,7 +62,7 @@ const videoControl = (videoId, action, param) => {
 
 const setVideo = (itemId, file, format) => {
 	const video = `${file}.${format}`
-	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay poster><source src="${video}" type="video/${format}"></video>`)
+	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay><source src="${video}" type="video/${format}"></video>`)
 	console.log(`Video #${itemId} is "${video}" now.`);
 }
 
@@ -88,7 +87,7 @@ const videoWatcher = () => {
 
 	videoMontage(bannerVideoId, [1280, 1920, 1921], 'resources/video/main-banner', 'mp4');
 	videoMontage(aboutVideoId, [1024, 1920], 'resources/video/inside', 'mp4');
-	
+
 	videoControl(bannerVideoId, 'init');
 
 	// const isMobile = window.mobileCheck();
