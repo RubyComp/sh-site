@@ -218,7 +218,7 @@ h3 {
 		--btn-width: calc(var(--column-unit) * 3.15);
 	}
 	@media (max-width: @size-xs--) {
-		--btn-height: calc(var(--row-mini-unit) * .8);
+		--btn-height: calc(var(--row-mini-unit) * .92);
 		--btn-width: calc(var(--column-unit) + 32px);
 	}
 	@media (max-width: @size-md--) {
@@ -351,6 +351,7 @@ h3 {
 	.checkbox {
 		cursor: pointer;
 		font-size: 360%;
+		font-size: 2.8em;
 
 		input[type="checkbox"] {
 			display: grid;
@@ -641,7 +642,7 @@ h3 {
 		}
 	}
 	@media (max-width: @size-xs--) {
-		--img-size: calc(var(--column-unit) * 5);
+		--img-size: calc(var(--column-unit) * 8);
 	}
 
 	&__item {
@@ -670,7 +671,7 @@ h3 {
 		
 		}
 		@media (max-width: @size-xs--) {
-			font-size: var(--text-size-compact);
+			font-size: 1.4em;
 		}
 	
 
@@ -682,6 +683,9 @@ h3 {
 		}
 		dd {
 			line-height: 1.22em;
+			@media (max-width: @size-xs--) {
+				line-height: 1.32em;
+			}
 		}
 
 		// > header {
@@ -787,7 +791,7 @@ h3 {
 .popup {
 	// align-items: center;
 	align-items: flex-start;
-	backdrop-filter: var(--backdrop-blur);
+	// backdrop-filter: var(--backdrop-blur);
 	background-color: var(--backdrop-color);
 	display: flex;
 	height: 100vh;
@@ -801,7 +805,7 @@ h3 {
 	width: calc(var(--left-column-width-full) * 3);
 
 	@media (min-width: @size-lg) and (max-width: @size-xg--) {
-    padding-right: var(--column-unit);
+		padding-right: var(--column-unit);
 	}
 
 	@media (max-width: @size-md--) {
@@ -809,8 +813,14 @@ h3 {
 		height: 100%;
 		padding: calc(var(--header-size) + var(--row-unit) / 2) var(--column-unit) var(--row-mini-unit);
 	}
-	@media (max-width: @size-md--) and (min-height: 720px) {
+	@media (max-width: @size-md--) {
+		font-size: 1.1em;
+	}
+	@media (max-width: @size-md--) and (min-height: 640px) {
 		font-size: 1.2em;
+	}
+	@media (max-width: @size-md--) and (min-height: 760px) {
+		font-size: 1.4em;
 	}
 
 	ul {
@@ -905,7 +915,7 @@ h3 {
 .note {
 	// TODO Fix dimnamic size
 	align-items: center;
-	backdrop-filter: var(--backdrop-blur);
+	// backdrop-filter: var(--backdrop-blur);
 	background-color: var(--backdrop-color);
 	background: #000000ad;
 	bottom: calc(var(--row-unit) * .5);

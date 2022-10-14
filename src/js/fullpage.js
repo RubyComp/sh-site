@@ -53,8 +53,9 @@ $('#main-content').fullpage({
 		window.animationIsOn = false;
 		// insideSliderCheck();
 		if (!config.firstVideoReseize) {
-			// config.firstVideoReseize = true;
+			config.firstVideoReseize = true;
 			videoWatcher();
+			console.log('videoWatcher');
 		}
 		if (destination.anchor == 'bojcovskij-klub') {
 			bannerFlow();
