@@ -55,9 +55,9 @@ const videoControl = (videoId, action, param) => {
 			// var clearVideo = document.getElementById(videoId);
 			// var playPromise = '';
 			// if (playPromise !== undefined) {
-
+				
 			(_ => {
-
+	
 				console.log('Automatic playback started!');
 				// Show playing UI.
 				$(video).trigger('play');
@@ -69,6 +69,10 @@ const videoControl = (videoId, action, param) => {
 					// hideBannerFlow();
 				}
 			})
+			.catch(error => {
+				console.log('Auto-play was prevented', error);
+				// Show paused UI.
+			});
 			break
 
 	}

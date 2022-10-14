@@ -62,6 +62,9 @@ $('#main-content').fullpage({
 		// }
 		scrollSlideWatcher(destination);
 		
+		if (destination.anchor == 'bojcovskij-klub') {
+			$('#main-content').css('transform', 'translate3d(0px, 0px, 0px)');
+		}
 	},
 	afterSlideLoad: function(origin, destination, direction, trigger){
 		// console.log('%c afterSlideLoad', 'color: #3c3e41');
@@ -82,9 +85,9 @@ $('#main-content').fullpage({
 		titleWatcher(destination);
 		headerHandler(destination.anchor);
 
-		if (destination.anchor == 'bojcovskij-klub') {
-			$('#main-content').css('transform', 'translate3d(0px, 0px, 0px)');
-		}
+		// if (destination.anchor == 'bojcovskij-klub') {
+		// 	$('#main-content').css('transform', 'translate3d(0px, 0px, 0px)');
+		// }
 	},
 	// onScrollOverflow: function( section, slide, position, direction){
 	// 	console.log(section);
