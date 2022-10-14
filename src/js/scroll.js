@@ -90,7 +90,7 @@ const switchSlide = (move, wheel) => {
 
 }
 
-const scrollBlockWatcher = (event) => {
+const scrollBlockWatcher = (wheel) => {
 
 	const slide = fullpage_api.getActiveSlide();
 
@@ -100,8 +100,8 @@ const scrollBlockWatcher = (event) => {
 
 		const block = $(slide.item).find('.scroll');
 		const curScrollValue = $(block).scrollTop();
-		const wheel = event.originalEvent.wheelDelta;
-		const moveUnit = config.scroll.value;
+		// const moveUnit = config.scroll.value;
+		const moveUnit = wheel;
 		const blockItem = block[0];
 
 		if (blockItem) {

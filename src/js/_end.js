@@ -10,14 +10,24 @@ $('.scroll').on('scroll', function(e) {
 	}
 })
 
+
 $('#wrapper').bind('wheel mousewheel', function(e){
 	// console.log('mousewheel');
-	scrollBlockWatcher(e);
+	scrollBlockWatcher(e.originalEvent.wheelDelta);
 	skipWatcher(e);
 });
 
 
+$('#wrapper').on('swipeup',function (e,data){
+	scrollBlockWatcher(-60);
+});
+
+$('#wrapper').on('swipedown',function (e,data){
+	scrollBlockWatcher(60);
+});
+
 const form = '#main-form';
+
 $(form).submit(function (event) {
 	const formData = {
 		name: $("#name").val(),
@@ -59,3 +69,7 @@ const selector = document.getElementById('phone');
 Inputmask({'mask': '+9 (999) 999-9999'}).mask(selector);
 
 });
+
+// function onSubmit(token) {
+// 	document.getElementById(form).submit();
+// }
