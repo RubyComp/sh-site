@@ -81,6 +81,10 @@ $('#main-content').fullpage({
 		// clearBannerFlow();
 		titleWatcher(destination);
 		headerHandler(destination.anchor);
+
+		if (destination.anchor == 'bojcovskij-klub') {
+			$('#main-content').css('transform', 'translate3d(0px, 0px, 0px)');
+		}
 	},
 	// onScrollOverflow: function( section, slide, position, direction){
 	// 	console.log(section);
