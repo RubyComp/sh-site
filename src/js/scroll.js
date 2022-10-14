@@ -103,14 +103,13 @@ const scrollBlockWatcher = (wheel, useDefault) => {
 
 		let moveUnit;
 		let move;
+
 		if (useDefault) {
 			moveUnit = config.scroll.value;
 			move = (wheel < 0) ? moveUnit : -moveUnit;
 		} else {
 			move = -wheel;
 		}
-
-		console.log(wheel, move);
 
 		const blockItem = block[0];
 
