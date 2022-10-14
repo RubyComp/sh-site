@@ -91,12 +91,13 @@
 	
 
 	.menu-opened & {
-	  --color: var(--acent-color);
+	  // --color: var(--acent-color);
+		--color: var(--text-color);
 
-		&:hover  {
-			--color: var(--text-color);
-			border-color: transparent;
-		}
+		// &:hover  {
+		// 	--color: var(--text-color);
+		// 	border-color: transparent;
+		// }
 
 		hr {
 
@@ -144,6 +145,12 @@
 	user-select: text;
 	width: 100vw;
 	z-index: 200;
+
+	&__logo-link {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
 
 	.burger__container {
 		position: static;
