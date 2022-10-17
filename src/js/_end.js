@@ -72,6 +72,19 @@ Inputmask({'mask': '+9 (999) 999-9999'}).mask(selector);
 
 });
 
-// function onSubmit(token) {
-// 	document.getElementById(form).submit();
+// let audioPlaying = true,
+// 	backgroundAudio, browser;
+
+// browser = navigator.userAgent.toLowerCase();
+
+// const test = '/resources/sound.mp3';
+
+// $(`<audio src="${test}" loop></audio>`).prependTo('body');
+
+// if (!browser.indexOf('firefox') > -1) {
+// 	$(`<embed id="background" src="${test}" autostart="1"></embed>`).prependTo('body');
+// 	background = setInterval(function() {
+// 		$('#background').remove();
+// 		$(`<embed id="background" src="${test}"></embed>`).prependTo('body');
+// 	}, 120000); // 120000 is the duration of your audio which in this case 2 mins.
 // }
