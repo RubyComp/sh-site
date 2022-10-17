@@ -62,7 +62,7 @@ const videoControl = (videoId, action, param) => {
 
 const setVideo = (itemId, file, format) => {
 	const video = `${file}.${format}`
-	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay><source src="${video}" type="video/${format}"></video>`)
+	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay><source src="${video}" type="video/${format}" playsinline="true" disablePictureInPicture="true"></video>`)
 	console.log(`Video #${itemId} is "${video}" now.`);
 }
 
