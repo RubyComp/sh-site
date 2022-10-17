@@ -20,8 +20,9 @@ h2 {
 	font-size: var(--text-size-huge);
 }
 h3 {
-	font-size: var(--text-size-large);
+	display: inline-block;
 	font-size: 1.32em;
+	font-size: var(--text-size-large);
 	line-height: 1.52em;
 	position: relative;
 	z-index: 2;
@@ -30,12 +31,13 @@ h3 {
 		background-color: var(--acent-color);
 		content: '';
 		display: block;
-		height: .54em;
-		left: -.76em;
+		height: 0.54em;
+		left: -0.6em;
+		min-width: 3em;
 		position: absolute;
 		top: .88em;
-		width: 7em;
-		z-index: -1; // TODO not sure
+		width: 90%;
+		z-index: -1;
 	}
 }
 .mega-title {
