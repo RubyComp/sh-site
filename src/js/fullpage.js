@@ -48,6 +48,7 @@ $('#main-content').fullpage({
 	},
 	afterLoad: function(origin, destination, direction, trigger){
 		console.log('%c afterLoad', 'color: #3c3e41');
+		console.log('destination', destination);
 		// debugger;
 		customSlider.animationIsOn = false;
 		window.animationIsOn = false;
