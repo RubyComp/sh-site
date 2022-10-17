@@ -47,11 +47,6 @@ $(form).submit(function (event) {
 
 		let note = {};
 		if (data.success) {
-			note = {
-				text: 'Cпасибо за заявку',
-				mode: 'success',
-				time: '5000'
-			}
 			// $(form).trigger('reset');
 			const splashPlace = $(form).parent();
 			note = {
