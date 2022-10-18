@@ -77,7 +77,7 @@ $('#main-content').fullpage({
 	onLeave: function(origin, destination, direction, trigger){
 		// console.log('onLeave, destination', destination);
 		// burgerWatcher(destination);
-		// videoSliderWatcher(destination);
+		videoSliderWatcher(destination);
 		// clearBannerFlow();
 		customSlider.animationIsOn = true; /* todo: remove customSlider */
 		window.animationIsOn = true;

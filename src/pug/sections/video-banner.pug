@@ -9,7 +9,12 @@
 	.banner__body
 
 		aside.banner__first-aside
-			include ../parts/btns/cta-1-wide.pug
+			#banner-video-control
+				.btn-set-compact
+					include ../parts/btns/pause-compact.pug
+					include ../parts/btns/play-compact.pug
+					include ../parts/btns/sound-on-compact.pug
+					include ../parts/btns/sound-off-compact.pug
 
 		.banner__content-container
 		
@@ -24,12 +29,7 @@
 				//- 	a.btn.btn-glass.btn-video.btn-start Смотреть видео
 
 		aside.banner__second-aside
-			#banner-video-control
-				.btn-set-compact
-					include ../parts/btns/pause-compact.pug
-					include ../parts/btns/play-compact.pug
-					include ../parts/btns/sound-on-compact.pug
-					include ../parts/btns/sound-off-compact.pug
 
+			include ../parts/btns/cta-1-wide.pug
 			include ../parts/phone.pug
 			include ../modules/social.pug
