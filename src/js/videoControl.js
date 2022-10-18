@@ -66,12 +66,26 @@ const setVideo = (itemId, file, format) => {
 	console.log(`Video #${itemId} is "${video}" now.`);
 }
 
-const videoMontage = (itemId, videoSizes, videoPath, format) => {
+const videoMounting = (itemId, videoSizesAll, videoPath, format) => {
 	let screenWidth = window.window.innerWidth;
+	let screenHeight = window.window.innerHeight;
 	let videoSize = '';
 
+	let orientation = (window.window.innerWidth > window.window.innerHeight) ? 'horizontal' : 'vertical';
+	let namePrefix = '';
+	let screenSize;
+
+	if (orientation == 'vertical' && videoSizesAll[1]) {
+		screenSize = screenHeight;
+		videoSizes = videoSizesAll[1];
+		namePrefix = 'x';
+	} else {
+		screenSize = screenWidth;
+		videoSizes = videoSizesAll[0];
+	}
+
 	videoSizes.some( (size) => {
-		isGoodSize = size >= screenWidth;
+		isGoodSize = size >= screenSize;
 		videoSize = isGoodSize ? size : false;
 		return isGoodSize;
 	});
@@ -79,19 +93,17 @@ const videoMontage = (itemId, videoSizes, videoPath, format) => {
 	if (!videoSize)
 		videoSize = videoSizes[videoSizes.length - 1];
 
-	const curVideo = `${videoPath}/${videoSize}`
+	const curVideo = `${videoPath}/${namePrefix}${videoSize}`;
+
 	setVideo(itemId, curVideo, format);
 }
 
 const videoWatcher = () => {
 
-	videoMontage(bannerVideoId, [1280, 1920, 1921], 'resources/video/main-banner', 'mp4');
-	videoMontage(aboutVideoId, [1024, 1920], 'resources/video/inside', 'mp4');
+	videoMounting(bannerVideoId, [[1280, 1920, 1921], [960, 1280, 1920]], 'resources/video/main-banner', 'mp4');
+	videoMounting(aboutVideoId, [[1024, 1920]], 'resources/video/inside', 'mp4');
 
 	videoControl(bannerVideoId, 'init');
-
-	// const isMobile = window.mobileCheck();
-	// if (!isMobile) videoControl(bannerVideoId, 'sound-on');
 
 }
 
