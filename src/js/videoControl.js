@@ -95,12 +95,12 @@ const videoWatcher = () => {
 
 }
 
-const videoSliderWatcher = (dest) => {
-	const isVideo = $(dest.item).hasClass('auto-video');
-	if (isVideo) {
-		videoControl(bannerVideoId, 'play', 'muted');
-	}
-}
+// const videoSliderWatcher = (dest) => {
+// 	const isVideo = $(dest.item).hasClass('auto-video');
+// 	if (isVideo) {
+// 		videoControl(bannerVideoId, 'play', 'muted');
+// 	}
+// }
 
 $('#banner-video-control .btn').on('click', (e) => {
 	videoControl(bannerVideoId, e.currentTarget.dataset.action);

@@ -47,8 +47,8 @@ $('#main-content').fullpage({
 		togglePopup(false);
 	},
 	afterLoad: function(origin, destination, direction, trigger){
-		console.log('%c afterLoad', 'color: #3c3e41');
-		console.log('destination', destination);
+		// console.log('%c afterLoad', 'color: #3c3e41');
+		// console.log('destination', destination);
 		// debugger;
 		customSlider.animationIsOn = false;
 		window.animationIsOn = false;
@@ -77,12 +77,12 @@ $('#main-content').fullpage({
 	onLeave: function(origin, destination, direction, trigger){
 		// console.log('onLeave, destination', destination);
 		// burgerWatcher(destination);
-		burgerMenu(false);
-		videoSliderWatcher(destination);
+		// videoSliderWatcher(destination);
+		// clearBannerFlow();
 		customSlider.animationIsOn = true; /* todo: remove customSlider */
 		window.animationIsOn = true;
+		burgerMenu(false);
 		togglePopup(false);
-		// clearBannerFlow();
 		titleWatcher(destination);
 		headerHandler(destination.anchor);
 
