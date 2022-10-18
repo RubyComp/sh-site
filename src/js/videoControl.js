@@ -67,7 +67,7 @@ const videoControl = (videoId, action, param) => {
 const setVideo = (itemId, file, format) => {
 	const video = `${file}.${format}`;
 	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay playsinline="true" disablePictureInPicture="true"><source src="${video}" type="video/${format}"></video>`)
-	console.log(`Video #${itemId} is "${video}" now.`);
+	// console.log(`Video #${itemId} is "${video}" now.`);
 }
 
 const videoMounting = (itemId, videoSizesAll, videoFolder, format) => {
