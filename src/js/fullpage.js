@@ -20,16 +20,16 @@ $('#main-content').fullpage({
 
 	afterSlideLoad: function(section, origin, destination, direction){
 		// console.log('%c afterSlideLoad', 'color: #3c3e41');
-		customSlider.animationIsOn = false;
+		// customSlider.animationIsOn = false;
 		window.animationIsOn = false;
 		
 	},
 
 	beforeLeave: function(origin, destination, direction, trigger){
 		// console.log('%c beforeLeave', 'color: #3c3e41');
-		customSlider.prevSection = fullpage_api.getActiveSection();
-		customSlider.prevSlide = fullpage_api.getActiveSlide();
-		customSlider.animationIsOn = true;
+		// customSlider.prevSection = fullpage_api.getActiveSection();
+		// customSlider.prevSlide = fullpage_api.getActiveSlide();
+		// customSlider.animationIsOn = true;
 		window.animationIsOn = true;
 		// console.log(customSlider);
 	},
@@ -37,7 +37,7 @@ $('#main-content').fullpage({
 	onSlideLeave: function(section, origin, destination, direction){
 		// console.log('%c onSlideLeave', 'color: #3c3e41');
 		// console.log(destination);
-		customSlider.animationIsOn = true;
+		// customSlider.animationIsOn = true;
 		window.animationIsOn = true;
 
 		lockWatcher(destination);
@@ -49,14 +49,13 @@ $('#main-content').fullpage({
 	afterLoad: function(origin, destination, direction, trigger){
 		// console.log('%c afterLoad', 'color: #3c3e41');
 		// console.log('destination', destination);
-		// debugger;
-		customSlider.animationIsOn = false;
-		window.animationIsOn = false;
+		// customSlider.animationIsOn = false;
 		// insideSliderCheck();
+		window.animationIsOn = false;
+
 		if (!config.firstVideoReseize) {
 			config.firstVideoReseize = true;
 			videoWatcher();
-			console.log('videoWatcher');
 		}
 		// if (destination.anchor == 'bojcovskij-klub') {
 		// 	bannerFlow();
@@ -69,7 +68,7 @@ $('#main-content').fullpage({
 	},
 	afterSlideLoad: function(origin, destination, direction, trigger){
 		// console.log('%c afterSlideLoad', 'color: #3c3e41');
-		customSlider.animationIsOn = false;
+		// customSlider.animationIsOn = false;
 		window.animationIsOn = false;
 		fullpage_api.setAllowScrolling(true);
 		scrollSlideWatcher(destination);
@@ -77,10 +76,10 @@ $('#main-content').fullpage({
 	onLeave: function(origin, destination, direction, trigger){
 		// console.log('onLeave, destination', destination);
 		// burgerWatcher(destination);
-		videoSliderWatcher(destination);
 		// clearBannerFlow();
-		customSlider.animationIsOn = true; /* todo: remove customSlider */
+		// customSlider.animationIsOn = true; /* todo: remove customSlider */
 		window.animationIsOn = true;
+		videoSliderWatcher(destination);
 		burgerMenu(false);
 		togglePopup(false);
 		titleWatcher(destination);

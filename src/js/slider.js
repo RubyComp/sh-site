@@ -91,7 +91,7 @@ function lockWatcher(data) {
 
 function skipWatcher(event) {
 
-	if (customSlider.animationIsOn) return;
+	// if (customSlider.animationIsOn) return;
 
 	if (event.originalEvent.wheelDelta / 120 < 0) {
 
@@ -120,12 +120,8 @@ $('.layer-next').on('click', function() {
 });
 
 
-const customSlider = {
-	animationIsOn: false,
-};
+// const customSlider = {
+// 	animationIsOn: false,
+// };
 
 toggleScrolbar(false);
-/**/
-
-
-/**/

@@ -51,9 +51,13 @@ const videoControl = (videoId, action, param) => {
 			$(`${control} .btn-sound-off`).hide();
 
 			videoControl(videoId, 'play', 'muted');
-			
+
 			$(`${control} .btn-sound-on`).prop('disabled', false);
 			$(`${control} .btn-sound-off`).prop('disabled', false);
+
+			$(`${control} .btn`).on('click', (e) => {
+				videoControl(videoId, e.currentTarget.dataset.action);
+			});
 
 			break
 
@@ -61,12 +65,12 @@ const videoControl = (videoId, action, param) => {
 }
 
 const setVideo = (itemId, file, format) => {
-	const video = `${file}.${format}`
+	const video = `${file}.${format}`;
 	$('#' + itemId).replaceWith(`<video id="${itemId}" class="banner__video" loop muted autoplay playsinline="true" disablePictureInPicture="true"><source src="${video}" type="video/${format}"></video>`)
 	console.log(`Video #${itemId} is "${video}" now.`);
 }
 
-const videoMounting = (itemId, videoSizesAll, videoPath, format) => {
+const videoMounting = (itemId, videoSizesAll, videoFolder, format) => {
 	let screenWidth = window.window.innerWidth;
 	let screenHeight = window.window.innerHeight;
 	let videoSize = '';
@@ -93,7 +97,7 @@ const videoMounting = (itemId, videoSizesAll, videoPath, format) => {
 	if (!videoSize)
 		videoSize = videoSizes[videoSizes.length - 1];
 
-	const curVideo = `${videoPath}/${namePrefix}${videoSize}`;
+	const curVideo = `${videoFolder}/${namePrefix}${videoSize}`;
 
 	setVideo(itemId, curVideo, format);
 }
@@ -108,12 +112,12 @@ const videoWatcher = () => {
 }
 
 const videoSliderWatcher = (dest) => {
-	const isVideo = $(dest.item).hasClass('auto-video');
-	if (isVideo) {
+	const item = dest.item;
+	const isVideo = $(item).hasClass('auto-video');
+	const bannerVideo = $(item).find('.banner__video');
+	const bannerVideoId = bannerVideo.length ? $(bannerVideo).attr('id') : false;
+
+	if (isVideo && bannerVideo && bannerVideoId) {
 		videoControl(bannerVideoId, 'play', 'muted');
 	}
 }
-
-$('#banner-video-control .btn').on('click', (e) => {
-	videoControl(bannerVideoId, e.currentTarget.dataset.action);
-});
