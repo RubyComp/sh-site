@@ -10,7 +10,7 @@ export const jsBuild = (cb) => {
 		`${config.src.js}/init.js`,
 		`${config.src.js}/header.js`,
 		`${config.src.js}/bannerFlow.js`,
-		`${config.src.js}/mobileCheck.js`,
+		// `${config.src.js}/mobileCheck.js`,
 		`${config.src.js}/videoControl.js`,
 		`${config.src.js}/flow.js`,
 		`${config.src.js}/title.js`,
