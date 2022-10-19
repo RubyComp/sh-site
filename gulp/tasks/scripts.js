@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import config from '../config.js';
 import plumber from 'gulp-plumber';
 import concat from 'gulp-concat';
+// import minify from 'gulp-minify';
 
 export const jsBuild = (cb) => {
 
@@ -21,6 +22,7 @@ export const jsBuild = (cb) => {
 		`${config.src.js}/_end.js`,
 	])
 		.pipe(plumber())
+		// .pipe(minify())
 		.pipe(concat('scripts.js'))
 		.pipe(gulp.dest(config.dest.js));
 
