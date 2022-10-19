@@ -7,3 +7,4 @@ const config = {
 		time: 240
 	}
 }
+window.videoWasSet = {};

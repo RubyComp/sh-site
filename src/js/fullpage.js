@@ -53,10 +53,10 @@ $('#main-content').fullpage({
 		// insideSliderCheck();
 		window.animationIsOn = false;
 
-		if (!config.firstVideoReseize) {
-			config.firstVideoReseize = true;
-			videoWatcher();
-		}
+		// if (!config.firstVideoReseize) {
+			// config.firstVideoReseize = true;
+			videoWatcher(destination.anchor);
+		// }
 		// if (destination.anchor == 'bojcovskij-klub') {
 		// 	bannerFlow();
 		// }
@@ -84,6 +84,7 @@ $('#main-content').fullpage({
 		togglePopup(false);
 		titleWatcher(destination);
 		headerHandler(destination.anchor);
+		videoWatcher(destination.anchor);
 
 		// if (destination.anchor == 'bojcovskij-klub') {
 		// 	$('#main-content').css('transform', 'translate3d(0px, 0px, 0px)');

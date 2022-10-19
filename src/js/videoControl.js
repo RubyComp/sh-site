@@ -102,15 +102,40 @@ const videoMounting = (itemId, videoSizesAll, videoFolder, format) => {
 	setVideo(itemId, curVideo, format);
 }
 
-const videoWatcher = () => {
+const videoWatcher = (section) => {
 
-	videoMounting(bannerVideoId, [[1280, 1920], [854, 960, 1280, 1920]], 'resources/video/main-banner', 'mp4');
+	if (!window.videoWasSet[section]) {
 
-	setTimeout(() => {
-		videoMounting(aboutVideoId, [[1024, 1920], [640, 800]], 'resources/video/inside', 'mp4');
-	}, 1000);
+		window.videoWasSet[section] = true;
 
-	videoControl(bannerVideoId, 'init');
+		switch (section) {
+			case 'bojcovskij-klub':
+				videoMounting(
+					bannerVideoId,
+					[[1280, 1920], [854, 960, 1280, 1920]],
+					'resources/video/main-banner', 'mp4'
+				);
+				videoControl(bannerVideoId, 'init');
+				break;
+		
+			case 'o-nas':
+				videoMounting(
+					aboutVideoId,
+					[[1024, 1920], [640, 800]],
+					'resources/video/inside', 'mp4'
+				);
+				break;
+		
+			default:
+				break;
+		}
+
+	}
+
+	// setTimeout(() => {
+		
+	// }, 1000);
+
 
 }
 
