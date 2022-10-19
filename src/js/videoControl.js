@@ -107,8 +107,8 @@ const videoWatcher = () => {
 	videoMounting(bannerVideoId, [[1280, 1920], [854, 960, 1280, 1920]], 'resources/video/main-banner', 'mp4');
 
 	setTimeout(() => {
-		videoMounting(aboutVideoId, [[1024, 1920]], 'resources/video/inside', 'mp4');
-	}, 2000);
+		videoMounting(aboutVideoId, [[1024, 1920], [640, 800]], 'resources/video/inside', 'mp4');
+	}, 1000);
 
 	videoControl(bannerVideoId, 'init');
 
