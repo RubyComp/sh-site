@@ -121,7 +121,7 @@ const videoWatcher = (section) => {
 			case 'o-nas':
 				videoMounting(
 					aboutVideoId,
-					[[1024, 1920], [640, 800]],
+					[[1024, 1920], [640, 800, 1920]],
 					'resources/video/inside', 'mp4'
 				);
 				break;
