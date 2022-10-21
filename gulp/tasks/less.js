@@ -9,7 +9,7 @@ export const lessBuild = (cb) => {
 	gulp.src(`${config.src.less}/main.less`)
 		.pipe(plumber())
 		.pipe(less())
-		.pipe(cleanCSS())
+		// .pipe(cleanCSS())
 		.pipe(gulp.dest(config.dest.css));
 
 	cb();
