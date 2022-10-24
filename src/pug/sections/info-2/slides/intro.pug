@@ -1,4 +1,4 @@
-#slide1.slide
+#slide1.slide(data-anchor="news")
 	.slide-section.info-2.info-2_light
 		
 		h2.info-2__title.to-slide-top
@@ -7,6 +7,7 @@
 		div.info-2__body.info-2__body_light
 
 			.news-list.news-list_compact
+
 				section.news.news_imaged(style="background-image:url(/resources/img/photo/fight.jpg)")
 					.news__content
 						.news__main
@@ -16,6 +17,19 @@
 								p Узнайте, как мы проводим тренировку в наших социальных сетях
 						footer.news__footer
 							div 14 октября 2022 г.
+							a.news__more-link(href="https://t.me/shturmclub", target="_blank")
+								span читать дальше в&nbsp;Telegram 
+								include ../../../../resources/img/vector/icons/arrow-compact.svg
+
+				section.news
+					.news__content
+						.news__main
+							header.news__title
+								h3 Объявляем открытый конкурс
+							.news__body
+								p Льготный абонемент при прохождении спортивного отбора 
+						footer.news__footer
+							div 24 октября 2022 г.
 							a.news__more-link(href="https://t.me/shturmclub", target="_blank")
 								span читать дальше в&nbsp;Telegram 
 								include ../../../../resources/img/vector/icons/arrow-compact.svg
@@ -57,4 +71,4 @@
 										include ../../../parts/phone
 							include ../../../parts/btns/cta-1-wide
 
-		a(href="/#informaciya/form" title="Следующий слайд").next-btn.next-btn_invert
+		//- a(href="/#informaciya/form" title="Следующий слайд").next-btn.next-btn_invert
