@@ -90,9 +90,44 @@ $('#main-content').fullpage({
 		// 	$('#main-content').css('transform', 'translate3d(0px, 0px, 0px)');
 		// }
 	},
+
+	// afterResize: function(width, height){
+	// 	console.log('%c afterResize', 'color: #3c3e41');
+	// 	scrollSlideWatcher(fullpage_api.getActiveSlide());
+	// }
 	// onScrollOverflow: function( section, slide, position, direction){
 	// 	console.log(section);
 	// 	console.log("position: " + position);
 	// }
 
+});
+
+const hideTextForm = () => {
+	$('.info-2__article').css({
+		'font-size': '0',
+		'height': 'var(--header-size)',
+		'opacity': '0'
+	});
+}
+
+const showTextForm = () => {
+
+	$('.info-2__article').css({
+		'font-size': '',
+		'height': ''
+	});
+	setTimeout(() => {
+		$('.info-2__article').css('opacity', '');
+	}, 400);
+
+}
+
+// window.addEventListener('native.showkeyboard', scrollSlideWatcher(fullpage_api.getActiveSlide()));
+
+window.addEventListener('native.showkeyboard', hideTextForm);
+window.addEventListener('native.hidekeyboard', showTextForm);
+
+
+addEventListener('resize', () => {
+	scrollSlideWatcher(fullpage_api.getActiveSlide());
 });

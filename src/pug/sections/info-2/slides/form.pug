@@ -1,92 +1,94 @@
-#slide1.slide(data-anchor="form")
+#slide1.slide(data-anchor="form", data-scroll="true")
 	.slide-section.info-2.info-2_deco
 
 		div.info-2__body.info-2__body_columed
 
-			article.info-2__article
-				h3 с&nbsp;3&nbsp;ноября открыт набор в&nbsp;Бойцовский клуб СЭНЭ Штурм 
+			div.longread.scroll.scrollable-form
 
-				div
-					p
-						small Оставьте заявку, используя данную форму или по&nbsp;тел: 
-							include ../../../parts/phone
-					p С вами свяжется наш сотрудник и подберет оптимальное время посещения&nbsp;клуба.
-						
-					p Как проходит отбор:
-						ul
-							li проверка физических параметров
-							li индивидуальная беседа с&nbsp;тренером
+				article.info-2__article
+					h3 с&nbsp;3&nbsp;ноября открыт набор в&nbsp;Бойцовский клуб Штурм 
 
-					p Стоимость месячного абонемента 4&nbsp;000&nbsp;руб <br>2&nbsp;занятия в&nbsp;неделю по&nbsp;2,5&nbsp;часа 
-
-			aside.info-2__aside
-				form#main-form.glass-form(action="/process.php", method="get")
 					div
-						fieldset.glass-form__main-fieldset
-							input(
-								type='text'
-								name='name'
-								id='name'
-								placeholder='Имя *'
-								required
-							)
-							input(
-								type='text'
-								name='message'
-								id='message'
-								placeholder='Сообщение *'
-							)
-							input(
-								type='text'
-								name='phone'
-								id='phone'
-								placeholder='Телефон *'
-								required
-							)
-							input(
-								type='text'
-								name='email'
-								id='email'
-								placeholder='E-Mail *'
-								required
-							)
-							input(
-								type='text'
-								name='age'
-								id='age'
-								placeholder='Возраст *'
-								required
-							)
-						p.glass-form__note
-							//- small поля отмеченые&nbsp;<b>*</b> обязательны к&nbsp;заполнению
-							small <b>*</b>&nbsp;обязательные поля
+						//- p
+						//- 	small Оставьте заявку, используя данную форму или по&nbsp;тел: 
+						//- 		include ../../../parts/phone
+						//- p С вами свяжется наш сотрудник и подберет оптимальное время посещения&nbsp;клуба.
+							
+						p Как проходит отбор:
+							ul
+								li Проверка физических параметров
+								li Индивидуальная беседа с&nbsp;тренером
 
-					.form-actions
-						.checkbox-container
-							label(for='legal').checkbox
+						p Стоимость месячного абонемента 4&nbsp;000&nbsp;руб <br>2&nbsp;занятия в&nbsp;неделю по&nbsp;2.5&nbsp;часа 
+
+				aside.info-2__aside
+					form#main-form.glass-form(action="/process.php", method="get")
+						div
+							fieldset.glass-form__main-fieldset
 								input(
-									type='checkbox'
-									name='legal'
-									id='legal'
+									type='text'
+									name='name'
+									id='name'
+									placeholder='Имя *'
 									required
 								)
-							.legal
-								label(for='legal')
-									p согласен на&nbsp;обработку своих персональных данных
-								p
-									a(href='upload/Политика_защиты_и_обработки_персональных_данных.pdf', target='_blank') Политика конфиденциальности
-						div
-							input.btn(
-								type='submit'
-								value='Записаться'
-							)
-							//- input.btn(
-							//- 	type='submit'
-							//- 	value='Записаться'
-							//- 	class='g-recaptcha'
-							//- 	data-sitekey="6LcryH0iAAAAAGcI8AAMrIZGDJbOyW5-a0IMBgnH"
-							//- 	data-callback='onSubmit'
-							//- 	data-action='submit'
-							//- )
+								input(
+									type='text'
+									name='message'
+									id='message'
+									placeholder='Сообщение *'
+								)
+								input(
+									type='text'
+									name='phone'
+									id='phone'
+									placeholder='Телефон *'
+									required
+								)
+								input(
+									type='text'
+									name='email'
+									id='email'
+									placeholder='E-Mail *'
+									required
+								)
+								input(
+									type='text'
+									name='age'
+									id='age'
+									placeholder='Возраст *'
+									required
+								)
+							p.glass-form__note
+								//- small поля отмеченые&nbsp;<b>*</b> обязательны к&nbsp;заполнению
+								small <b>*</b>&nbsp;обязательные поля
+
+						.form-actions
+							.checkbox-container
+								label(for='legal').checkbox
+									input(
+										type='checkbox'
+										name='legal'
+										id='legal'
+										required
+									)
+								.legal
+									label(for='legal')
+										p согласен на&nbsp;обработку своих персональных данных
+									p
+										a(href='upload/Политика_защиты_и_обработки_персональных_данных.pdf', target='_blank') Политика конфиденциальности
+							div
+								input.btn(
+									type='submit'
+									value='Записаться'
+								)
+								//- input.btn(
+								//- 	type='submit'
+								//- 	value='Записаться'
+								//- 	class='g-recaptcha'
+								//- 	data-sitekey="6LcryH0iAAAAAGcI8AAMrIZGDJbOyW5-a0IMBgnH"
+								//- 	data-callback='onSubmit'
+								//- 	data-action='submit'
+								//- )
 
 		a(href="/#informaciya/news" title="Следующий слайд").next-btn.next-btn_invert
