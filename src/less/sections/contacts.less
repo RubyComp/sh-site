@@ -1,8 +1,9 @@
 .contacts {
+	background-color: var(--passive-color-2);
 	display: flex;
+	height: calc(100vh - var(--header-size));
 	padding: var(--row-unit) 0 var(--row-mini-unit);
 	position: relative;
-	background-color: var(--passive-color-2);
 	// height: calc(100vh - var(--row-mini-unit) + 4px /*fix line bug*/);
 
 	@media  (max-width: @size-lg--) {
@@ -100,7 +101,7 @@
 
 }
 .map {
-	background-image: url(resources/img/map-placeholder.jpg);
+	background-image: url('resources/img/map-placeholder.jpg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
